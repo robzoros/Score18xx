@@ -4,12 +4,18 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
 header {
     width: 80%;
     height: 200px;
     margin: auto;
     text-align: center;
 }
+
 div#logo {
     display: block;
     margin-left: auto;
@@ -46,7 +52,7 @@ div#logo {
 }
 
 #selectJugadores {
-    width: 25%;
+    width: 40%;
     text-align: right;
 }
 option {
@@ -75,4 +81,77 @@ option {
     color: #333 !important;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
     -webkit-font-smoothing: antialiased;
+}
+.navbar-default {
+  background-color: #e7973c;
+  border-color: #9d6a30;
+}
+.navbar-default .navbar-brand {
+  color: #2d1c01;
+}
+.navbar-brand :hover,
+.navbar-brand :focus {
+  color: #2d1c01;
+}
+.navbar-default :hover,
+.navbar-default :focus {
+  color: #f6f0e7;
+}
+.navbar-default .navbar-text {
+  color: #2d1c01;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #2d1c01;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #f6f0e7;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #f6f0e7;
+  background-color: #9d6a30;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #f6f0e7;
+  background-color: #9d6a30;
+}
+.navbar-default .navbar-toggle {
+  border-color: #9d6a30;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #9d6a30;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #2d1c01;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #2d1c01;
+}
+.navbar-default .navbar-link {
+  color: #2d1c01;
+}
+.navbar-default .navbar-link:hover {
+  color: #f6f0e7;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #2d1c01;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #f6f0e7;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #f6f0e7;
+    background-color: #9d6a30;
+  }
 }

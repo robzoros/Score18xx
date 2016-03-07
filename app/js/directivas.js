@@ -13,7 +13,13 @@ directivas.directive("menuTabs", function() {
         restrict: "E",
         templateUrl: "menu-score18xx.html",
         controller: function($scope) {
-            this.status = {
+            $scope.score18xxCtrl.prueba = "Titulo una prueba";
+            
+            this.clickMenu = function(choice){
+                $scope.score18xxCtrl.paginaActiva = choice;
+            };
+
+            /* this.status = {
                 isopen: false
             };
 
@@ -21,7 +27,6 @@ directivas.directive("menuTabs", function() {
 
             };
             
-            $scope.score18xxCtrl.prueba = "Titulo una prueba";
 
             this.toggleDropdown = function($event) {
                 $event.preventDefault();
@@ -29,11 +34,10 @@ directivas.directive("menuTabs", function() {
                 this.status.isopen = !this.status.isopen;
             };
 
-            this.clickMenu = function(choice){
-                $scope.score18xxCtrl.paginaActiva = choice;
-            };
+
 
             this.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
+            */
 
         },
         controllerAs: "menu"

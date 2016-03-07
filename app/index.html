@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
 
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-  <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+  <link href="bower_components/bootstrap/dist/css/bootstrap-theme.nav.min.css" rel="stylesheet" type="text/css"/>
   <link rel="stylesheet" href="bower_components/jquery/dist/jquery-ui.min.css" type="text/css">
   <link rel="stylesheet" href="bower_components/jquery/dist/jquery-ui.structure.min.css" type="text/css">
   <link rel="stylesheet" href="bower_components/jquery/dist/jquery-ui.theme.min.css" type="text/css">
@@ -16,25 +16,26 @@
   <link rel="stylesheet" href="css/animations.css" type="text/css">
 </head>
 <body ng-controller="score18xxControler as score18xxCtrl">
+    <menu-tabs></menu-tabs>
     <header>
         <div id="logo"><img src="img/Score18xxLogo2016.png" alt="Score18XX" height="125" /></div>
-        <menu-tabs></menu-tabs>
     </header>
 
     <h1>Grumpy wizards {{score18xxCtrl.paginaActiva}}</h1>
-    <h2>{{score18xxCtrl.titulillo}}</h2>
+    <h2>{{score18xxCtrl.titulillo}} {{score18xxCtrl.prueba}}</h2>
     <div class="view-container">
         <div ng-view class="view-frame"></div>
     </div>
     
-    <!-- scripa puestos debajo -->
-    <script src="bower_components/jquery/dist/jquery-ui.min.js"></script>  
+    <!-- scripts puestos debajo -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>  
+    <script src="bower_components/jquery/dist/jquery-ui.min.js"></script>  
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="bower_components/bootstrap/js/ui-bootstrap-tpls-1.2.1.min.js" type="text/javascript"></script>
 
     <script src="js/animations.js" type="text/javascript"></script>  

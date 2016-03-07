@@ -1,40 +1,62 @@
-    <!-- AppendTo use case -->
-    <br>
-    <div id="dropdown-long-content">
-      <div id="dropdown-hidden-container">
-        <div class="btn-group" uib-dropdown>
-          <button id="btn-append-to-to-body" type="button" class="btn btn-primary" uib-dropdown-toggle>
-            Partidas <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-to-body">
-            <li ng-click="menu.clickMenu('nuevaPartida')" role="menuitem"><a href="#/nueva">Nueva Partida</a></li>
-            <li ng-click="menu.clickMenu('listaPartidas')" role="menuitem"><a href="#">Lista de partidas</a></li>
-          </ul>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="#" class="pull-left"><img alt="Brand" src="img\logo_score18xx.png"></a>
         </div>
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!-- Mantenimiento -->
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" 
+                       class="dropdown-toggle" 
+                       data-toggle="dropdown" 
+                       role="button" 
+                       aria-haspopup="true" 
+                       aria-expanded="false">Mantenimiento <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="menu.clickMenu('nuevaPartida')" role="menuitem"><a href="#/nueva">Nueva Partida</a></li>
+                        <li ng-click="menu.clickMenu('listaPartidas')" role="menuitem"><a href="#">Lista de partidas</a></li>
 
-        <div class="btn-group" uib-dropdown>
-          <button id="btn-append-to" type="button" class="btn btn-primary" uib-dropdown-toggle>
-            Partida <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to">
-            <li ng-click="menu.clickMenu('datosPartida')" role="menuitem"><a href="#">Datos partida</a></li>
-            <li ng-click="menu.clickMenu('acciones')" role="menuitem"><a href="#">Acciones</a></li>
-            <li ng-click="menu.clickMenu('dividendos')" role="menuitem"><a href="#">Dividendos</a></li>
-            <li ng-click="menu.clickMenu('resultado')" role="menuitem"><a href="#">Resultado</a></li>
-          </ul>
-        </div>
-
-        <div class="btn-group" uib-dropdown>
-          <button id="btn-append-to-single-button" type="button" class="btn btn-primary" uib-dropdown-toggle>
-            Herramientas <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
-            <li ng-click="menu.clickMenu('nuevoJuego')" role="menuitem"><a href="#">Nuevo juegos</a></li>
-            <li ng-click="menu.clickMenu('listadoJuegos')" role="menuitem"><a href="#">Listado de juegos</a></li>
-            <li class="divider"></li>
-            <li ng-click="menu.clickMenu('dividendos')" role="menuitem"><a href="#">Dividendos por Acción</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Partidas -->
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" 
+                       class="dropdown-toggle" 
+                       data-toggle="dropdown" 
+                       role="button" 
+                       aria-haspopup="true" 
+                       aria-expanded="false">Partida <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="menu.clickMenu('datosPartida')" role="menuitem"><a href="#">Datos partida</a></li>
+                        <li ng-click="menu.clickMenu('acciones')" role="menuitem"><a href="#">Acciones</a></li>
+                        <li ng-click="menu.clickMenu('dividendos')" role="menuitem"><a href="#">Dividendos</a></li>
+                        <li ng-click="menu.clickMenu('resultado')" role="menuitem"><a href="#">Resultado</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Herramientas -->
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" 
+                       class="dropdown-toggle" 
+                       data-toggle="dropdown" 
+                       role="button" 
+                       aria-haspopup="true" 
+                       aria-expanded="false">Herramientas <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-click="menu.clickMenu('nuevoJuego')" role="menuitem"><a href="#">Nuevo juegos</a></li>
+                        <li ng-click="menu.clickMenu('listadoJuegos')" role="menuitem"><a href="#">Listado de juegos</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li ng-click="menu.clickMenu('dividendos')" role="menuitem"><a href="#">Dividendos por Acción</a></li>
+                    </ul>
+                </li>
+            </ul>            
+        </div> <!-- collapse navbar-collapse- -->
+    </div><!-- .container-fluid -->
+</nav>
