@@ -1,0 +1,105 @@
+<div class='container-fluid predictivo'>
+    <h1>Crea tu partida</h1>
+    <pre>Model: {{partida | json}}</pre>
+    <pre>Model: {{juego | json}}</pre>
+    <pre>Model: {{fechaPartida | json}}</pre>
+    
+    <form name="partidaForm" class="form-horizontal" role="form" ng-submit="addPartida()">
+        <!-- Nombre de la partida -->
+        <div class="row form-group has-feedback">
+            <label for="nombre_partida" class="col-lg-2 control-label">Nombre de la partida</label>
+            <div class="col-xs-3" ng-class="{ 'has-error': partidaForm.nombredePartida.$invalid }">
+                <input class="form-control" 
+                       type="text"
+                       name="nombredePartida"
+                       ng-model="nombrePartida"
+                       placeholder="Nombre de la partida" 
+                       required >
+            </div>        
+        </div>
+
+        <!-- Número de jugadores -->
+        <div class="row form-group">
+            <label for="num_jugadores" class="col-lg-2 control-label">Número de jugadores</label>
+            <div class="col-xs-2">
+                <select id="selectJugadores" 
+                        class="form-control" 
+                        ng-model="numJugadores" 
+                        ng-options="o for o in opcionJugadores" 
+                        placeholder="Número de jugadores" 
+                        required >
+                </select>
+                
+            </div>        
+        </div>        
+
+        <!-- Nombre del juego -->
+        <div class="row form-group">
+            <label for="nombre_juego" class="col-lg-2 control-label">Nombre del juego</label>
+            <div class="col-xs-3">
+                <input class="form-control" 
+                       type="text" 
+                       ng-model="juego" 
+                       placeholder="Juego de la serie" 
+                       uib-typeahead="j as j._nombre for j in juegos | filter:{_nombre:$viewValue}" 
+                       typeahead-show-hint="true" 
+                       typeahead-min-length="0"
+                       typeahead-no-results="noResults"
+                       required>
+
+            </div>        
+        </div>
+
+        <!-- Lugar de la partida -->
+        <div class="row form-group">
+            <label for="lugar-partida" class="col-lg-2 control-label">Localización</label>
+            <div class="col-xs-3">
+                <input class="form-control" 
+                       type="text" 
+                       ng-model="lugarPartida" 
+                       placeholder="Lugar de la partida" 
+                       uib-typeahead="address for address in getLocation($viewValue)" 
+                       typeahead-loading="cargandoJuegos" 
+                       typeahead-no-results="noLocResults" >
+                <i ng-show="cargandoJuegos" class="glyphicon glyphicon-refresh"></i>
+                <div ng-show="noLocResults">
+                    <i class="glyphicon glyphicon-remove"></i> Sitio no encontrado
+                </div>
+            </div>        
+        </div>
+        
+        <!-- Fecha de la partida -->
+        <div class="row form-group">
+            
+            <label for="fecha-partida" class="col-lg-2 control-label"><div class="comentario"><br/></div>Fecha de Partida</label>
+            <div class="col-xs-3" ng-class="{ 'has-error': ngValidarFecha()">
+                <div class="comentario">Formato de Fecha: {{formatoFecha}} o {{altInputFormats[0]}}</div>                
+                <p class="input-group">
+                    <input id="selectorFecha" 
+                           type="text" 
+                           class="form-control" 
+                           uib-datepicker-popup="{{formatoFecha}}" 
+                           ng-model="fechaPartida" 
+                           is-open="popup.opened" 
+                           datepicker-options="dateOptions" 
+                           ng-required="true" 
+                           close-text="Close" 
+                           alt-input-formats="altInputFormats" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="cambiaFormato()"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
+                        <button type="button" class="btn btn-default" ng-click="abreCalendario()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Botón -->
+        <div class="row">
+            <label class="col-lg-2 control-label"></label>
+            <div class="col-xs-1">
+                <button type="submit" class="btn btn-custom">Crear Partida</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,9 @@
+logs/*
+!.gitkeep
+node_modules/
+tmp
+.idea
+.DS_Store
+test/
+bower_components/
+/nbproject/private/
