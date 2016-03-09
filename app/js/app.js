@@ -21,6 +21,11 @@ score18xx.config(['$routeProvider',
         controller: 'partidaCtrl',
         controllerAs: 'tabs'
       }).
+      when('/login', {
+        templateUrl: 'login.html',
+        controller: 'loginCtrl',
+        controllerAs: 'login'
+      }).
       otherwise({
         redirectTo: ''
       });

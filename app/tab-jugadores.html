@@ -2,17 +2,27 @@
     
     <h1>Jugadores</h1>
     <!-- Nombre de la partida -->
-    <div class="row form-group has-feedback" ng-repeat="j in tabs.jugadores track by $index">
-        <label for="jugador_" class="col-lg-2 control-label">Jugador {{$index+1}}</label>
-        <div class="col-xs-3" >
-            <input id="jugador"
-                   class="form-control" 
+    <div class="row form-group text-right" ng-repeat="j in tabs.jugadores track by $index">
+        <div class="col-xs-4 col-lg-1">
+            <label for="jugador_" class="control-label">Jugador {{$index+1}}</label>
+        </div>
+        <div class="col-xs-3 col-lg-2" >
+            <input class="form-control" 
                    type="text"
                    name="jugador_{{$index}}"
                    ng-model="tabs.jugadores[$index].nombre"
                    placeholder="Nombre jugador" 
                    required >
 
-        </div>        
+        </div>
+        <div class="col-xs-2 col-lg-1" >
+            <input class="form-control" 
+                   type="number"
+                   name="efectivo_{{$index}}"
+                   ng-model="tabs.jugadores[$index].efectivo"
+                   placeholder="Efectivo" 
+                   required >
+
+        </div>           
     </div>
 </div>

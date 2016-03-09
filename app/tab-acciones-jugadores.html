@@ -1,21 +1,21 @@
 <div class='container-fluid'>
     <h1>Número de acciones por jugador</h1>
-    <div class="row form-group"  >
-        <div class="col-lg-{{tabAJ.tamColumna()}}">
+    <div class="row form-group">
+        <div class="col-xs-4 col-lg-1 text-center">
             <label class="control-label">J/E</label>
         </div>
-        <div class="col-lg-{{tabAJ.tamColumna()}}" ng-repeat="jug in tabs.jugadores">
+        <div class="col-lg-{{tabAJ.tamColumna()}} text-center" ng-repeat="jug in tabs.jugadores">
             <label class="control-label">{{jug.nombre}}</label>
         </div>
     </div>
       
     <div class="row form-group" ng-repeat="emp in tabs.empresas track by $index" >
-        <div class="col-lg-{{tabAJ.tamColumna()}}">
-            <label  clas="control-label">{{emp.nombre}} </label>
+        <div class="col-xs-4 col-lg-1 text-right">
+            <label class="control-label">{{emp.nombre}} </label>
         </div>
         <div class="col-lg-{{tabAJ.tamColumna()}}" ng-repeat="accion in emp.acciones">
             <select class="form-control" 
-                ng-model="accion.valor" 
+                ng-model="accion.numero" 
                 ng-options="o for o in tabAJ.opcionDiez" >
             </select>
         </div>

@@ -32,7 +32,7 @@ directivas.directive("tabJugadores", function() {
             this.crearColeccionJugadores = function(num) {
                 var jugadores = new Array();
                 for (var i = 0; i < num; i++) {
-                    jugadores.push({ nombre: "Jugador " + i});
+                    jugadores.push({ nombre: "Jugador " + (i+1)});
                 }
                 return jugadores;
             };
@@ -56,6 +56,15 @@ directivas.directive("tabAccionesValor", function() {
 
                     emp.nombre = $scope.tabAV.empresasJuego[i];
                     emp.valor = 0;
+                    emp.acciones = [];
+                    for( var j=0;j<$scope.tabs.jugadores.length;j++) {
+                        var accion = {};
+
+                        accion.nombre = $scope.tabs.jugadores[j].nombre;
+                        accion.numero = 0;
+
+                        emp.acciones.push(accion);
+                    }
 
                     $scope.tabs.empresas.push(emp);
                 }
@@ -73,7 +82,7 @@ directivas.directive("tabAccionesValor", function() {
                     var accion = {};
 
                     accion.nombre = $scope.tabs.jugadores[i].nombre;
-                    accion.valor = 0;
+                    accion.numero = 0;
 
                    emp.acciones.push(accion);
                 }

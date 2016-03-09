@@ -1,9 +1,8 @@
 <div class='container-fluid'>
     <h1>Elegir empresas con valor</h1>
-
     <!-- Elegir Empresa -->
-    <div class="row-fluid form-group" style="align-content: flex-start">
-        <label for="selectEmpresa" class="col-xs-4 col-lg-2 control-label">Empresa</label>
+    <div class="row-fluid form-group">
+        <label for="selectEmpresa" class="col-xs-4 col-lg-1 control-label">Empresa</label>
         <div class="col-xs-8 col-lg-2">
             <p class="input-group">
                 <select id="selectEmpresa" 
@@ -28,7 +27,9 @@
 <div class='container-fluid'>
     <h1 ng-show="tabs.empresas.length > 0">Asignar valor a las acciones de las empresas</h1>
     <div class="row form-group" ng-repeat="e in tabs.empresas">
-        <label for="empresa_{{index}}" class="col-xs-4 col-lg-2 control-label">{{tabs.empresas[$index].nombre}}</label>
+        <div class="col-xs-4 col-lg-1 text-right" >
+            <label for="empresa_{{index}}" class="control-label">{{tabs.empresas[$index].nombre}}</label>
+        </div>
         <div class="col-xs-2 col-lg-1" >
             <p class="input-group">
                 <input id="empresa_{{index}}"
