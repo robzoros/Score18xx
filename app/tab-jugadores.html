@@ -1,0 +1,18 @@
+<div class='container-fluid'>
+    
+    <h1>Jugadores</h1>
+    <!-- Nombre de la partida -->
+    <div class="row form-group has-feedback" ng-repeat="j in tabs.jugadores track by $index">
+        <label for="jugador_" class="col-lg-2 control-label">Jugador {{$index+1}}</label>
+        <div class="col-xs-3" >
+            <input id="jugador"
+                   class="form-control" 
+                   type="text"
+                   name="jugador_{{$index}}"
+                   ng-model="tabs.jugadores[$index].nombre"
+                   placeholder="Nombre jugador" 
+                   required >
+
+        </div>        
+    </div>
+</div>

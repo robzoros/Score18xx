@@ -25,6 +25,50 @@ div#logo {
 .btn.btn-primary {
     width: 120px;
 }
+
+#selectJugadores {
+    width: 40%;
+    text-align: right;
+}
+option {
+    margin-top: 2px;
+    padding-top: 2px;
+    text-align: right;
+}
+
+.comentario {
+    font-size: 8pt;
+    color: darkgrey;
+    padding: 0;
+    margin: 0;
+}
+.btn-custom {
+    background-color: hsl(36, 100%, 49%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffbf60", endColorstr="#f99500");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#ffbf60), to(#f99500));
+    background-image: -moz-linear-gradient(top, #ffbf60, #f99500);
+    background-image: -ms-linear-gradient(top, #ffbf60, #f99500);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbf60), color-stop(100%, #f99500));
+    background-image: -webkit-linear-gradient(top, #ffbf60, #f99500);
+    background-image: -o-linear-gradient(top, #ffbf60, #f99500);
+    background-image: linear-gradient(#ffbf60, #f99500);
+    border-color: #f99500 #f99500 hsl(36, 100%, 44%);
+    color: #333 !important;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+    -webkit-font-smoothing: antialiased;
+}
+
+.dropdown-toggle {
+    font-size: 12pt;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .predictivo .custom-popup-wrapper {
     position: absolute;
     top: 100%;
@@ -51,37 +95,7 @@ div#logo {
     box-shadow: none;
 }
 
-#selectJugadores {
-    width: 40%;
-    text-align: right;
-}
-option {
-    margin-top: 2px;
-    padding-top: 2px;
-    text-align: right;
-}
-.comentario {
-    font-size: 8pt;
-    color: darkgrey;
-    padding: 0;
-    margin: 0;
-}
-.btn-custom {
-    background-color: hsl(36, 100%, 49%) !important;
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffbf60", endColorstr="#f99500");
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#ffbf60), to(#f99500));
-    background-image: -moz-linear-gradient(top, #ffbf60, #f99500);
-    background-image: -ms-linear-gradient(top, #ffbf60, #f99500);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffbf60), color-stop(100%, #f99500));
-    background-image: -webkit-linear-gradient(top, #ffbf60, #f99500);
-    background-image: -o-linear-gradient(top, #ffbf60, #f99500);
-    background-image: linear-gradient(#ffbf60, #f99500);
-    border-color: #f99500 #f99500 hsl(36, 100%, 44%);
-    color: #333 !important;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
-    -webkit-font-smoothing: antialiased;
-}
+
 .navbar-default {
   background-color: #e7973c;
   border-color: #9d6a30;

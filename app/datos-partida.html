@@ -1,0 +1,39 @@
+<div class='container-fluid'>
+    
+    <ul class="nav nav-tabs">
+        <li ng-click="tabs.elegirTab(1)" role="presentation" class="active"><a id="tab1" href data-toggle="tab">Jugadores</a></li>
+        <li ng-click="tabs.elegirTab(2)" role="presentation"><a id="tab2" href data-toggle="tab">Valor de acciones</a></li>
+        <li ng-click="tabs.elegirTab(3)" role="presentation"><a id="tab3" href data-toggle="tab">Acciones por jugador</a></li>
+        <li ng-click="tabs.elegirTab(4)" role="presentation"><a id="tab4" href data-toggle="tab">Dividendos</a></li>
+        <li ng-click="tabs.elegirTab(5)" role="presentation"><a id="tab5" href data-toggle="tab">Resultado</a></li>
+    </ul>
+
+    <div class="form-horizontal" >
+        <!--  Crear Jugadores  -->
+        <tab-jugadores ng-show="tabs.mostrarTab(1)" ></tab-jugadores>
+
+        <!--  Valor de las acciones  -->
+        <tab-acciones-valor product-specs ng-show="tabs.mostrarTab(2)"></tab-acciones-valor>
+
+        <!--  Acciones por jugador  -->
+        <tab-acciones-jugadores product-specs ng-show="tabs.mostrarTab(3)"></tab-acciones-jugadores>
+
+        <!--  Dividendos  -->
+        <tab-dividendos product-specs ng-show="tabs.mostrarTab(4)"></tab-dividendos>
+
+        <!--  Dividendos  -->
+        <tab-resultado product-specs ng-show="tabs.mostrarTab(5)"></tab-resultado>
+        
+        <!-- Botón Coninuar -->
+        <div class="row">
+            <label class="col-lg-2 control-label"></label>
+            <div class="col-xs-1">
+                <button type="button" 
+                        ng-show="tabs.mostrarBoton()"
+                        class="btn btn-custom" 
+                        ng-click="tabs.elegirTab((score18xxCtrl.tabActiva < 5) ? score18xxCtrl.tabActiva +1 : 1)">Continuar ></button>
+            </div>
+        </div>  
+    </div>
+
+</div>

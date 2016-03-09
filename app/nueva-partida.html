@@ -7,25 +7,25 @@
     <form name="partidaForm" class="form-horizontal" role="form" ng-submit="addPartida()">
         <!-- Nombre de la partida -->
         <div class="row form-group has-feedback">
-            <label for="nombre_partida" class="col-lg-2 control-label">Nombre de la partida</label>
-            <div class="col-xs-3" ng-class="{ 'has-error': partidaForm.nombredePartida.$invalid }">
+            <label for="nombre_partida" class="col-xs-4 col-lg-2 control-label">Nombre de la partida</label>
+            <div class="col-xs-8 col-lg-3" ng-class="{ 'has-error': partidaForm.nombredePartida.$invalid }">
                 <input class="form-control" 
                        type="text"
                        name="nombredePartida"
                        ng-model="nombrePartida"
-                       placeholder="Nombre de la partida" 
+                       placeholder="Nombre de la partida"
                        required >
             </div>        
         </div>
 
         <!-- Número de jugadores -->
         <div class="row form-group">
-            <label for="num_jugadores" class="col-lg-2 control-label">Número de jugadores</label>
-            <div class="col-xs-2">
+            <label for="num_jugadores" class="col-xs-4 col-lg-2 control-label">Número de jugadores</label>
+            <div class="col-xs-4 col-lg-2">
                 <select id="selectJugadores" 
                         class="form-control" 
                         ng-model="numJugadores" 
-                        ng-options="o for o in opcionJugadores" 
+                        ng-options="o for o in opcionDiez" 
                         placeholder="Número de jugadores" 
                         required >
                 </select>
@@ -35,8 +35,8 @@
 
         <!-- Nombre del juego -->
         <div class="row form-group">
-            <label for="nombre_juego" class="col-lg-2 control-label">Nombre del juego</label>
-            <div class="col-xs-3">
+            <label for="nombre_juego" class="col-xs-4 col-lg-2 control-label">Nombre del juego</label>
+            <div class="col-xs-8 col-lg-3">
                 <input class="form-control" 
                        type="text" 
                        ng-model="juego" 
@@ -44,16 +44,14 @@
                        uib-typeahead="j as j._nombre for j in juegos | filter:{_nombre:$viewValue}" 
                        typeahead-show-hint="true" 
                        typeahead-min-length="0"
-                       typeahead-no-results="noResults"
-                       required>
-
+                       typeahead-no-results="noResults">
             </div>        
         </div>
 
         <!-- Lugar de la partida -->
         <div class="row form-group">
-            <label for="lugar-partida" class="col-lg-2 control-label">Localización</label>
-            <div class="col-xs-3">
+            <label for="lugar-partida" class="col-xs-4 col-lg-2 control-label">Localización</label>
+            <div class="col-xs-8 col-lg-3">
                 <input class="form-control" 
                        type="text" 
                        ng-model="lugarPartida" 
@@ -70,9 +68,8 @@
         
         <!-- Fecha de la partida -->
         <div class="row form-group">
-            
-            <label for="fecha-partida" class="col-lg-2 control-label"><div class="comentario"><br/></div>Fecha de Partida</label>
-            <div class="col-xs-3" ng-class="{ 'has-error': ngValidarFecha()">
+            <label for="fecha-partida" class="col-xs-4 col-lg-2 control-label"><div class="comentario"><br/></div>Fecha de Partida</label>
+            <div class="col-xs-8 col-lg-3" ng-class="{ 'has-error': ngValidarFecha()}">
                 <div class="comentario">Formato de Fecha: {{formatoFecha}} o {{altInputFormats[0]}}</div>                
                 <p class="input-group">
                     <input id="selectorFecha" 
@@ -96,8 +93,8 @@
 
         <!-- Botón -->
         <div class="row">
-            <label class="col-lg-2 control-label"></label>
-            <div class="col-xs-1">
+            <label class="col-xs-4 col-lg-2 control-label"></label>
+            <div class="col-xs-4 col-lg-1">
                 <button type="submit" class="btn btn-custom">Crear Partida</button>
             </div>
         </div>

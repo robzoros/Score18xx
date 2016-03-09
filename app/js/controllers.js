@@ -1,19 +1,20 @@
 'use strict';
 
 /* Controllers */
-var score18xxControlers = angular.module('score18xxControlers', []);
+var score18xxControllers = angular.module('score18xxControllers', []);
 
-score18xxControlers.controller('score18xxControler',  function() {
-  this.titulillo = "Titulillo"
+score18xxControllers.controller('score18xxController',  function() {
+    this.dondeEstamos = "Comienzo"
 });
 
-score18xxControlers.controller('NuevaPartidaCtrl', function($scope, $http) {
+score18xxControllers.controller('NuevaPartidaCtrl', function($scope, $http, $location) {
 
   var _selected;
 
   //Rellenando número de jugadores  
-  $scope.opcionJugadores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  $scope.opcionDiez = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   $scope.numJugadores = 4;
+  $scope.dondeEstamos = "Nueva Partida";
 
   $scope.ngValidarFecha = function() {
       return angular.isUndefined($scope.fechaPartida) || $scope.fechaPartida === null;
@@ -149,7 +150,9 @@ score18xxControlers.controller('NuevaPartidaCtrl', function($scope, $http) {
     return $http.post('http://localhost:3000/api/partida', params).
         then(function(response){
             $scope.partida = response;
+            $scope.menu.clickMenu('datosPartida');
             console.log(response);
+            $location.path('/partida/'+response.data._id).replace();
         });
    };
    

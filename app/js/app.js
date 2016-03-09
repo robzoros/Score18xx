@@ -3,7 +3,8 @@
 /* App Module */
 var score18xx = angular.module('score18xx', [
   'ngRoute',
-  'score18xxControlers',
+  'score18xxControllers',
+  'partidaController',
   'phonecatAnimations',
   'directivas'
 ]);
@@ -15,9 +16,10 @@ score18xx.config(['$routeProvider',
         templateUrl: 'nueva-partida.html',
         controller: 'NuevaPartidaCtrl'
       }).
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+      when('/partida/:idPartida', {
+        templateUrl: 'datos-partida.html',
+        controller: 'partidaCtrl',
+        controllerAs: 'tabs'
       }).
       otherwise({
         redirectTo: ''

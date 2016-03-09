@@ -8,8 +8,7 @@
             <!-- Mantenimiento -->
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" 
-                       class="dropdown-toggle" 
+                    <a class="dropdown-toggle" 
                        data-toggle="dropdown" 
                        role="button" 
                        aria-haspopup="true" 
@@ -17,22 +16,20 @@
                     <ul class="dropdown-menu">
                         <li ng-click="menu.clickMenu('nuevaPartida')" role="menuitem"><a href="#/nueva">Nueva Partida</a></li>
                         <li ng-click="menu.clickMenu('listaPartidas')" role="menuitem"><a href="#">Lista de partidas</a></li>
-
+                        <li ng-click="menu.clickMenu('datosPartida')" role="menuitem"><a href="#/partida">Datos partida</a></li>
                     </ul>
                 </li>
             </ul>
             
             <!-- Partidas -->
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" ng-show="dondeEstamos == 'Datos Partida'">
                 <li class="dropdown">
-                    <a href="#" 
-                       class="dropdown-toggle" 
+                    <a class="dropdown-toggle" 
                        data-toggle="dropdown" 
                        role="button" 
                        aria-haspopup="true" 
                        aria-expanded="false">Partida <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-click="menu.clickMenu('datosPartida')" role="menuitem"><a href="#">Datos partida</a></li>
                         <li ng-click="menu.clickMenu('acciones')" role="menuitem"><a href="#">Acciones</a></li>
                         <li ng-click="menu.clickMenu('dividendos')" role="menuitem"><a href="#">Dividendos</a></li>
                         <li ng-click="menu.clickMenu('resultado')" role="menuitem"><a href="#">Resultado</a></li>
@@ -43,8 +40,7 @@
             <!-- Herramientas -->
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" 
-                       class="dropdown-toggle" 
+                    <a class="dropdown-toggle" 
                        data-toggle="dropdown" 
                        role="button" 
                        aria-haspopup="true" 
