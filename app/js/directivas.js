@@ -13,8 +13,6 @@ directivas.directive("menuNav", function() {
         restrict: "E",
         templateUrl: "menu-score18xx.html",
         controller: function($scope) {
-            $scope.score18xxCtrl.prueba = "Titulo una prueba";
-            
             this.clickMenu = function(choice){
                 $scope.score18xxCtrl.paginaActiva = choice;
             };
@@ -29,14 +27,7 @@ directivas.directive("tabJugadores", function() {
         restrict: "E",
         templateUrl: "tab-jugadores.html",
         controller: function($scope) {
-            this.crearColeccionJugadores = function(num) {
-                var jugadores = new Array();
-                for (var i = 0; i < num; i++) {
-                    jugadores.push({ nombre: "Jugador " + (i+1)});
-                }
-                return jugadores;
-            };
-            $scope.tabs.jugadores = this.crearColeccionJugadores($scope.score18xxCtrl.partida.jugadores);
+
         },
         controllerAs: "tabJ"
     };
@@ -51,24 +42,24 @@ directivas.directive("tabAccionesValor", function() {
             
             // Añade a la partida todas las empresas del juego de golpe
             this.addTodasEmpresas = function() {
-                for( var i=0;i<$scope.tabAV.empresasJuego.length;i++) {
+                for( var i=0;i<$scope.tabs.companies.length;i++) {
                     var emp = {};
 
-                    emp.nombre = $scope.tabAV.empresasJuego[i];
+                    emp.nombre = $scope.tabs.companies[i];
                     emp.valor = 0;
                     emp.acciones = [];
-                    for( var j=0;j<$scope.tabs.jugadores.length;j++) {
+                    for( var j=0;j<$scope.score18xxCtrl.partida.jugadores.datos.length;j++) {
                         var accion = {};
 
-                        accion.nombre = $scope.tabs.jugadores[j].nombre;
+                        accion.nombre = $scope.score18xxCtrl.partida.jugadores.datos[j].indice;
                         accion.numero = 0;
 
                         emp.acciones.push(accion);
                     }
 
-                    $scope.tabs.empresas.push(emp);
+                    $scope.score18xxCtrl.partida.empresas.push(emp);
                 }
-                $scope.tabAV.empresasJuego = [];
+                $scope.tabs.companies = [];
             };
             
             // Añade una empresa a la partida
@@ -78,40 +69,45 @@ directivas.directive("tabAccionesValor", function() {
                 emp.nombre = empresa.nombre;
                 emp.valor = empresa.valor;
                 emp.acciones = [];
-                for( var i=0;i<$scope.tabs.jugadores.length;i++) {
+                for( var i=0;i<$scope.score18xxCtrl.partida.jugadores.datos.length;i++) {
                     var accion = {};
 
-                    accion.nombre = $scope.tabs.jugadores[i].nombre;
+                    accion.indice = $scope.score18xxCtrl.partida.jugadores.datos[i].indice;
                     accion.numero = 0;
 
                    emp.acciones.push(accion);
                 }
-                $scope.tabs.empresas.push(emp);
+                $scope.score18xxCtrl.partida.empresas.push(emp);
                 
-                var index = $scope.tabAV.empresasJuego.indexOf(empresa.nombre);
-                $scope.tabAV.empresasJuego.splice(index,1);
-                if ($scope.tabAV.empresasJuego.length > 0) $scope.tabAV.empresa.nombre =  $scope.tabAV.empresasJuego[0];
+                var index = $scope.tabs.companies.indexOf(empresa.nombre);
+                $scope.tabs.companies.splice(index,1);
+                if ($scope.tabs.companies.length > 0) $scope.tabs.empresa.nombre =  $scope.tabs.companies[0];
             };
             
             // Añade una empresa a la partida
             this.quitarEmpresa = function(indice) {
                 var borrar = true;
-                if ($scope.tabs.empresas[indice].valor !== 0) {
-                    borrar = $window.confirm('Va a elimanr el valor ásignado a las acciones de la empresa, ¿desea continuar?');
+                var dividendos = false;
+                for(var i=0;i<$scope.score18xxCtrl.partida.dividendos.length;i++){
+                    if ($scope.score18xxCtrl.partida.dividendos[i].nombreEmpresa===$scope.score18xxCtrl.partida.empresas[indice].nombre) {
+                        dividendos = true;
+                        break;
+                    }
+                };
+                if (dividendos || ($scope.score18xxCtrl.partida.empresas[indice].valor !== 0)) {
+                    borrar = $window.confirm('Va a eliminar una empresa que tiene información, ¿desea continuar?');
                 }
                 if (borrar) {
-                    $scope.tabAV.empresasJuego.push($scope.tabs.empresas[indice].nombre);
-                    $scope.tabs.empresas.splice(indice,1);
-                    $scope.tabAV.empresa.nombre =  $scope.tabAV.empresasJuego[0];
+                    for(var i=$scope.score18xxCtrl.partida.dividendos.length-1;i>=0;i--){
+                        if ($scope.score18xxCtrl.partida.dividendos[i].nombreEmpresa===$scope.score18xxCtrl.partida.empresas[indice].nombre) {
+                            $scope.score18xxCtrl.partida.dividendos.splice(i,1);
+                        }
+                    };
+                    $scope.tabs.companies.push($scope.score18xxCtrl.partida.empresas[indice].nombre);
+                    $scope.score18xxCtrl.partida.empresas.splice(indice,1);
+                    $scope.tabs.empresa.nombre =  $scope.tabs.companies[0];
                 }
             };
-            
-            // Inicializamos valores de las variables
-            $scope.tabAV.empresasJuego = $scope.score18xxCtrl.partida.juego.companies;
-            $scope.tabs.empresas = [];            
-            $scope.tabAV.empresa = {nombre:String, valor:Number};
-            $scope.tabAV.empresa.valor = 0;
-            $scope.tabAV.empresa.nombre =  $scope.tabAV.empresasJuego[0];
         },
         controllerAs: "tabAV"
     };
@@ -124,7 +120,7 @@ directivas.directive("tabAccionesJugadores", function() {
         templateUrl: "tab-acciones-jugadores.html",
         controller: function($scope) {
             this.tamColumna = function(){
-                var j = $scope.tabs.jugadores.length+1;
+                var j = $scope.score18xxCtrl.partida.jugadores.datos.length+1;
                 return Math.floor(12/j);
             };
             this.opcionDiez = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -139,7 +135,33 @@ directivas.directive("tabDividendos", function() {
         restrict: "E",
         templateUrl: "tab-dividendos.html",
         controller: function($scope) {
+            $scope.tabD.numRepeticiones = 1;
 
+            this.addDividendo = function(emp, div, rep) {
+                    for(var j=0;j<rep;j++) {
+                        var divFila={};
+                        divFila.nombreEmpresa = emp.nombre;
+                        divFila.dividendos=[];
+                        for(var i=0;i<emp.acciones.length;i++){
+                            var dividendo={};
+                            dividendo.indice = emp.acciones[i].indice;
+                            dividendo.valor = (emp.acciones[i].numero/10) * div;
+                    
+                            divFila.dividendos.push(dividendo);
+                            $scope.score18xxCtrl.partida.jugadores.datos[i].dividendos += dividendo.valor;
+                        };
+                        $scope.score18xxCtrl.partida.dividendos.push(divFila);
+                    };
+            };
+            
+            this.quitarDividendo = function (divFila, indice){
+                
+                for (var j=0; j<$scope.score18xxCtrl.partida.jugadores.datos.length ;j++){
+                    var index = divFila.dividendos.map(function(e) { return e.indice; }).indexOf($scope.score18xxCtrl.partida.jugadores.datos[j].indice);
+                    $scope.score18xxCtrl.partida.jugadores.datos[j].dividendos -= divFila.dividendos[index].valor;
+                };
+                $scope.score18xxCtrl.partida.dividendos.splice(indice, 1);
+            };
         },
         controllerAs: "tabD"
     };
@@ -151,7 +173,16 @@ directivas.directive("tabResultado", function() {
         restrict: "E",
         templateUrl: "tab-resultado.html",
         controller: function($scope) {
-
+            this.total = function(j){
+                var valorizacion = j.efectivo + j.dividendos;
+                
+                for(var i=0; i<$scope.score18xxCtrl.partida.empresas.length;i++){
+                    var empresa = $scope.score18xxCtrl.partida.empresas[i];
+                    var index = empresa.acciones.map(function(e) { return e.indice; }).indexOf(j.indice);
+                    valorizacion += empresa.valor * empresa.acciones[index].numero;
+                };
+                return valorizacion;
+            };
         },
         controllerAs: "tabR"
     };

@@ -1,16 +1,26 @@
 <div class='container-fluid'>
-    
     <h1>Jugadores</h1>
     <!-- Nombre de la partida -->
-    <div class="row form-group text-right" ng-repeat="j in tabs.jugadores track by $index">
+    <div class="row form-group">
         <div class="col-xs-4 col-lg-1">
+            <label for="jugador_" class="control-label"></label>
+        </div>
+        <div class="col-xs-3 col-lg-2 text-center" >
+            <label for="jugador_" class="control-label">Nombre del jugador</label>
+        </div>
+        <div class="col-xs-2 col-lg-1  text-center" >
+            <label for="jugador_" class="control-label">Efectivo</label>
+        </div>
+    </div>
+    <div class="row form-group" ng-repeat="j in score18xxCtrl.partida.jugadores.datos track by $index">
+        <div class="col-xs-4 col-lg-1 text-right">
             <label for="jugador_" class="control-label">Jugador {{$index+1}}</label>
         </div>
         <div class="col-xs-3 col-lg-2" >
             <input class="form-control" 
                    type="text"
                    name="jugador_{{$index}}"
-                   ng-model="tabs.jugadores[$index].nombre"
+                   ng-model="score18xxCtrl.partida.jugadores.datos[$index].nombre"
                    placeholder="Nombre jugador" 
                    required >
 
@@ -19,7 +29,7 @@
             <input class="form-control" 
                    type="number"
                    name="efectivo_{{$index}}"
-                   ng-model="tabs.jugadores[$index].efectivo"
+                   ng-model="score18xxCtrl.partida.jugadores.datos[$index].efectivo"
                    placeholder="Efectivo" 
                    required >
 

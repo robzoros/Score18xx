@@ -1,1 +1,87 @@
-<h1>Calcular Dividendos</h1>
+<div class='container-fluid'>
+    <h1>Reparto de dividendos</h1>
+    <div class="col-md-5 col-lg-3">
+        <!-- Elegir Empresa -->
+        <div class="row-fluid form-group">
+            <div class="col-xs-4 col-md-2 col-lg-4 text-right">
+                <label for="empresaDividendo" class="control-label">Empresa</label>
+            </div>
+            <div class="col-xs-8 col-lg-8">
+                <select class="form-control"
+                        name="empresaDividendo"
+                        ng-model="tabD.empDiv"
+                        ng-options="e as e.nombre for e in score18xxCtrl.partida.empresas">
+                </select>
+            </div>        
+        </div>
+
+        <!-- Dividendos -->
+        <div class="row form-group">
+            <div class="col-xs-4 col-lg-4 text-right" >
+                <label for="dividendo" class="control-label">Dividendos</label>
+            </div>
+            <div class="col-xs-4 col-lg-6" >
+                <input name="dividendo"
+                       class="form-control" 
+                       type="number"
+                       ng-model="tabD.dividendo">
+            </div>
+        </div>
+
+        <!-- Número de repeticiones -->
+        <div class="row form-group">
+            <div class="col-xs-4 col-lg-4 text-right">
+                <label for="num_repeticiones" class="control-label">Repetir</label>
+            </div>        
+            <div class="col-xs-8 col-lg-8">
+                <select name="num_repeticiones" 
+                        class="form-control" 
+                        ng-model="tabD.numRepeticiones" 
+                        ng-options="o for o in tabAJ.opcionDiez" 
+                        placeholder="Número de jugadores" 
+                        required >
+                </select>
+            </div>        
+        </div>  
+        
+        <!-- Botón calcular -->
+        <div class="row form-group">
+            <div  class="col-xs-4 col-lg-4">
+                <label class="control-label"></label>
+            </div>
+            <div class="col-xs-3 col-lg-4">
+                <button type="button" 
+                        class="btn btn-default" 
+                        ng-disabled="score18xxCtrl.partida.empresas.length===0"
+                        ng-click="tabD.addDividendo(tabD.empDiv, tabD.dividendo, tabD.numRepeticiones)">Añadir</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-5 col-lg-9">
+        <div class="row form-group">
+            <div class="col-xs-4 col-lg-1 text-center">
+                <label class="control-label">Empresa</label>
+            </div>
+            <div class="col-lg-{{tabAJ.tamColumna()}} text-center" ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">
+                <label class="control-label">{{jug.nombre}}</label>
+            </div>
+        </div>
+        <div class="row form-group" ng-repeat="fila in score18xxCtrl.partida.dividendos track by $index">
+            <div class="col-xs-4 col-lg-1 text-center">
+                <label class="control-label">{{fila.nombreEmpresa}}</label>
+            </div>
+            <div class="col-lg-{{tabAJ.tamColumna()}} text-center" ng-repeat="div in fila.dividendos">
+                <label class="control-label">{{div.valor}}</label>
+            </div>
+            <div>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="tabD.quitarDividendo(fila, $index)">
+                        <i class="glyphicon glyphicon-minus-sign" title="Quitar dividendo"></i>
+                    </button>
+                </span>
+            </div>
+        </div>          
+    </div>
+
+</div>

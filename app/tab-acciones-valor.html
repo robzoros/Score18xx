@@ -2,20 +2,22 @@
     <h1>Elegir empresas con valor</h1>
     <!-- Elegir Empresa -->
     <div class="row-fluid form-group">
-        <label for="selectEmpresa" class="col-xs-4 col-lg-1 control-label">Empresa</label>
+        <div class="col-xs-4 col-lg-1">
+            <label for="selectEmpresa" class="control-label">Empresa</label>
+        </div>
         <div class="col-xs-8 col-lg-2">
             <p class="input-group">
                 <select id="selectEmpresa" 
                         class="form-control" 
-                        ng-model="tabAV.empresa.nombre" 
-                        ng-options="e for e in tabAV.empresasJuego" 
+                        ng-model="tabs.empresa.nombre" 
+                        ng-options="e for e in tabs.companies" 
                         placeholder="Empresa" >
                 </select>
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="tabAV.addEmpresa(tabAV.empresa)" ng-disabled="tabAV.empresasJuego.length==0">
+                    <button type="button" class="btn btn-default" ng-click="tabAV.addEmpresa(tabs.empresa)" ng-disabled="tabs.companies.length==0">
                         <i class="glyphicon glyphicon-plus-sign" title="Añadir empresa"></i>
                     </button>
-                    <button type="button" class="btn btn-default" ng-click="tabAV.addTodasEmpresas()" ng-disabled="tabAV.empresasJuego.length==0">
+                    <button type="button" class="btn btn-default" ng-click="tabAV.addTodasEmpresas()" ng-disabled="tabs.companies.length==0">
                         <i class="glyphicon glyphicon-th"  title="Añadir todas las empresas"></i>
                     </button>
                 </span>
@@ -25,10 +27,10 @@
 </div>
 
 <div class='container-fluid'>
-    <h1 ng-show="tabs.empresas.length > 0">Asignar valor a las acciones de las empresas</h1>
-    <div class="row form-group" ng-repeat="e in tabs.empresas">
+    <h1 ng-show="score18xxCtrl.partida.empresas.length > 0">Asignar valor a las acciones de las empresas</h1>
+    <div class="row form-group" ng-repeat="e in score18xxCtrl.partida.empresas">
         <div class="col-xs-4 col-lg-1 text-right" >
-            <label for="empresa_{{index}}" class="control-label">{{tabs.empresas[$index].nombre}}</label>
+            <label for="empresa_{{index}}" class="control-label">{{score18xxCtrl.partida.empresas[$index].nombre}}</label>
         </div>
         <div class="col-xs-2 col-lg-1" >
             <p class="input-group">
@@ -36,7 +38,7 @@
                        class="form-control" 
                        type="number"
                        name="empresa_{{$index}}"
-                       ng-model="tabs.empresas[$index].valor"
+                       ng-model="score18xxCtrl.partida.empresas[$index].valor"
                        placeholder="Nombre jugador" 
                        required >
             <span class="input-group-btn">

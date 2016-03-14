@@ -4,7 +4,7 @@
 var score18xxControllers = angular.module('score18xxControllers', []);
 
 score18xxControllers.controller('score18xxController',  function() {
-    this.dondeEstamos = "Comienzo"
+    this.dondeEstamos = "Comienzo";
 });
 
 score18xxControllers.controller('NuevaPartidaCtrl', function($scope, $http, $location) {
