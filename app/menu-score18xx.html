@@ -15,24 +15,7 @@
                        aria-expanded="false">Mantenimiento <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li ng-click="menu.clickMenu('nuevaPartida')" role="menuitem"><a href="#/nueva">Nueva Partida</a></li>
-                        <li ng-click="menu.clickMenu('listaPartidas')" role="menuitem"><a href="#/login">Lista de partidas</a></li>
-                        <li ng-click="menu.clickMenu('datosPartida')" role="menuitem"><a href="#/partida">Datos partida</a></li>
-                    </ul>
-                </li>
-            </ul>
-            
-            <!-- Partidas -->
-            <ul class="nav navbar-nav" ng-show="dondeEstamos == 'Datos Partida'">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" 
-                       data-toggle="dropdown" 
-                       role="button" 
-                       aria-haspopup="true" 
-                       aria-expanded="false">Partida <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ng-click="menu.clickMenu('acciones')" role="menuitem"><a href="#">Acciones</a></li>
-                        <li ng-click="menu.clickMenu('dividendos')" role="menuitem"><a href="#">Dividendos</a></li>
-                        <li ng-click="menu.clickMenu('resultado')" role="menuitem"><a href="#">Resultado</a></li>
+                        <li ng-click="menu.clickMenu('listaPartidas')" role="menuitem"><a href="#/lista">Lista de partidas</a></li>
                     </ul>
                 </li>
             </ul>
@@ -46,10 +29,10 @@
                        aria-haspopup="true" 
                        aria-expanded="false">Herramientas <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-click="menu.clickMenu('nuevoJuego')" role="menuitem"><a href="#">Nuevo juegos</a></li>
-                        <li ng-click="menu.clickMenu('listadoJuegos')" role="menuitem"><a href="#">Listado de juegos</a></li>
+                        <li ng-click="menu.clickMenu('nuevoJuego')" role="menuitem"><a href="#/nuevo">Nuevo juegos</a></li>
+                        <li ng-click="menu.clickMenu('listadoJuegos')" role="menuitem"><a href="#/listado">Listado de juegos</a></li>
                         <li role="separator" class="divider"></li>
-                        <li ng-click="menu.clickMenu('dividendos')" role="menuitem"><a href="#">Dividendos por Acción</a></li>
+                        <li ng-click="menu.clickMenu('dividendos')" role="menuitem"><a href="#/dividendos">Dividendos por Acción</a></li>
                     </ul>
                 </li>
             </ul>            

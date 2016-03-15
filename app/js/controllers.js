@@ -20,7 +20,7 @@ score18xxControllers.controller('NuevaPartidaCtrl', function($scope, $http, $loc
       return angular.isUndefined($scope.fechaPartida) || $scope.fechaPartida === null;
   };
   
-    $scope.ngModelOptionsSelected = function(value) {
+  $scope.ngModelOptionsSelected = function(value) {
     if (arguments.length) {
       _selected = value;
     } else {
@@ -156,7 +156,7 @@ score18xxControllers.controller('NuevaPartidaCtrl', function($scope, $http, $loc
         });
    };
    
-   $scope.getJuegos = function() {
+  $scope.getJuegos = function() {
       $http.get('http://localhost:3000/api/juegos')
         .then(function(response){
             $scope.juegos = response.data;
@@ -169,6 +169,6 @@ score18xxControllers.controller('NuevaPartidaCtrl', function($scope, $http, $loc
             $scope.juegos = err;
         });
     };
-    $scope.getJuegos();
+  $scope.getJuegos();
 });
 

@@ -4,6 +4,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
+h2{
+    margin-top: 0;
+}
+
 body {
   min-height: 2000px;
   padding-top: 70px;
@@ -42,6 +46,33 @@ option {
     padding: 0;
     margin: 0;
 }
+
+.panel{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.panel-primary >.panel-heading {
+    background-image: linear-gradient(to bottom, #925900 0, #d78300 100%);
+}
+
+.table-button{
+    width: 10%;
+}
+
+.bgg-img {
+  float: left;
+  margin-right: 10px;
+}
+
+.outer-p {
+  margin-top: 10px;
+}
+
+.inner-p {
+  margin: 2px;
+}
+
 .btn-custom {
     background-color: hsl(36, 100%, 49%) !important;
     background-repeat: repeat-x;
@@ -169,4 +200,10 @@ input[type=number]::-webkit-outer-spin-button {
     color: #f6f0e7;
     background-color: #9d6a30;
   }
+}
+
+@-moz-document url-prefix() {
+    fieldset {
+        display: table-cell;
+    }
 }

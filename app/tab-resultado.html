@@ -1,55 +1,38 @@
 <div  class='container-fluid'>
     <h1>Resultado Final</h1>
+    <table class="table table-striped table-responsive table-condensed">
+        <!-- Títulos -->
+        <thead>
+            <tr>
+                <th>Empresa</th>
+                <th ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{jug.nombre}}</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <!-- Resultado total-->
+            <tr>
+                <th>Total</th>
+                <td ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{tabR.total(jug)}}</td>
+            </tr>
+
+            <!-- Efectivo -->
+            <tr>
+                <th>Efectivo</th>
+                <td ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{jug.efectivo}}</td>
+            </tr>
+
+            <!-- Dividendos -->
+            <tr>
+                <th>Dividendos</th>
+                <td ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{jug.dividendos}}</td>
+            </tr>
     
-    <!-- Títulos -->
-    <div class="row form-group">
-        <div class="col-xs-4 col-lg-1 text-center">
-            <label class="control-label">Empresa</label>
-        </div>
-        <div class="col-xs-8 col-lg-{{tabAJ.tamColumna()}} text-center" ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">
-            <label class="control-label">{{jug.nombre}}</label>
-        </div>
-    </div>
-
-    <!-- Resultado total-->
-    <div class="row form-group">
-        <div class="col-xs-4 col-lg-1 text-center">
-            <label class="control-label">Total</label>
-        </div>
-        <div class="col-xs-8 col-lg-{{tabAJ.tamColumna()}} text-center" ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">
-            <label class="control-label">{{tabR.total(jug)}}</label>
-        </div>
-    </div>
-
-    <!-- Efectivo -->
-    <div class="row form-group">
-        <div class="col-xs-4 col-lg-1 text-center">
-            <label class="control-label">Efectivo</label>
-        </div>
-        <div class="col-xs-8 col-lg-{{tabAJ.tamColumna()}} text-center" ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">
-            <label class="control-label">{{jug.efectivo}}</label>
-        </div>
-    </div>
-
-    <!-- Dividendos -->
-    <div class="row form-group">
-        <div class="col-xs-4 col-lg-1 text-center">
-            <label class="control-label">Dividendos</label>
-        </div>
-        <div class="col-xs-8 col-lg-{{tabAJ.tamColumna()}} text-center" ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">
-            <label class="control-label">{{jug.dividendos}}</label>
-        </div>
-    </div>
-    
-    <!-- Acciones -->
-    <div class="row form-group" ng-repeat="emp in score18xxCtrl.partida.empresas track by $index" >
-        <div class="col-xs-4 col-lg-1 text-center">
-            <label class="control-label">{{emp.nombre}}</label>
-        </div>
-        <div class="col-xs-8 col-lg-{{tabAJ.tamColumna()}} text-center" ng-repeat="accion in emp.acciones">
-            <label class="control-label">{{accion.numero * emp.valor}} </label>
-        </div>
-    </div>    
-
-    <span ng-bind="tabR.res(score18xxCtrl.partida.jugadores.datos.length)"></span>
+            <!-- Acciones -->
+            <tr ng-repeat="emp in score18xxCtrl.partida.empresas track by $index">
+                <th>{{emp.nombre}}</th>
+                <td ng-repeat="accion in emp.acciones">{{accion.numero * emp.valor}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

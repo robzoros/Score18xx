@@ -1,4 +1,32 @@
 <div class='container-fluid'>
+    <div class="col-md-8 col-lg-6 panel panel-primary">
+        <div class="panel-heading">{{score18xxCtrl.partida.nombre}}</div>
+        <div class="panel-body">
+            <p>Partida jugada entre {{score18xxCtrl.partida.jugadores.numero}} jugadores a <a href="{{'http://www.boardgamegeek.com/boardgame/' + score18xxCtrl.partida.juego._id}}">{{score18xxCtrl.partida.juego.description}}</a> el día  <b>{{score18xxCtrl.partida.fecha | date: 'dd-MMM-yyyy'}}</b> en <b>{{score18xxCtrl.partida.loc}}</b></p>
+        </div>
+        <div class="container-fluid">
+            <a href="{{'http://www.boardgamegeek.com/boardgame/' + score18xxCtrl.bggJuego._id}}"><img ng-src="{{score18xxCtrl.bggJuego.thumbnail}}" class="thumbnail bgg-img"></a>
+            <h2><a href="{{'http://www.boardgamegeek.com/boardgame/' + score18xxCtrl.bggJuego._id}}">{{score18xxCtrl.bggJuego.name}}</a> <small>({{score18xxCtrl.bggJuego.yearpublished}})</small></h2>
+            <div ng-bind-html="score18xxCtrl.bggJuego.description"></div>
+            <p class="outer-p">
+                <div class="inner-p">
+                    <span class="label label-primary">Autor :</span> {{score18xxCtrl.bggJuego.designer}}
+                </div>
+                <div class="inner-p">
+                    <span class="label label-primary">Artista :</span> {{score18xxCtrl.bggJuego.artist}}
+                </div>
+                <div class="inner-p">
+                    <span class="label label-primary">Jugadores :</span> De {{score18xxCtrl.bggJuego.minplayers}} a {{score18xxCtrl.bggJuego.maxplayers}}
+                </div>
+                <div class="inner-p">
+                    <span class="label label-primary">Tiempo de juego :</span> {{score18xxCtrl.bggJuego.playingtime}} minutos
+                </div>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class='container-fluid'>
     
     <ul class="nav nav-tabs">
         <li ng-click="tabs.elegirTab(1)" role="presentation" class="active"><a id="tab1" href data-toggle="tab">Jugadores</a></li>
