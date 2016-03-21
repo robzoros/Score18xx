@@ -4,7 +4,8 @@
 var directivas = angular.module('directivas', [
     'score18xxControllers',
     'ngAnimate',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ServicioModal'
 ]);
     
 directivas.directive("menuNav", function() {
@@ -33,12 +34,12 @@ directivas.directive("tabJugadores", function() {
     };
 });
 
-directivas.directive("tabAccionesValor", function() {
+directivas.directive("tabAccionesValor",  function() {
     return {
         scope: false,
         restrict: "E",
         templateUrl: "tab-acciones-valor.html",
-        controller: function($scope, $window) {
+        controller: ['$scope', 'modalService', function($scope, modalService) {
             
             // Añade a la partida todas las empresas del juego de golpe
             this.addTodasEmpresas = function() {
@@ -86,7 +87,6 @@ directivas.directive("tabAccionesValor", function() {
             
             // Añade una empresa a la partida
             this.quitarEmpresa = function(indice) {
-                var borrar = true;
                 var dividendos = false;
                 for(var i=0;i<$scope.score18xxCtrl.partida.dividendos.length;i++){
                     if ($scope.score18xxCtrl.partida.dividendos[i].nombreEmpresa===$scope.score18xxCtrl.partida.empresas[indice].nombre) {
@@ -95,20 +95,28 @@ directivas.directive("tabAccionesValor", function() {
                     }
                 };
                 if (dividendos || ($scope.score18xxCtrl.partida.empresas[indice].valor !== 0)) {
-                    borrar = $window.confirm('Va a eliminar una empresa que tiene información, ¿desea continuar?');
-                }
-                if (borrar) {
-                    for(var i=$scope.score18xxCtrl.partida.dividendos.length-1;i>=0;i--){
-                        if ($scope.score18xxCtrl.partida.dividendos[i].nombreEmpresa===$scope.score18xxCtrl.partida.empresas[indice].nombre) {
-                            $scope.score18xxCtrl.partida.dividendos.splice(i,1);
-                        }
+                    var modalOptions = {
+                        closeButtonText: 'Cancelar',
+                        actionButtonText: 'Continuar',
+                        headerText: 'Eliminar ' + $scope.score18xxCtrl.partida.empresas[indice].nombre,
+                        bodyText: 'Va a eliminar una empresa que tiene información, ¿desea continuar?'
                     };
-                    $scope.tabs.companies.push($scope.score18xxCtrl.partida.empresas[indice].nombre);
-                    $scope.score18xxCtrl.partida.empresas.splice(indice,1);
-                    $scope.tabs.empresa.nombre =  $scope.tabs.companies[0];
+
+                    modalService.showModal({}, modalOptions)
+                        .then(function () {
+                            for(var i=$scope.score18xxCtrl.partida.dividendos.length-1;i>=0;i--){
+                                if ($scope.score18xxCtrl.partida.dividendos[i].nombreEmpresa===$scope.score18xxCtrl.partida.empresas[indice].nombre) {
+                                    $scope.score18xxCtrl.partida.dividendos.splice(i,1);
+                                }
+                            };
+                            $scope.tabs.companies.push($scope.score18xxCtrl.partida.empresas[indice].nombre);
+                            $scope.score18xxCtrl.partida.empresas.splice(indice,1);
+                            $scope.tabs.empresa.nombre =  $scope.tabs.companies[0];
+                    });
+                    
                 }
             };
-        },
+        }],
         controllerAs: "tabAV"
     };
 });

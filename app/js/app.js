@@ -10,7 +10,8 @@ var score18xx = angular.module('score18xx', [
   'ListaPartidasController',
   'ListaJuegosController',
   'NuevoJuegoController',
-  'score18xxFactory'
+  'score18xxFactory',
+  'ServicioModal'
 ]);
 
 score18xx.config(['$routeProvider',
