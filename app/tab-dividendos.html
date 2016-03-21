@@ -1,13 +1,13 @@
 <div class='container-fluid'>
-    <h1>Reparto de dividendos</h1>
+    <h2>Reparto de dividendos</h2>
     
     <div class="col-md-5 col-lg-3">
         <!-- Elegir Empresa -->
         <div class="row-fluid form-group">
-            <div class="col-xs-4 col-md-2 col-lg-4 text-right">
+            <div class="col-xs-4 col-md-3 col-lg-4 text-right">
                 <label for="empresaDividendo" class="control-label">Empresa</label>
             </div>
-            <div class="col-xs-8 col-lg-8">
+            <div class="col-xs-8 col-lg-7">
                 <select class="form-control"
                         name="empresaDividendo"
                         ng-model="tabD.empDiv"
@@ -21,7 +21,7 @@
             <div class="col-xs-4 col-lg-4 text-right" >
                 <label for="dividendo" class="control-label">Dividendos</label>
             </div>
-            <div class="col-xs-4 col-lg-6" >
+            <div class="col-xs-4 col-lg-5" >
                 <input name="dividendo"
                        class="form-control" 
                        type="number"
@@ -34,7 +34,7 @@
             <div class="col-xs-4 col-lg-4 text-right">
                 <label for="num_repeticiones" class="control-label">Repetir</label>
             </div>        
-            <div class="col-xs-8 col-lg-8">
+            <div class="col-xs-8 col-lg-7">
                 <select name="num_repeticiones" 
                         class="form-control" 
                         ng-model="tabD.numRepeticiones" 
@@ -45,7 +45,7 @@
             </div>        
         </div>  
         
-        <!-- Botón calcular -->
+        <!-- Botón añadir -->
         <div class="row form-group">
             <div  class="col-xs-4 col-lg-4">
                 <label class="control-label"></label>
@@ -61,29 +61,24 @@
 
     <div class="col-md-5 col-lg-9 panel panel-default">
         <div class="panel-heading">Dividendos repartidos</div>
-
-        <table class="table table-striped table-responsive table-condensed">
-            <thead>
-                <tr>
-                    <th>Empresa</th>
-                    <th ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{jug.nombre}}</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="fila in score18xxCtrl.partida.dividendos track by $index">
-                    <th>{{fila.nombreEmpresa}}</th>
-                    <td ng-repeat="div in fila.dividendos">{{div.valor}}</td>
-                    <td class="table-button">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="tabD.quitarDividendo(fila, $index)">
-                                <i class="glyphicon glyphicon-minus-sign" title="Quitar dividendo"></i>
-                            </button>
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="panel-body">
+            <table class="table table-striped table-responsive table-condensed">
+                <thead>
+                    <tr>
+                        <th>Empresa</th>
+                        <th ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{jug.nombre}}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="fila in score18xxCtrl.partida.dividendos track by $index">
+                        <th>{{fila.nombreEmpresa}}</th>
+                        <td ng-repeat="div in fila.dividendos">{{div.valor}}</td>
+                        <td><span class="close" ng-click="tabD.quitarDividendo(fila, $index)" title="Quitar dividendo">&times;</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>

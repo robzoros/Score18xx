@@ -2,10 +2,31 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Oswald', sans-serif;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
-h2{
+h3{
     margin-top: 0;
+}
+
+thead{
+    background-color: #ffebc8;
+    border-top: solid #faa305 1px;
+}
+
+th {
+    font-family: 'Oswald', sans-serif;
+    color: #704402;
+    font-weight: normal;
+}
+
+.margen-top-20 {
+    margin-top: 20px;
+}
+
+.total{
+    font-weight: bold;
+    background-color: #fef3cb;
 }
 
 body {
@@ -13,17 +34,30 @@ body {
   padding-top: 70px;
 }
 
+.navbar{
+    margin-bottom: 0;
+    background-color: #ffebc8;
+}
+
 header {
-    width: 80%;
-    height: 200px;
-    margin: auto;
+    width: 100%;
+    margin: 0;
     text-align: center;
 }
 
 div#logo {
     display: block;
+    height: 150px;
     margin-left: auto;
-    margin-right: auto 
+    margin-right: auto;
+    border: solid #faa305;
+    margin-top: -20px;
+    border-width: 1px;
+    background-color: #ffebc8;
+}
+
+#imgLogo {
+    padding-top: 10px;
 }
 
 .btn.btn-primary {
@@ -52,8 +86,27 @@ option {
     padding-right: 0;
 }
 
+.panel-heading>a{
+    color: white;
+}
+
+.panel-heading>a :hover{
+    text-decoration: none;
+}
+
 .panel-primary >.panel-heading {
     background-image: linear-gradient(to bottom, #925900 0, #d78300 100%);
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
 
 .table-button{
@@ -62,11 +115,12 @@ option {
 
 .bgg-img {
   float: left;
-  margin-right: 10px;
+  margin-right: 20px;
+  padding: 10px;
 }
 
 .outer-p {
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .inner-p {
@@ -206,4 +260,51 @@ input[type=number]::-webkit-outer-spin-button {
     fieldset {
         display: table-cell;
     }
+}
+
+.borrar {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    bottom: 0;
+    height: 20px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #704402;
+}
+
+.close{
+    color: #704402;
+    font-weight: bold;
+}
+
+path {  stroke: #fff; }
+path:hover {  opacity:0.9; }
+rect:hover {  fill:blue; }
+.axis {  font: 10px sans-serif; }
+.legend tr{    border-bottom:1px solid grey; }
+.legend tr:first-child{    border-top:1px solid grey; }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {  display: none; }
+.legend{
+    margin-bottom:76px;
+    display:inline-block;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+.legend td{
+    padding:4px 5px;
+    vertical-align:bottom;
+}
+.legendFreq, .legendPerc{
+    align:right;
+    width:50px;
 }

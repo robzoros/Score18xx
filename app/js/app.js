@@ -5,9 +5,12 @@ var score18xx = angular.module('score18xx', [
   'ngRoute',
   'score18xxControllers',
   'partidaController',
-  'phonecatAnimations',
   'directivas',
-  'ListaPartidasController'
+  'NuevaPartidaController',
+  'ListaPartidasController',
+  'ListaJuegosController',
+  'NuevoJuegoController',
+  'score18xxFactory'
 ]);
 
 score18xx.config(['$routeProvider',
@@ -27,14 +30,15 @@ score18xx.config(['$routeProvider',
         controller: 'ListaPartidasCtrl',
         controllerAs: 'lista'
       }).
-      when('/nuevo', {
+      when('/juego/:idJuego?', {
         templateUrl: 'nuevo-juego.html',
-        controller: 'NuevoJuegoCtrl'
+        controller: 'NuevoJuegoCtrl',
+        controllerAs: 'nuevo'
       }).
-      when('/listado', {
+      when('/juegos', {
         templateUrl: 'lista-juegos.html',
-        controller: 'ListadoJuegosCtrl',
-        controllerAs: 'listado'
+        controller: 'ListaJuegosCtrl',
+        controllerAs: 'juegos'
       }).
       when('/login', {
         templateUrl: 'login.html',

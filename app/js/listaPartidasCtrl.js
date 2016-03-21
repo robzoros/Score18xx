@@ -27,4 +27,3 @@ listaPartidasCtrl.controller('ListaPartidasCtrl', ['$scope', '$http', function($
     // Llamada a la función
     this.getPartidas();
 }]);
-

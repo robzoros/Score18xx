@@ -173,17 +173,43 @@ directivas.directive("tabResultado", function() {
         restrict: "E",
         templateUrl: "tab-resultado.html",
         controller: function($scope) {
+            this.tabla = 'tabla';
             this.total = function(j){
-                var valorizacion = j.efectivo + j.dividendos;
+                var valoracion = j.efectivo + j.dividendos;
                 
                 for(var i=0; i<$scope.score18xxCtrl.partida.empresas.length;i++){
                     var empresa = $scope.score18xxCtrl.partida.empresas[i];
-                    var index = empresa.acciones.map(function(e) { return e.indice; }).indexOf(j.indice);
-                    valorizacion += empresa.valor * empresa.acciones[index].numero;
+                    valoracion += this.valorAcciones(empresa, j.indice);
                 };
-                return valorizacion;
+                return valoracion;
+            };
+            
+            this.valorAcciones= function(emp, indice) {
+                var index = emp.acciones.map(function(e) { return e.indice; }).indexOf(indice);
+                return emp.valor * emp.acciones[index].numero;
+            };
+            
+            this.ganador = function(j) {
+                var valor = this.total(j);
+                var g = true;
+                for (var i=0; i< $scope.score18xxCtrl.partida.jugadores.datos.length;i++) {
+                    var total = this.total($scope.score18xxCtrl.partida.jugadores.datos[i]);
+                    if (total > valor) {
+                        g = false;
+                        break;
+                    }
+                }
+                return g;
             };
         },
         controllerAs: "tabR"
+    };
+});
+
+directivas.directive("juegoBgg", function() {
+    return {
+        scope: false,
+        restrict: "E",
+        templateUrl: "juego-bgg.html"
     };
 });

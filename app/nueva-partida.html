@@ -1,99 +1,122 @@
-<div class='container-fluid predictivo'>
-    <h1>Crea tu partida</h1>
+<div class='container-fluid predictivo row'>
+    <div class="col-xs-12 col-lg-5">
+        <h1>Crea tu partida</h1>
     
-    <form name="partidaForm" class="form-horizontal" role="form" ng-submit="addPartida()">
-        <!-- Nombre de la partida -->
-        <div class="row form-group has-feedback">
-            <label for="nombre_partida" class="col-xs-4 col-lg-2 control-label">Nombre de la partida</label>
-            <div class="col-xs-8 col-lg-3" ng-class="{ 'has-error': partidaForm.nombredePartida.$invalid }">
-                <input class="form-control" 
-                       type="text"
-                       name="nombredePartida"
-                       ng-model="nombrePartida"
-                       placeholder="Nombre de la partida"
-                       required >
-            </div>        
-        </div>
-
-        <!-- Número de jugadores -->
-        <div class="row form-group">
-            <label for="num_jugadores" class="col-xs-4 col-lg-2 control-label">Número de jugadores</label>
-            <div class="col-xs-4 col-lg-2">
-                <select id="selectJugadores" 
-                        class="form-control" 
-                        ng-model="numJugadores" 
-                        ng-options="o for o in opcionDiez" 
-                        placeholder="Número de jugadores" 
-                        required >
-                </select>
-                
-            </div>        
-        </div>        
-
-        <!-- Nombre del juego -->
-        <div class="row form-group">
-            <label for="nombre_juego" class="col-xs-4 col-lg-2 control-label">Nombre del juego</label>
-            <div class="col-xs-8 col-lg-3">
-                <input class="form-control" 
-                       type="text" 
-                       ng-model="juego" 
-                       placeholder="Juego de la serie" 
-                       uib-typeahead="j as j._nombre for j in juegos | filter:{_nombre:$viewValue}" 
-                       typeahead-show-hint="true" 
-                       typeahead-min-length="0"
-                       typeahead-no-results="noResults">
-            </div>        
-        </div>
-
-        <!-- Lugar de la partida -->
-        <div class="row form-group">
-            <label for="lugar-partida" class="col-xs-4 col-lg-2 control-label">Localización</label>
-            <div class="col-xs-8 col-lg-3">
-                <input class="form-control" 
-                       type="text" 
-                       ng-model="lugarPartida" 
-                       placeholder="Lugar de la partida" 
-                       uib-typeahead="address for address in getLocation($viewValue)" 
-                       typeahead-loading="cargandoJuegos" 
-                       typeahead-no-results="noLocResults" >
-                <i ng-show="cargandoJuegos" class="glyphicon glyphicon-refresh"></i>
-                <div ng-show="noLocResults">
-                    <i class="glyphicon glyphicon-remove"></i> Sitio no encontrado
+        <form name="partidaForm" class="form-horizontal" role="form" ng-submit="addPartida()">
+            <!-- Nombre de la partida -->
+            <div class="row form-group has-feedback" ng-class="{'has-error': validado && !nombrePartida}">
+                <div class="col-xs-4 col-lg-4 text-right">
+                    <label for="nombredePartida" class="control-label">Nombre de la partida *</label>
                 </div>
+                <div class="col-xs-8 col-lg-6" >
+                    <input class="form-control" 
+                           type="text"
+                           id="nombredePartida"
+                           name="nombredePartida"
+                           ng-model="nombrePartida"
+                           placeholder="Nombre de la partida" >
+                    <span class="text-danger" ng-show="validado && !nombredePartida">El nombre de la partida es un campo obligatorio.</span>                    
+                </div>        
+            </div>
+
+            <!-- Número de jugadores -->
+            <div class="row form-group">
+                <div class="col-xs-4 col-lg-4 text-right">
+                    <label for="selectJugadores" class="control-label">Número de jugadores</label>
+                </div>
+                <div class="col-xs-4 col-lg-4">
+                    <select id="selectJugadores" 
+                            class="form-control" 
+                            ng-model="numJugadores" 
+                            ng-options="o for o in opcionDiez" 
+                            placeholder="Número de jugadores" >
+                    </select>
+
+                </div>        
             </div>        
-        </div>
-        
-        <!-- Fecha de la partida -->
-        <div class="row form-group">
-            <label for="fecha-partida" class="col-xs-4 col-lg-2 control-label"><div class="comentario"><br/></div>Fecha de Partida</label>
-            <div class="col-xs-8 col-lg-3" ng-class="{ 'has-error': ngValidarFecha()}">
-                <div class="comentario">Formato de Fecha: {{formatoFecha}} o {{altInputFormats[0]}}</div>                
-                <p class="input-group">
-                    <input id="selectorFecha" 
+
+            <!-- Nombre del juego -->
+            <div class="row form-group" ng-class="{'has-error': validado && !juego._id}">
+                <div class="col-xs-4 col-lg-4 text-right">
+                    <label for="nombreJuego" class="control-label">Nombre del juego *</label>
+                </div>
+                <div class="col-xs-8 col-lg-6">
+                    <input class="form-control" 
+                           type="text"
+                           id="nombreJuego"
+                           name="nombreJuego"
+                           ng-model="juego"
+                           placeholder="Juego de la serie" 
+                           uib-typeahead="j as j._name for j in juegos | filter:{_name:$viewValue}" 
+                           typeahead-show-hint="true" 
+                           typeahead-min-length="0"
+                           typeahead-on-select="callbggJuego()"
+                           typeahead-no-results="noResults" >
+                    <span class="text-danger" ng-show="validado && !juego._id">El nombre del juego es un campo obligatorio.</span>
+                </div>        
+            </div>
+
+            <!-- Lugar de la partida -->
+            <div class="row form-group">
+                <div class="col-xs-4 col-lg-4 text-right">
+                    <label for="lugarPartida" class="control-label">Localización</label>
+                </div>
+                <div class="col-xs-8 col-lg-6">
+                    <input class="form-control" 
                            type="text" 
-                           class="form-control" 
-                           uib-datepicker-popup="{{formatoFecha}}" 
-                           ng-model="fechaPartida" 
-                           is-open="popup.opened" 
-                           datepicker-options="dateOptions" 
-                           ng-required="true" 
-                           close-text="Close" 
-                           alt-input-formats="altInputFormats" />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="cambiaFormato()"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
-                        <button type="button" class="btn btn-default" ng-click="abreCalendario()"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </p>
+                           id="lugarPartida" 
+                           ng-model="lugarPartida" 
+                           placeholder="Lugar de la partida" 
+                           uib-typeahead="address for address in getLocation($viewValue)" 
+                           typeahead-loading="cargandoJuegos" 
+                           typeahead-no-results="noLocResults" >
+                    <i ng-show="cargandoJuegos" class="glyphicon glyphicon-refresh"></i>
+                    <div ng-show="noLocResults">
+                        <i class="glyphicon glyphicon-remove"></i> Sitio no encontrado
+                    </div>
+                </div>        
             </div>
 
-        </div>
+            <!-- Fecha de la partida -->
+            <div class="row form-group">
+                <div class="col-xs-4 col-lg-4 text-right">
+                    <label for="selectorFecha" class="control-label"><span class="comentario"><br/></span>Fecha de Partida</label>
+                </div>
+                <div class="col-xs-8 col-lg-6" ng-class="{ 'has-error': validado && ngValidarFecha()}">
+                    <div class="comentario">Formato de Fecha: {{formatoFecha}} o {{altInputFormats[0]}}</div>                
+                    <p class="input-group">
+                        <input id="selectorFecha" 
+                               name="selectorFecha"
+                               type="text" 
+                               class="form-control" 
+                               uib-datepicker-popup="{{formatoFecha}}" 
+                               ng-model="fechaPartida" 
+                               is-open="popup.opened" 
+                               datepicker-options="dateOptions" 
+                               ng-required="true" 
+                               close-text="Close" 
+                               alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="cambiaFormato()"><i class="glyphicon glyphicon-circle-arrow-down"></i></button>
+                            <button type="button" class="btn btn-default" ng-click="abreCalendario()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                    <span class="text-danger" ng-show="validado && ngValidarFecha()">La fecha es errónea.</span>                        
+                    
+                </div>
 
-        <!-- Botón -->
-        <div class="row">
-            <label class="col-xs-4 col-lg-2 control-label"></label>
-            <div class="col-xs-4 col-lg-1">
-                <button type="submit" class="btn btn-custom">Crear Partida</button>
             </div>
-        </div>
-    </form>
+
+            <!-- Botón -->
+            <div class="row">
+                <div class="col-xs-4 col-lg-4"></div>
+                <div class="col-xs-4 col-lg-1">
+                    <button type="submit" class="btn btn-custom">Crear Partida</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class='container-fluid col-xs-12 col-sm-8 col-md-7 col-lg-6'>
+        <juego-bgg ng-show="score18xxCtrl.bggJuego._id"></juego-bgg>
+    </div>
 </div>

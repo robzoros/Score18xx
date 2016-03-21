@@ -29,13 +29,14 @@
                        aria-haspopup="true" 
                        aria-expanded="false">Herramientas <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-click="menu.clickMenu('nuevoJuego')" role="menuitem"><a href="#/nuevo">Nuevo juegos</a></li>
-                        <li ng-click="menu.clickMenu('listadoJuegos')" role="menuitem"><a href="#/listado">Listado de juegos</a></li>
+                        <li ng-click="menu.clickMenu('nuevoJuego')" role="menuitem"><a href="#/juego">Nuevo juego</a></li>
+                        <li ng-click="menu.clickMenu('listadoJuegos')" role="menuitem"><a href="#/juegos">Listado de juegos</a></li>
                         <li role="separator" class="divider"></li>
-                        <li ng-click="menu.clickMenu('dividendos')" role="menuitem"><a href="#/dividendos">Dividendos por Acción</a></li>
+                        <li ng-click="score18xxCtrl.open()" role="menuitem"><a>Dividendos por Acción</a></li>
                     </ul>
                 </li>
             </ul>            
         </div> <!-- collapse navbar-collapse- -->
     </div><!-- .container-fluid -->
 </nav>
+
