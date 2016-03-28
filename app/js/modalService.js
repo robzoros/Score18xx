@@ -11,6 +11,7 @@ servicioModal.service('modalService', ['$uibModal', function ($uibModal) {
 
     var modalOptions = {
         closeButtonText: 'Cerrar',
+        showCloseButton: true,
         actionButtonText: 'OK',
         headerText: 'Cabecera',
         bodyText: '¿Ejecutar?'

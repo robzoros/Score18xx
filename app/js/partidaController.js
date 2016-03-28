@@ -1,8 +1,9 @@
-var partidaController = angular.module('partidaController', ['directivas' , 'score18xxFactory']);
+var partidaController = angular.module('partidaController', ['directivas' , 'score18xxFactory', 'constantes']);
 
-partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams', 'bggJuegoFactory', function($scope, $http, $routeParams, bggJuegoFactory) {
+partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams', 'bggJuegoFactory', 'API_ENDPOINT', function($scope, $http, $routeParams, bggJuegoFactory, API_ENDPOINT) {
     $scope.score18xxCtrl.dondeEstamos = "Partida";
     $scope.score18xxCtrl.tabActiva = 1;
+    $scope.score18xxCtrl.mostrarMenu = true;
     
     // Rellenamos datos para mostrar resultado
     this.dibujaPieChart = function() {
@@ -84,7 +85,7 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
     
     $scope.getPartida = function(id) {
       
-      $http.get('http://localhost:3000/api/partida/' + id)
+      $http.get(API_ENDPOINT.url + 'partida/' + id)
         .then(function(response){
             $scope.score18xxCtrl.partida = response.data;
 
@@ -138,7 +139,7 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
        
     this.actualizaPartida = function() {
 
-        $http.put('http://localhost:3000/api/partida/' + $scope.score18xxCtrl.partida._id, $scope.score18xxCtrl.partida).
+        $http.put( API_ENDPOINT.url + 'partida/' + $scope.score18xxCtrl.partida._id, $scope.score18xxCtrl.partida).
         then(function(response){
             console.log(response.data);
         },

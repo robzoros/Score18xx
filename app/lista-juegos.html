@@ -20,7 +20,7 @@
                         <a href="{{'http://www.boardgamegeek.com/boardgame/' + juego._id}}" class="btn btn-default" >
                             <i class="glyphicon glyphicon-globe" title="Link a bgg"></i>
                         </a>
-                        <button type="button" class="btn btn-default" ng-click="juegos.borrarJuego(juego._id)">
+                        <button type="button" class="btn btn-default" ng-click="juegos.borrarJuego(juego._id)" ng-hide="score18xxCtrl.user.rol==='Consulta'">
                             <i class="glyphicon glyphicon-trash" title="Borrar juego"></i>
                         </button>
                     </span>

@@ -1,6 +1,7 @@
-var moduloPartida = angular.module('NuevaPartidaController', ['score18xxFactory']);
+var moduloPartida = angular.module('NuevaPartidaController', ['score18xxFactory', 'constantes']);
 
-moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', 'bggJuegoFactory', function($scope, $http, $location, bggJuegoFactory) {
+moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', 'bggJuegoFactory', 'API_ENDPOINT'
+, function($scope, $http, $location, bggJuegoFactory, API_ENDPOINT) {
 
   var _selected;
 
@@ -8,6 +9,8 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
   $scope.opcionDiez = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   $scope.numJugadores = 4;
   $scope.dondeEstamos = "Nueva Partida";
+  $scope.score18xxCtrl.mostrarMenu = true;
+  $scope.score18xxCtrl.bggJuego = undefined;
 
   $scope.ngValidarFecha = function() {
       return angular.isUndefined($scope.fechaPartida) || $scope.fechaPartida === null;
@@ -134,6 +137,7 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
    if (!$scope.validarFormulario()) 
        return;
     var params = {
+        usuario: $scope.score18xxCtrl.user.name,
         nombre: $scope.nombrePartida,
         jugadores: $scope.numJugadores,
         juego: $scope.juego,
@@ -141,17 +145,19 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
         fecha: $scope.fechaPartida 
     };
     
-    return $http.post('http://localhost:3000/api/partida', params).
+    return $http.post( API_ENDPOINT.url + 'partida', params).
         then(function(response){
             $scope.partida = response;
-            $scope.menu.clickMenu('datosPartida');
-            console.log(response);
             $location.path('/partida/'+response.data._id).replace();
+        },
+        function(err){
+            console.log('Error al crear partida');
+            console.log(err);
         });
    };
    
   $scope.getJuegos = function() {
-      $http.get('http://localhost:3000/api/juegos')
+      $http.get( API_ENDPOINT.url + 'juegos')
         .then(function(response){
             $scope.juegos = response.data;
             $scope.juegosNombre = response.data.map(function(item){
@@ -165,9 +171,7 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
   };
   
   $scope.callbggJuego = function() {
-    console.log('entramos');
     var id = $scope.juego._id;
-    console.log('ID:' + id);
     bggJuegoFactory.callbggJuegos(id)
     .then(function(response){
         console.log(response.data.items.item);
@@ -181,7 +185,7 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
   
   $scope.validarFormulario = function() {
     $scope.validado = true;
-    return $scope._id && $scope.nombrePartida && !$scope.ngValidarFecha();
+    return $scope.juego._id && $scope.nombrePartida && !$scope.ngValidarFecha();
   };
 
   $scope.getJuegos();

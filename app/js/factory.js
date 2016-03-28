@@ -1,11 +1,11 @@
 'use strict';
 
 /* Services */
-var score18xxFactory = angular.module('score18xxFactory', []);
+var score18xxFactory = angular.module('score18xxFactory', ['constantes']);
 
-score18xxFactory.factory('bggJuegoFactory', ['$http','$sce', function($http, $sce){
+score18xxFactory.factory('bggJuegoFactory', ['$http','$sce', 'API_ENDPOINT', function($http, $sce, API_ENDPOINT){
     var callbggJuegos = function(id){
-        return $http.get('http://localhost:3000/proxy/?url=http://www.boardgamegeek.com/xmlapi2/thing?id=' + id, { 
+        return $http.get(API_ENDPOINT.proxy + '?url=http://www.boardgamegeek.com/xmlapi2/thing?id=' + id, { 
             transformResponse:function(data) {
                 // convert the data to JSON and provide
                 // it to the success function below

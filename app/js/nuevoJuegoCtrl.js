@@ -1,6 +1,9 @@
-var nuevoJuegoCtrl = angular.module('NuevoJuegoController', ['score18xxFactory']);
+var nuevoJuegoCtrl = angular.module('NuevoJuegoController', ['score18xxFactory', 'constantes']);
 
-nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory', '$routeParams', function($scope, $http, bggJuegoFactory, $routeParams) {
+nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory', '$routeParams', 'API_ENDPOINT', 
+    function($scope, $http, bggJuegoFactory, $routeParams, API_ENDPOINT) {
+
+    $scope.score18xxCtrl.mostrarMenu = true;
 
     this.addEmpresa = function(empresa) {
         var indice = this.juego.companies.indexOf(empresa);
@@ -20,12 +23,10 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
     
     this.addJuego = function() {
         var params = this.juego;
-        console.log('ADDJUEGO: ' + JSON.stringify(this.juego));
-        console.log('ADDJUEGO: ' + JSON.stringify(params));
         $scope.nuevo.juegosalvado = false;
         $scope.nuevo.error = '';
 
-        return $http.post('http://localhost:3000/api/juego', params).
+        return $http.post(API_ENDPOINT.url + 'juego', params).
             then(function(response){
                 console.log(response);
                 $scope.nuevo.juegosalvado = true;
@@ -47,7 +48,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
         console.log('ACTUALIZAJUEGO: ' + JSON.stringify(params));
         $scope.nuevo.juegosalvado = false;
 
-        return $http.put('http://localhost:3000/api/juego/' + params._id, params).
+        return $http.put(API_ENDPOINT.url + 'juego/' + params._id, params).
             then(function(response){
                 console.log(response);
                 $scope.nuevo.editarNuevo = 'editar';
@@ -82,7 +83,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
     };
     
     this.getJuego = function() {
-      $http.get('http://localhost:3000/api/juego/' + this.juego._id)
+      $http.get(API_ENDPOINT.url + 'juego/' + this.juego._id)
         .then(function(response){
             $scope.nuevo.juego = response.data;
             console.log($scope.nuevo.juego);
@@ -102,7 +103,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
     };
     
     this.quitarEmpresa = function(ind) {
-        this.juego.companies.splice(ind, 1)
+        this.juego.companies.splice(ind, 1);
     };
     
     this.juego = {};

@@ -14,8 +14,8 @@
                        aria-haspopup="true" 
                        aria-expanded="false">Mantenimiento <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-click="menu.clickMenu('nuevaPartida')" role="menuitem"><a href="#/nueva">Nueva Partida</a></li>
-                        <li ng-click="menu.clickMenu('listaPartidas')" role="menuitem"><a href="#/lista">Lista de partidas</a></li>
+                        <li><a href="#/nueva">Nueva Partida</a></li>
+                        <li><a href="#/lista">Lista de partidas</a></li>
                     </ul>
                 </li>
             </ul>
@@ -29,12 +29,16 @@
                        aria-haspopup="true" 
                        aria-expanded="false">Herramientas <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-click="menu.clickMenu('nuevoJuego')" role="menuitem"><a href="#/juego">Nuevo juego</a></li>
-                        <li ng-click="menu.clickMenu('listadoJuegos')" role="menuitem"><a href="#/juegos">Listado de juegos</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li ng-click="score18xxCtrl.open()" role="menuitem"><a>Dividendos por Acción</a></li>
+                        <li ng-hide="score18xxCtrl.user.rol==='Consulta'"><a href="#/juego">Nuevo juego</a></li>
+                        <li><a href="#/juegos">Listado de juegos</a></li>
+                        <li class="divider"></li>
+                        <li ng-click="score18xxCtrl.open()"><a href>Dividendos por Acción</a></li>
                     </ul>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href>{{score18xxCtrl.user.name}}</a></li>
+                <li ng-click="menu.logout()"><a href>salir</a></li>
             </ul>            
         </div> <!-- collapse navbar-collapse- -->
     </div><!-- .container-fluid -->

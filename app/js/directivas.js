@@ -5,7 +5,8 @@ var directivas = angular.module('directivas', [
     'score18xxControllers',
     'ngAnimate',
     'ui.bootstrap',
-    'ServicioModal'
+    'ServicioModal',
+    'AuthServiceModule'
 ]);
     
 directivas.directive("menuNav", function() {
@@ -13,12 +14,24 @@ directivas.directive("menuNav", function() {
         scope: false,
         restrict: "E",
         templateUrl: "menu-score18xx.html",
-        controller: function($scope) {
-            this.clickMenu = function(choice){
-                $scope.score18xxCtrl.paginaActiva = choice;
+        controller: function($scope, $location, AuthService, modalService) {
+            this.logout = function() {
+                var modalOptions = {
+                    closeButtonText: 'Cancelar',
+                    actionButtonText: 'Continuar',
+                    showCloseButton: true,
+                    headerText: 'Salir de la aplicación',
+                    bodyText: 'El usuario ' + $scope.score18xxCtrl.user.name + ' va a salir de la aplicación, ¿desea continuar?'
+                };
+
+                modalService.showModal({}, modalOptions)
+                    .then(function () {
+                        AuthService.logout();
+                        $location.path('/login').replace();
+                    });                
             };
         },
-        controllerAs: "menu"
+        controllerAs: "menu"        
     };
 });
 
@@ -98,6 +111,7 @@ directivas.directive("tabAccionesValor",  function() {
                     var modalOptions = {
                         closeButtonText: 'Cancelar',
                         actionButtonText: 'Continuar',
+                        showCloseButton: true,
                         headerText: 'Eliminar ' + $scope.score18xxCtrl.partida.empresas[indice].nombre,
                         bodyText: 'Va a eliminar una empresa que tiene información, ¿desea continuar?'
                     };

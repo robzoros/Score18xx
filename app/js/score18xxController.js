@@ -3,8 +3,8 @@
 var score18xxControllers = angular.module('score18xxControllers', ['ui.bootstrap']);
 
 score18xxControllers.controller('score18xxController', ['$uibModal', function($uibModal) {
-    this.paginaActiva = "Comienzo";
-
+    this.user = {};
+    
     this.open = function () {
 
         var modalInstance = $uibModal.open({
@@ -27,7 +27,8 @@ score18xxControllers.controller('score18xxController', ['$uibModal', function($u
 
 // Modal para calcular dividendos
 score18xxControllers.controller ('dividendosController', [ '$scope', '$uibModalInstance', function ($scope, $uibModalInstance) {
-
+    this.mul10 = true;
+    
     $scope.ok = function () {
         $uibModalInstance.close();
     };
@@ -37,8 +38,7 @@ score18xxControllers.controller ('dividendosController', [ '$scope', '$uibModalI
     };
     
     $scope.getDividendos = function(div) {
-        console.log('Dividendos');
-        console.log($scope.$id);
+
         $scope.divCtrl.listaDividendos = [];
         
         $scope.divCtrl.mul10 = !((div % 10) > 0);
@@ -51,8 +51,6 @@ score18xxControllers.controller ('dividendosController', [ '$scope', '$uibModalI
         
     };
 
-    this.mul10 = true;
-    
 }]);
 
 

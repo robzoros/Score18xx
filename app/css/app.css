@@ -24,6 +24,13 @@ th {
     margin-top: 20px;
 }
 
+.margen-top-10 {
+    margin-top: 10px;
+}
+
+.margen-bottom-20 {
+    margin-bottom: 20px;
+}
 .total{
     font-weight: bold;
     background-color: #fef3cb;
@@ -308,3 +315,83 @@ rect:hover {  fill:blue; }
     align:right;
     width:50px;
 }
+
+.user-avatar {
+    height: 75px;
+}
+
+.login-background {
+    position: fixed;
+    background-image: url("../img/1830-20120303-1939-0004.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.login-page{
+    width: 360px;
+    padding: 20px;
+    background: #e7973c;
+    border-radius: 10px;
+    text-align:center;
+    margin: 10% auto;
+    border: 5px solid rgba(255, 226, 145, .6);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+
+.angular-centered {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.login-page h1{font-weight:300}
+.login-page h1 small{color:rgba(255,255,255,.7)}
+.login-page .form-group{padding:0}
+.login-page .form-content{padding:30px 0}
+.input-underline{background:0 0;border:none;box-shadow:none;border-bottom:2px solid rgba(255,255,255,.4);color:#fff;border-radius:0}
+.input-underline::-moz-placeholder{color:rgba(255,255,255,.7)}
+.input-underline::-ms-input-placeholder{color:rgba(255,255,255,.7)}
+.input-underline::-webkit-input-placeholder{color:rgba(255,255,255,.7)}
+.input-underline:focus{border-bottom:2px solid #fff;box-shadow:none}
+.btn-outline{background:0 0;border-color:transparent;font-weight:400}
+.btn-outline:hover{background:0 0;border-color:transparent}
+.btn-outline.btn-white{box-shadow:0 0 0 2px rgba(255,255,255,.8)inset;color:rgba(255,255,255,.8)}
+.btn-outline.btn-white:hover{box-shadow:0 0 0 2px #fff inset;color:#fff}
+.btn-outline.btn-primary{box-shadow:0 0 0 2px #2089c9 inset;color:#2089c9}
+.btn-outline.btn-primary:hover{box-shadow:0 0 0 2px #3ca2e0 inset;color:#3ca2e0}
+.btn-outline.btn-success{box-shadow:0 0 0 2px #449d44 inset;color:#449d44}
+.btn-outline.btn-success:hover{box-shadow:0 0 0 2px #5cb85c inset;color:#5cb85c}
+.btn-outline.btn-info{box-shadow:0 0 0 2px #31b0d5 inset;color:#31b0d5}
+.btn-outline.btn-info:hover{box-shadow:0 0 0 2px #5bc0de inset;color:#5bc0de}
+.btn-outline.btn-warning{box-shadow:0 0 0 2px #ec971f inset;color:#ec971f}
+.btn-outline.btn-warning:hover{box-shadow:0 0 0 2px #f0ad4e inset;color:#f0ad4e}
+.btn-outline.btn-danger{box-shadow:0 0 0 2px #c9302c inset;color:#c9302c}
+.btn-outline.btn-danger:hover{box-shadow:0 0 0 2px #d9534f inset;color:#d9534f}
+.btn-rounded{border-radius:50px}
+.btn-lg,.btn-group-lg>.btn{padding:10px 16px;font-size:18px;line-height:1.3333333;border-radius:6px}
+.btn-sm,.btn-group-sm>.btn{padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px}
+.btn-xs,.btn-group-xs>.btn{padding:1px 5px;font-size:12px;line-height:1.5;border-radius:3px}
+.form-control{}@media screen and (-webkit-min-device-pixel-ratio:0){
+	input[type="date"],input[type="time"],input[type="datetime-local"],input[type="month"]{line-height:34px}input[type="date"].input-sm,input[type="time"].input-sm,input[type="datetime-local"].input-sm,input[type="month"].input-sm,.input-group-sm input[type="date"],.input-group-sm input[type="time"],.input-group-sm input[type="datetime-local"],.input-group-sm input[type="month"]{line-height:30px}input[type="date"]
+	.input-lg,input[type="time"]
+	.input-lg,input[type="datetime-local"]
+	.input-lg,input[type="month"]
+	.input-lg,.input-group-lg input[type="date"],
+	.input-group-lg input[type="time"],
+	.input-group-lg input[type="datetime-local"],.input-group-lg input[type="month"]{line-height:46px}
+}
+.form-group{margin-bottom:15px}
+
+.form-control.input-underline.input-lg:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px #e7973c inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #fff;
+}
+
+.form-control.input-underline.input-lg:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px #e7973c inset;
+    -webkit-text-fill-color: #fff;
+} 
+

@@ -1,9 +1,10 @@
-var listaJuegosCtrl = angular.module('ListaJuegosController', []);
+var listaJuegosCtrl = angular.module('ListaJuegosController', ['constantes']);
 
-listaJuegosCtrl.controller('ListaJuegosCtrl', ['$scope', '$http', function($scope, $http) {
+listaJuegosCtrl.controller('ListaJuegosCtrl', ['$scope', '$http', 'API_ENDPOINT', function($scope, $http, API_ENDPOINT) {
+    $scope.score18xxCtrl.mostrarMenu = true;
     
     this.borrarJuego = function(id){
-      $http.delete('http://localhost:3000/api/juego/' + id)
+      $http.delete(API_ENDPOINT.url + 'juego/' + id)
         .then(function(response){
             console.log(response);
             $scope.juegos.getJuegos();
@@ -17,7 +18,7 @@ listaJuegosCtrl.controller('ListaJuegosCtrl', ['$scope', '$http', function($scop
     // Función que carga las juegos
     this.getJuegos = function() {
       
-      $http.get('http://localhost:3000/api/juegos')
+      $http.get(API_ENDPOINT.url + 'juegos')
         .then(function(response){
             console.log(response);
             $scope.juegos.juegos = response.data;

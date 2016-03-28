@@ -10,12 +10,31 @@ var score18xx = angular.module('score18xx', [
   'ListaPartidasController',
   'ListaJuegosController',
   'NuevoJuegoController',
+  'LoginController',
   'score18xxFactory',
-  'ServicioModal'
+  'ServicioModal',
+  'AuthServiceModule',
+  'constantes'
 ]);
 
-score18xx.config(['$routeProvider',
-  function($routeProvider) {
+score18xx.service('APIInterceptor', ['$rootScope', 'API_ENDPOINT', function($rootScope, API_ENDPOINT) {
+    var service = this;
+
+    service.request = function(request) {
+        if (request.url.indexOf(API_ENDPOINT.url) > -1) {
+            if ($rootScope.access_token) {
+                request.headers.authorization = $rootScope.access_token;
+            }
+        }
+        return request;
+    };
+
+    service.response = function(response) {
+        return response;
+    };
+}]);
+
+score18xx.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider.
       when('/nueva', {
         templateUrl: 'nueva-partida.html',
@@ -41,12 +60,14 @@ score18xx.config(['$routeProvider',
         controller: 'ListaJuegosCtrl',
         controllerAs: 'juegos'
       }).
-      when('/login', {
+      when('/login/:reg?', {
         templateUrl: 'login.html',
-        controller: 'loginCtrl',
-        controllerAs: 'login'
+        controller: 'LoginCtrl',
+        controllerAs: 'logCtrl'
       }).
       otherwise({
-        redirectTo: ''
+        redirectTo: '/login'
       });
+    
+    $httpProvider.interceptors.push('APIInterceptor');
   }]);

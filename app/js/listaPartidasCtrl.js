@@ -1,9 +1,10 @@
-var listaPartidasCtrl = angular.module('ListaPartidasController', []);
+var listaPartidasCtrl = angular.module('ListaPartidasController', ['constantes']);
 
-listaPartidasCtrl.controller('ListaPartidasCtrl', ['$scope', '$http', function($scope, $http) {
-    
+listaPartidasCtrl.controller('ListaPartidasCtrl', ['$scope', '$http', 'API_ENDPOINT', function($scope, $http, API_ENDPOINT) {
+    $scope.score18xxCtrl.mostrarMenu = true;
+
     this.borrarPartida = function(id){
-      $http.delete('http://localhost:3000/api/partida/' + id)
+      $http.delete(API_ENDPOINT.url +'partida/' + id)
         .then(function(response){
             $scope.lista.getPartidas();
         },
@@ -15,7 +16,7 @@ listaPartidasCtrl.controller('ListaPartidasCtrl', ['$scope', '$http', function($
     // Función que carga las partidas
     this.getPartidas = function() {
       
-      $http.get('http://localhost:3000/api/lista')
+      $http.get(API_ENDPOINT.url +'lista')
         .then(function(response){
             $scope.lista.partidas = response.data;
         },
