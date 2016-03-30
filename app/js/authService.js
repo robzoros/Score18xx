@@ -48,10 +48,13 @@ authService.service('AuthService', ['$q', '$http', 'API_ENDPOINT', '$rootScope',
         } else {
             reject(result.data.msg);
         }
+      },
+      function(err){
+          console.log('Login Err: ');
+          console.log(err);
       });
     });
-  };
- 
+  }
   var logout = function() {
     destroyUserCredentials();
   };

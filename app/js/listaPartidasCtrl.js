@@ -1,6 +1,6 @@
 var listaPartidasCtrl = angular.module('ListaPartidasController', ['constantes']);
 
-listaPartidasCtrl.controller('ListaPartidasCtrl', ['$scope', '$http', 'API_ENDPOINT', function($scope, $http, API_ENDPOINT) {
+listaPartidasCtrl.controller('ListaPartidasCtrl', ['$scope', '$http', '$anchorScroll', 'API_ENDPOINT', function($scope, $http, $anchorScroll, API_ENDPOINT) {
     $scope.score18xxCtrl.mostrarMenu = true;
 
     this.borrarPartida = function(id){
@@ -27,4 +27,5 @@ listaPartidasCtrl.controller('ListaPartidasCtrl', ['$scope', '$http', 'API_ENDPO
     
     // Llamada a la función
     this.getPartidas();
+    $anchorScroll();
 }]);

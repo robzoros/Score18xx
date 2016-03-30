@@ -1,6 +1,6 @@
 var listaJuegosCtrl = angular.module('ListaJuegosController', ['constantes']);
 
-listaJuegosCtrl.controller('ListaJuegosCtrl', ['$scope', '$http', 'API_ENDPOINT', function($scope, $http, API_ENDPOINT) {
+listaJuegosCtrl.controller('ListaJuegosCtrl', ['$scope', '$http', '$anchorScroll', 'API_ENDPOINT', function($scope, $http, $anchorScroll, API_ENDPOINT) {
     $scope.score18xxCtrl.mostrarMenu = true;
     
     this.borrarJuego = function(id){
@@ -31,5 +31,7 @@ listaJuegosCtrl.controller('ListaJuegosCtrl', ['$scope', '$http', 'API_ENDPOINT'
     
     // Llamada a la función
     this.getJuegos();
+    $anchorScroll();
+    
 }]);
 

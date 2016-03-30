@@ -27,6 +27,7 @@ directivas.directive("menuNav", function() {
                 modalService.showModal({}, modalOptions)
                     .then(function () {
                         AuthService.logout();
+                        $scope.score18xxCtrl.user = {};
                         $location.path('/login').replace();
                     });                
             };

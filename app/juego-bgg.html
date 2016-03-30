@@ -5,17 +5,17 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
             <div class="panel-body">
-                <p ng-show="score18xxCtrl.partida">Partida jugada entre {{score18xxCtrl.partida.jugadores.numero}} jugadores a <a href="{{'http://www.boardgamegeek.com/boardgame/' + score18xxCtrl.partida.juego._id}}">{{score18xxCtrl.partida.juego.description}}</a> el día  <b>{{score18xxCtrl.partida.fecha | date: 'dd-MMM-yyyy'}}</b> en <b>{{score18xxCtrl.partida.loc}}</b></p>
+                <p ng-show="score18xxCtrl.partida">Partida jugada entre {{score18xxCtrl.partida.jugadores.numero}} jugadores a <a href="{{score18xxCtrl.linkbgg(score18xxCtrl.bggJuego._id)}}">{{score18xxCtrl.partida.juego.description}}</a> el día  <b>{{score18xxCtrl.partida.fecha | date: 'dd-MMM-yyyy'}}</b> en <b>{{score18xxCtrl.partida.loc}}</b></p>
             </div>
             <div class="container-fluid">
                 <div class="alert alert-warning fade in" ng-hide="score18xxCtrl.bggJuego.family.length">
                     <a class="close" data-dismiss="alert">&times;</a>
                     <strong>¡Atención! </strong>El juego elegido no parece pertenecer a la familia de juegos 18xx.
                 </div> 
-                <a href="{{'http://www.boardgamegeek.com/boardgame/' + score18xxCtrl.bggJuego._id}}">
+                <a href="{{score18xxCtrl.linkbgg(score18xxCtrl.bggJuego._id)}}">
                     <img ng-src="{{score18xxCtrl.bggJuego.thumbnail}}" class="thumbnail bgg-img">
                 </a>
-                <h3><a href="{{'http://www.boardgamegeek.com/boardgame/' + score18xxCtrl.bggJuego._id}}">{{score18xxCtrl.bggJuego.name}}</a> <small>({{score18xxCtrl.bggJuego.yearpublished}})</small></h3>
+                <h3><a href="{{score18xxCtrl.linkbgg(score18xxCtrl.bggJuego._id)}}">{{score18xxCtrl.bggJuego.name}}</a> <small>({{score18xxCtrl.bggJuego.yearpublished}})</small></h3>
                 <div ng-bind-html="score18xxCtrl.bggJuego.description"></div>
                 <div class="outer-p">
                     <div class="inner-p" ng-show="score18xxCtrl.bggJuego.designer">

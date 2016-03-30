@@ -5,7 +5,7 @@
 
 <div class='container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12'>
     
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" ng-hide="tabs.soloResultado">
         <li ng-click="tabs.elegirTab(1)" role="presentation" class="active"><a id="tab1" href data-toggle="tab">Jugadores</a></li>
         <li ng-click="tabs.elegirTab(2)" role="presentation"><a id="tab2" href data-toggle="tab">Valor de acciones</a></li>
         <li ng-click="tabs.elegirTab(3)" role="presentation"><a id="tab3" href data-toggle="tab">Acciones por jugador</a></li>
@@ -30,7 +30,7 @@
         <tab-resultado product-specs ng-show="tabs.mostrarTab(5)"></tab-resultado>
         
         <!-- Botón Coninuar -->
-        <div class="row form-group">
+        <div class="row form-group" ng-hide="tabs.soloResultado">
             <div  class="col-xs-4 col-lg-1">
                 <label class="control-label"></label>
             </div>

@@ -188,6 +188,9 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: none;
 }
 
+.menuUsuario{
+    width: auto;
+}
 
 .navbar-default {
   background-color: #e7973c;
@@ -395,3 +398,14 @@ rect:hover {  fill:blue; }
     -webkit-text-fill-color: #fff;
 } 
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+  display: none !important;
+}
+
+.modal-open {
+    overflow-y: scroll;
+}
+
+.error-template {padding: 40px 15px;text-align: center;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }

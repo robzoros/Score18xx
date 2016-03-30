@@ -1,13 +1,13 @@
 var loginCtrl = angular.module('LoginController', ['ui.bootstrap', 'ServicioModal']);
 
-loginCtrl.controller('LoginCtrl', ['$scope', 'AuthService', 'modalService', '$location', '$routeParams', '$rootScope',
-    function($scope, AuthService, modalService, $location, $routeParams, $rootScope ) {
+loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$rootScope', 'AuthService', 'modalService', 'GENERAL',
+    function($scope, $location, $routeParams, $rootScope,  AuthService, modalService, GENERAL ) {
 
     this.cargarUsuario = function() {
         AuthService.userInfo().then(function(data) {
             $scope.score18xxCtrl.user.name = data.name;
             $scope.score18xxCtrl.user.rol = data.rol;
-            $location.path('/nueva').replace();
+            $location.path(GENERAL.entrada).replace();
         }), function(errMsg) {
             console.log(errMsg);
             this.inicio = true;

@@ -2,8 +2,19 @@
 
 var score18xxControllers = angular.module('score18xxControllers', ['ui.bootstrap']);
 
-score18xxControllers.controller('score18xxController', ['$uibModal', function($uibModal) {
-    this.user = {};
+score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', '$uibModal', 'AuthService', 'bggJuegoFactory'
+, function($scope, $rootScope, $uibModal, AuthService, bggJuegoFactory) {
+    if (!this.user) {
+        this.user = {};
+        if ($rootScope.token) {
+            AuthService.userInfo().then(function(data) {
+                $scope.score18xxCtrl.user.name = data.name;
+                $scope.score18xxCtrl.user.rol = data.rol;
+            }), function(errMsg) {
+                console.log(errMsg);
+            };
+        }
+    };
     
     this.open = function () {
 
@@ -23,6 +34,8 @@ score18xxControllers.controller('score18xxController', ['$uibModal', function($u
             console.log('Modal dismissed at: ' + new Date());
         });
     };
+    
+    this.linkbgg = bggJuegoFactory.linkbgg;
 }]);
 
 // Modal para calcular dividendos
@@ -53,5 +66,7 @@ score18xxControllers.controller ('dividendosController', [ '$scope', '$uibModalI
 
 }]);
 
-
+score18xxControllers.controller('ErrorCtrl', [ '$scope', function($scope) {
+    $scope.score18xxCtrl.mostrarMenu = false;
+}]);
 

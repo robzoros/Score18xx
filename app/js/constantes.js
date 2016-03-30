@@ -10,5 +10,10 @@ constantes.constant('API_ENDPOINT', {
 });
 
 constantes.constant('BGG_URL', {
-    url: 'http://www.boardgamegeek.com/boardgame/'
+    url: 'http://www.boardgamegeek.com/boardgame/',
+    api: '?url=http://www.boardgamegeek.com/xmlapi2/thing?id='
+});
+
+constantes.constant('GENERAL', {
+    entrada: '/nueva'
 });

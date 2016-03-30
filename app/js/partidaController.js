@@ -1,12 +1,13 @@
 var partidaController = angular.module('partidaController', ['directivas' , 'score18xxFactory', 'constantes']);
 
-partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams', 'bggJuegoFactory', 'API_ENDPOINT', function($scope, $http, $routeParams, bggJuegoFactory, API_ENDPOINT) {
+partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams', '$location', 'bggJuegoFactory', '$anchorScroll', 'API_ENDPOINT'
+, function($scope, $http, $routeParams, $location, bggJuegoFactory, $anchorScroll, API_ENDPOINT) {
     $scope.score18xxCtrl.dondeEstamos = "Partida";
     $scope.score18xxCtrl.tabActiva = 1;
     $scope.score18xxCtrl.mostrarMenu = true;
     
     // Rellenamos datos para mostrar resultado
-    this.dibujaPieChart = function() {
+    $scope.dibujaPieChart = function() {
         var part =  $scope.score18xxCtrl.partida;
         
         // Asignamos colores a cada jugador
@@ -52,13 +53,13 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
             data.push(elemento);            
         }
         
-        // Llamamos a JS que dobuja y controla pie chart
+        // Llamamos a JS que dibuja y controla pie chart
         dashboard('#dashboard', data, coloresJugadores);
 
     };
 
     this.elegirTab = function(choice){
-        if (choice === 5)this.dibujaPieChart();
+        if (choice === 5)$scope.dibujaPieChart();
 
         $scope.score18xxCtrl.tabActiva = choice;
         $('.nav-tabs a[id=tab'+choice+']').tab('show') ;
@@ -120,20 +121,29 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
             }
             if (! $scope.score18xxCtrl.partida.dividendos) $scope.score18xxCtrl.partida.dividendos = [] ;
             if ($scope.score18xxCtrl.partida.juego) {
-                console.log('ID:' + $scope.score18xxCtrl.partida.juego._id);
                 bggJuegoFactory.callbggJuegos($scope.score18xxCtrl.partida.juego._id)
                     .then(function(response){
-                        console.log(response.data.items.item);
                         $scope.score18xxCtrl.bggJuego = bggJuegoFactory.getbggDatos(response.data.items.item);
+                        if ($scope.tabs.soloResultado) $scope.dibujaPieChart();
+
                     },
                     function(err){
                         $scope.score18xxCtrl.bggJuego = err;
                         console.log(err);
                     });
             }
+            if ((! $scope.score18xxCtrl.user) || ($scope.score18xxCtrl.partida.usuario !== $scope.score18xxCtrl.user.name)) {
+                $scope.tabs.soloResultado = true;
+                $scope.score18xxCtrl.mostrarMenu = false;
+                $scope.score18xxCtrl.tabActiva = $scope.tabs.soloResultado ? 5 : $scope.score18xxCtrl.tabActiva
+            }
+            else $scope.tabs.soloResultado = false;
+
         },
         function(err){
-            $scope.score18xxCtrl.partida = err;
+            $scope.score18xxCtrl.error = err;
+            if (err.status === 404)
+                $location.path('/404').replace();
         });
     };
        
@@ -153,8 +163,10 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
     this.siguiente = function() {
        this.actualizaPartida();
        this.elegirTab(($scope.score18xxCtrl.tabActiva < 5) ? $scope.score18xxCtrl.tabActiva +1 : 1);
+       $anchorScroll();
    };
    
-    $scope.getPartida($routeParams.idPartida);
+    $scope.getPartida($routeParams.idPartida)
+    $anchorScroll();
     
 }]);

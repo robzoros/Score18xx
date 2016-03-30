@@ -37,8 +37,17 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href>{{score18xxCtrl.user.name}}</a></li>
-                <li ng-click="menu.logout()"><a href>salir</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" 
+                       data-toggle="dropdown" 
+                       role="button" 
+                       aria-haspopup="true" 
+                       aria-expanded="false">{{score18xxCtrl.user.name}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu menuUsuario">
+                        <li ng-click="menu.logout()"><a href>salir</a></li>
+                    </ul>
+                </li>
+                
             </ul>            
         </div> <!-- collapse navbar-collapse- -->
     </div><!-- .container-fluid -->

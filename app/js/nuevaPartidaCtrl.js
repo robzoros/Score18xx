@@ -1,7 +1,7 @@
 var moduloPartida = angular.module('NuevaPartidaController', ['score18xxFactory', 'constantes']);
 
-moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', 'bggJuegoFactory', 'API_ENDPOINT'
-, function($scope, $http, $location, bggJuegoFactory, API_ENDPOINT) {
+moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', 'bggJuegoFactory', '$anchorScroll', 'API_ENDPOINT'
+, function($scope, $http, $location, bggJuegoFactory, $anchorScroll, API_ENDPOINT) {
 
   var _selected;
 
@@ -190,5 +190,6 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
 
   $scope.getJuegos();
   $scope.validado = false;
+  $anchorScroll();
 }]);
 

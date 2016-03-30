@@ -1,7 +1,7 @@
 var nuevoJuegoCtrl = angular.module('NuevoJuegoController', ['score18xxFactory', 'constantes']);
 
-nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory', '$routeParams', 'API_ENDPOINT', 
-    function($scope, $http, bggJuegoFactory, $routeParams, API_ENDPOINT) {
+nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bggJuegoFactory', '$routeParams', '$anchorScroll', 'API_ENDPOINT', 
+    function($scope, $http, $location, bggJuegoFactory, $routeParams, $anchorScroll, API_ENDPOINT) {
 
     $scope.score18xxCtrl.mostrarMenu = true;
 
@@ -38,7 +38,6 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
                     $scope.nuevo.error = 'Ya existe un juego con ese identificador';
                 else
                     $scope.nuevo.error = err.data;
-                console.log(err);
         });        
     };
     
@@ -56,6 +55,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
             },
         function(err){
             $scope.nuevo.error = err.data;
+            $scope.score18xxCtrl.error = err;
             console.log(err);
         });   
     };
@@ -64,7 +64,6 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
         
         if (angular.isUndefined(this.juego._id) || this.juego._id === '') return;
         var id = this.juego._id;
-        console.log('ID:' + id);
         bggJuegoFactory.callbggJuegos(id)
         .then(function(response){
             if (response.data.items.item) {
@@ -72,12 +71,12 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
             }
             else {
                 $scope.score18xxCtrl.bggJuego = "";
-                console.log("NUEVOJUEGO-CALLBGGJUEGO. Juego con id " + id + "no encontrado");
+                console.log("NUEVOJUEGO-CALLBGGJUEGO. Juego con id " + id + " no encontrado");
                 $scope.nuevo.noencontrado = true;
             }
         },
         function(err){
-            $scope.score18xxCtrl.bggJuego = err;
+            $scope.score18xxCtrl.error = err;
             console.log(err);
         });
     };
@@ -90,6 +89,11 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
     },
         function(err){
             this.error = err;
+            $scope.score18xxCtrl.error = err;
+            console.log(err);
+            if (err.status === 404)
+                $location.path('/404').replace();
+            
         });     
     };
     
@@ -99,6 +103,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
             this.actualizaJuego();
         else
             this.addJuego();
+        $anchorScroll();
         
     };
     
@@ -123,5 +128,6 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', 'bggJuegoFactory'
         this.juego.companies = [];
         this.titulo = 'Añade un nuevo juego';
     }
+    $anchorScroll();
 
 }]);

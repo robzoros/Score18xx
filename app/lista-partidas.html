@@ -14,7 +14,7 @@
         <tbody>
             <tr ng-repeat="partida in lista.partidas track by $index">
                 <th><a href="{{'#/partida/' + partida._id}}">{{partida.nombre}}</a></th>
-                <td><a href="{{'http://www.boardgamegeek.com/boardgame/' + partida.juego._id}}">{{partida.juego.description}}</a></td>
+                <td><a href="{{'#/juego/' + partida.juego._id}}">{{partida.juego.description}}</a></td>
                 <td>{{partida.jugadores.numero}}</td>
                 <td>{{partida.fecha}}</td>
                 <td>{{partida.loc}}</td>

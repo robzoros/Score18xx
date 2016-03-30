@@ -60,6 +60,11 @@ score18xx.config(['$routeProvider', '$httpProvider', function($routeProvider, $h
         controller: 'ListaJuegosCtrl',
         controllerAs: 'juegos'
       }).
+    when('/404', {
+        templateUrl: '404.html',
+        controller: 'ErrorCtrl',
+        controllerAs: 'errCtrl'
+      }).
       when('/login/:reg?', {
         templateUrl: 'login.html',
         controller: 'LoginCtrl',
