@@ -236,3 +236,13 @@ directivas.directive("juegoBgg", function() {
         templateUrl: "juego-bgg.html"
     };
 });
+
+//directiva para ejecutar submit fuera de form con objeto linkado
+directivas.directive("linked",function(){
+    return function (scope, element, attrs) {
+        var id = attrs["linked"];
+        element.on("click",function(){
+            document.getElementById(id).click();
+        });
+    };
+});

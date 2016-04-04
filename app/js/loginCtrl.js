@@ -1,12 +1,12 @@
 var loginCtrl = angular.module('LoginController', ['ui.bootstrap', 'ServicioModal']);
 
-loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$rootScope', 'AuthService', 'modalService', 'GENERAL',
-    function($scope, $location, $routeParams, $rootScope,  AuthService, modalService, GENERAL ) {
+loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$rootScope', 'AuthService', 'modalService', 'GENERAL'
+, function($scope, $location, $routeParams, $rootScope,  AuthService, modalService, GENERAL ) {
 
     this.cargarUsuario = function() {
         AuthService.userInfo().then(function(data) {
             $scope.score18xxCtrl.user.name = data.name;
-            $scope.score18xxCtrl.user.rol = data.rol;
+            $scope.score18xxCtrl.user.rol = data.rol;   
             $location.path(GENERAL.entrada).replace();
         }), function(errMsg) {
             console.log(errMsg);
@@ -32,6 +32,7 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
     };
 
     this.registrar = function() {
+        if ($scope.loginform.confirmPassword.$error.validator) return;
         AuthService.register(this.user).then(function(msg) {
             var modalOptions = {
                 showCloseButton: false,
@@ -60,18 +61,48 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
         });
     };
     
+    this.reset = function() {
+        AuthService.reset(this.user).then(function(msg) {
+            var modalOptions = {
+                showCloseButton: false,
+                actionButtonText: 'Ok',
+                headerText: 'Contraseña creada',
+                bodyText: 'Se ha creado una nueva contraseña.<br\>Recibirá un correo electrónico con dicha clave.'
+            };
+
+            modalService.showModal({}, modalOptions)
+                .then(function () {
+            });
+            AuthService.logout();
+            $location.path('/login').replace();
+            
+        }, function(errMsg) {
+            var modalOptions = {
+                showCloseButton: false,
+                actionButtonText: 'Ok',
+                headerText: 'Error en cambio de contraseña',
+                bodyText: errMsg
+            };
+
+            modalService.showModal({}, modalOptions)
+                .then(function () {
+            }); 
+        });
+    };
+    
     //Código de inicio del controlador
     this.inicio = false;
     $scope.score18xxCtrl.mostrarMenu = false;
     
     if ($routeParams.reg) {
-        if ($routeParams.reg !== 'r') $location.path('/login/r').replace();
+        if (($routeParams.reg !== 'r') && ($routeParams.reg !== 's')) $location.path('/login/r').replace();
         this.inicio = true;
-        this.registro = true;
+        this.registro = $routeParams.reg;
     }
     else {
         
         if ($rootScope.access_token) {
+            console.log('Hay token en login');
             // Si ya tenemos token recogemos información del usuario y accedemos a inicio
             this.cargarUsuario();
         }
@@ -82,6 +113,6 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
             };        
             this.inicio = true;
         }
-        this.registro = false;
+        this.registro = 'login';
     };    
 }]);

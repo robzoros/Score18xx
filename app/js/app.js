@@ -11,10 +11,13 @@ var score18xx = angular.module('score18xx', [
   'ListaJuegosController',
   'NuevoJuegoController',
   'LoginController',
+  'InicioController',
   'score18xxFactory',
   'ServicioModal',
   'AuthServiceModule',
-  'constantes'
+  'constantes',
+  'ui.validate',
+  'chart.js'
 ]);
 
 score18xx.service('APIInterceptor', ['$rootScope', 'API_ENDPOINT', function($rootScope, API_ENDPOINT) {
@@ -60,7 +63,7 @@ score18xx.config(['$routeProvider', '$httpProvider', function($routeProvider, $h
         controller: 'ListaJuegosCtrl',
         controllerAs: 'juegos'
       }).
-    when('/404', {
+      when('/404', {
         templateUrl: '404.html',
         controller: 'ErrorCtrl',
         controllerAs: 'errCtrl'
@@ -69,6 +72,11 @@ score18xx.config(['$routeProvider', '$httpProvider', function($routeProvider, $h
         templateUrl: 'login.html',
         controller: 'LoginCtrl',
         controllerAs: 'logCtrl'
+      }).
+      when('/inicio', {
+        templateUrl: 'inicio.html',
+        controller: 'InicioCtrl',
+        controllerAs: 'iniCtrl'
       }).
       otherwise({
         redirectTo: '/login'

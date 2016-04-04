@@ -29,7 +29,7 @@
                        aria-haspopup="true" 
                        aria-expanded="false">Herramientas <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-hide="score18xxCtrl.user.rol==='Consulta'"><a href="#/juego">Nuevo juego</a></li>
+                        <li ng-show="score18xxCtrl.user.rol==='Administrador'"><a href="#/juego">Nuevo juego</a></li>
                         <li><a href="#/juegos">Listado de juegos</a></li>
                         <li class="divider"></li>
                         <li ng-click="score18xxCtrl.open()"><a href>Dividendos por Acción</a></li>
@@ -44,7 +44,10 @@
                        aria-haspopup="true" 
                        aria-expanded="false">{{score18xxCtrl.user.name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu menuUsuario">
-                        <li ng-click="menu.logout()"><a href>salir</a></li>
+                        <li><a href="{{'#' + score18xxCtrl.paginaInicio}}">Inicio</a></li>
+                        <li ng-click="score18xxCtrl.openCC()"><a href>Cambiar contraseña</a></li>
+                        <li class="divider"></li>
+                        <li ng-click="menu.logout()"><a href>Salir</a></li>
                     </ul>
                 </li>
                 

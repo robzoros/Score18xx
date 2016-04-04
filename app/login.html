@@ -3,24 +3,45 @@
         <div class="row outer-p">
             <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 margen-bottom-20">
                 <img src="img/Score18xxLogo2016.png" class="user-avatar" alt=""/>
-                <form role="form">
+                <form name="loginform" role="form" novalidate ng-submit="loginform.$valid && logCtrl.registrar()" ng-hide="logCtrl.registro === 'r'">
 
                     <div class="form-content">
                         <div class="form-group">
-                            <input type="text" class="form-control input-underline input-lg" id="usuario" ng-model="logCtrl.user.name" placeholder="Usuario">
+                            <input type="email" class="form-control input-underline input-lg" id="emails" ng-model="logCtrl.user.email" placeholder="email" ng-hide="logCtrl.registro === 'login'" required>
                         </div>
 
                         <div class="form-group">
-                            <input type="password" class="form-control input-underline input-lg" id="password" ng-model="logCtrl.user.password" placeholder="Password">
+                            <input type="text" class="form-control input-underline input-lg" id="usuario" ng-model="logCtrl.user.name" placeholder="Usuario" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control input-underline input-lg" id="password" ng-model="logCtrl.user.password" placeholder="Contraseña" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control input-underline input-lg" name="confirmPassword" placeholder="Confirma Contraseña" ng-hide="logCtrl.registro === 'login'" ng-model="logCtrl.confirmPassword" ui-validate=" '$value==logCtrl.user.password' " ui-validate-watch=" 'logCtrl.user.password'" required>
+                        </div>
+                        <span class="help-block" ng-show='loginform.confirmPassword.$error.validator && loginform.confirmPassword.$dirty'>Las contraseñas no son iguales</span>
+                    </div>
+
+                    <button class="btn btn-white btn-outline btn-lg btn-rounded" ng-hide="logCtrl.registro === 's'" ng-click="logCtrl.login()">Login</button>
+                    <button type="submit" class="btn btn-white btn-outline btn-lg btn-rounded" ng-hide="logCtrl.registro === 'login'">Regístrate</button>
+                </form>
+                <form role="form" ng-submit="logCtrl.reset()" ng-show="logCtrl.registro === 'r'">
+
+                    <div class="form-content">
+                        <div class="form-group">
+                            <input type="email" class="form-control input-underline input-lg" id="emailr" ng-model="logCtrl.user.email" placeholder="email" required>
                         </div>
                     </div>
 
-                    <button class="btn btn-white btn-outline btn-lg btn-rounded" ng-hide="logCtrl.registro" ng-click="logCtrl.login()">Login</button>
-                    <button class="btn btn-white btn-outline btn-lg btn-rounded" ng-show="logCtrl.registro" ng-click="logCtrl.registrar()">Regístrate</button>
+                    <button class="btn btn-white btn-outline btn-lg btn-rounded" type="submit">Pedir contraseña</button>
                 </form>
             </div>
         </div>
-        <p class="margen-top-10" ng-hide="logCtrl.registro">Puedes registrarte gratis <a href="#/login/r">aquí</a></p>
-        <p class="margen-top-10" ng-show="logCtrl.registro">Si ya eres usuario entra <a href="#/login">aquí</a></p>
+        <p ng-show="logCtrl.registro === 'r'">Se enviará un mensaje con la contraseña a tu correo electrónico</p>
+        <p class="margen-top-10" ng-hide="logCtrl.registro === 's'">Puedes registrarte gratis <a href="#/login/s">aquí</a></p>
+        <p class="margen-top-10" ng-hide="logCtrl.registro === 'login'">Si ya eres usuario entra <a href="#/login">aquí</a></p>
+        <p class="margen-top-10" ng-hide="logCtrl.registro === 'r'">¿Has olvidado tu contraseña? pulsa <a href="#/login/r">aquí</a></p>
     </div>
 </div>

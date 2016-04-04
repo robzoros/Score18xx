@@ -54,17 +54,19 @@ header {
 
 div#logo {
     display: block;
-    height: 150px;
+    height: 300px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -72px;
+    margin-bottom: 15px;
     border: solid #faa305;
-    margin-top: -20px;
     border-width: 1px;
     background-color: #ffebc8;
+    text-align: center;
 }
 
 #imgLogo {
-    padding-top: 10px;
+    margin-top: 45px;
 }
 
 .btn.btn-primary {
@@ -409,3 +411,5 @@ rect:hover {  fill:blue; }
 .error-template {padding: 40px 15px;text-align: center;}
 .error-actions {margin-top:15px;margin-bottom:15px;}
 .error-actions .btn { margin-right:10px; }
+
+.modal-me { width: 450px};

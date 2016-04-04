@@ -1,6 +1,6 @@
 var servicioModal = angular.module('ServicioModal', ['ui.bootstrap']);
 
-servicioModal.service('modalService', ['$uibModal', function ($uibModal) {
+servicioModal.service('modalService', ['$uibModal', '$sce', function ($uibModal, $sce) {
 
     var modalDefaults = {
         backdrop: true,
@@ -27,6 +27,9 @@ servicioModal.service('modalService', ['$uibModal', function ($uibModal) {
         //Create temp objects to work with since we're in a singleton service
         var tempModalDefaults = {};
         var tempModalOptions = {};
+
+        customModalOptions.bodyText = $sce.trustAsHtml(customModalOptions.bodyText);
+        console.log(customModalOptions.bodyText);
 
         //Map angular-ui modal custom defaults to modal defaults defined in service
         angular.extend(tempModalDefaults, modalDefaults, customModalDefaults);
