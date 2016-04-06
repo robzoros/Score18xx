@@ -93,6 +93,7 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
     //Código de inicio del controlador
     this.inicio = false;
     $scope.score18xxCtrl.mostrarMenu = false;
+    $scope.score18xxCtrl.mostrarFooter = false;
     
     if ($routeParams.reg) {
         if (($routeParams.reg !== 'r') && ($routeParams.reg !== 's')) $location.path('/login/r').replace();
@@ -102,7 +103,6 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
     else {
         
         if ($rootScope.access_token) {
-            console.log('Hay token en login');
             // Si ya tenemos token recogemos información del usuario y accedemos a inicio
             this.cargarUsuario();
         }

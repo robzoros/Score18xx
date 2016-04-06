@@ -52,7 +52,6 @@ score18xxFactory.factory('bggJuegoFactory', ['$http','$sce', 'API_ENDPOINT', 'BG
             juego.name = item.name[0]._value;
         else
             juego.name = item.name._value;
-        console.log(juego);
         return juego;
     };
     

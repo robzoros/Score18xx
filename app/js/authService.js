@@ -68,7 +68,6 @@ authService.service('AuthService', ['$q', '$http', 'API_ENDPOINT', '$rootScope',
     return $q(function(resolve, reject) {
       $http.get(API_ENDPOINT.url + 'userinfo').then(function(result) {
         if (result.data.success) {
-            console.log(result.data);
             resolve(result.data);
         } else {
             console.log(result.data);

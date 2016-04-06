@@ -4,6 +4,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
     function($scope, $http, $location, bggJuegoFactory, $routeParams, $anchorScroll, API_ENDPOINT) {
 
     $scope.score18xxCtrl.mostrarMenu = true;
+    $scope.score18xxCtrl.mostrarFooter = false;
 
     this.addEmpresa = function(empresa) {
         var indice = this.juego.companies.indexOf(empresa);

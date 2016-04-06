@@ -39,6 +39,7 @@
                 </form>
             </div>
         </div>
+        <p ng-show="logCtrl.registro === 's'"><a href ng-click="score18xxCtrl.terminosDeUso()">Términos de Uso</a></p>
         <p ng-show="logCtrl.registro === 'r'">Se enviará un mensaje con la contraseña a tu correo electrónico</p>
         <p class="margen-top-10" ng-hide="logCtrl.registro === 's'">Puedes registrarte gratis <a href="#/login/s">aquí</a></p>
         <p class="margen-top-10" ng-hide="logCtrl.registro === 'login'">Si ya eres usuario entra <a href="#/login">aquí</a></p>

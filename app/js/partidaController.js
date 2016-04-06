@@ -5,6 +5,7 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
     $scope.score18xxCtrl.dondeEstamos = "Partida";
     $scope.score18xxCtrl.tabActiva = 1;
     $scope.score18xxCtrl.mostrarMenu = true;
+    $scope.score18xxCtrl.mostrarFooter = false;
     
     // Rellenamos datos para mostrar resultado
     $scope.dibujaPieChart = function() {
@@ -59,7 +60,7 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
     };
 
     this.elegirTab = function(choice){
-        if (choice === 5)$scope.dibujaPieChart();
+        if (choice === 5) $scope.dibujaPieChart();
 
         $scope.score18xxCtrl.tabActiva = choice;
         $('.nav-tabs a[id=tab'+choice+']').tab('show') ;
@@ -151,7 +152,6 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
 
         $http.put( API_ENDPOINT.url + 'partida/' + $scope.score18xxCtrl.partida._id, $scope.score18xxCtrl.partida).
         then(function(response){
-            console.log(response.data);
         },
         function(err){
             $scope.score18xxCtrl.error = err;

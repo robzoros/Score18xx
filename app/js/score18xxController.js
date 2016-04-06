@@ -2,8 +2,8 @@
 
 var score18xxControllers = angular.module('score18xxControllers', ['ui.bootstrap']);
 
-score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', '$uibModal', 'AuthService', 'bggJuegoFactory', 'GENERAL'
-, function($scope, $rootScope, $uibModal, AuthService, bggJuegoFactory, GENERAL) {
+score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', '$location', '$uibModal', 'AuthService', 'bggJuegoFactory', 'GENERAL'
+, function($scope, $rootScope, $location, $uibModal, AuthService, bggJuegoFactory, GENERAL) {
 
     // recuperamos token e información de usuario si existe token
     this.iniciarUsuario = function() {
@@ -15,9 +15,11 @@ score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', 
                 console.log(errMsg);
             };
         }
+        else
+            $location.path('/login').replace();
     };
     
-    // Función para abrir ventana de calcular dividendos
+    // Modal calculo dividendos
     this.open = function () {
 
         var modalInstance = $uibModal.open({
@@ -37,7 +39,7 @@ score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', 
         });
     };
     
-    // Función para abrir ventana de cambio de password
+    // Modal cambio de password
     this.openCC = function () {
 
         var modalInstance = $uibModal.open({
@@ -54,6 +56,23 @@ score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', 
             console.log('Modal instance result: ' + new Date());
         }, function () {
             console.log('Modal dismissed at: ' + new Date());
+        });
+    };
+    
+    // Modal cambio de password
+    this.terminosDeUso = function () {
+
+        var modalInstance = $uibModal.open({
+            templateUrl: 'terminos-uso.html',
+            size: 'lg',
+            controller: 'termsOfUseController',
+            controllerAs: 'termsCtrl'
+        }, 
+        function () {
+        });
+        
+        modalInstance.result.then(function () {
+        }, function () {
         });
     };
     
@@ -92,7 +111,14 @@ score18xxControllers.controller ('dividendosController', [ '$scope', '$uibModalI
 
 }]);
 
-// Modal para calcular dividendos
+// Modal para términos de uso
+score18xxControllers.controller ('termsOfUseController', [ '$scope', '$uibModalInstance', function ($scope, $uibModalInstance) {
+    $scope.ok = function () {
+        $uibModalInstance.close();
+    };
+}]);
+
+// Modal para cambiar password
 score18xxControllers.controller ('cambiarPassController', [ '$scope', '$uibModalInstance', 'AuthService'
  , function ($scope, $uibModalInstance, AuthService) {
     $scope.passChanged = false;
@@ -132,5 +158,6 @@ score18xxControllers.controller ('cambiarPassController', [ '$scope', '$uibModal
 
 score18xxControllers.controller('ErrorCtrl', [ '$scope', function($scope) {
     $scope.score18xxCtrl.mostrarMenu = false;
+    $scope.score18xxCtrl.mostrarFooter = false;
 }]);
 

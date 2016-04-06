@@ -2,6 +2,8 @@ var listaPartidasCtrl = angular.module('ListaPartidasController', ['constantes']
 
 listaPartidasCtrl.controller('ListaPartidasCtrl', ['$scope', '$http', '$anchorScroll', 'API_ENDPOINT', function($scope, $http, $anchorScroll, API_ENDPOINT) {
     $scope.score18xxCtrl.mostrarMenu = true;
+    $scope.score18xxCtrl.mostrarFooter = false;
+
 
     this.borrarPartida = function(id){
       $http.delete(API_ENDPOINT.url +'partida/' + id)

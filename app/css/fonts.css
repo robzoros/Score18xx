@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'score18xx';
+    src:    url('fonts/score18xx.eot?vb5a2d');
+    src:    url('fonts/score18xx.eot?vb5a2d#iefix') format('embedded-opentype'),
+        url('fonts/score18xx.ttf?vb5a2d') format('truetype'),
+        url('fonts/score18xx.woff?vb5a2d') format('woff'),
+        url('fonts/score18xx.svg?vb5a2d#score18xx') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+i.icon-engineSteam, i.icon-hex18xx {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'score18xx' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-engineSteam:before {
+    content: "\e900";
+}
+.icon-hex18xx:before {
+    content: "\e901";
+}

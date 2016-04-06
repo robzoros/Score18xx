@@ -246,3 +246,11 @@ directivas.directive("linked",function(){
         });
     };
 });
+
+directivas.directive("piePagina", function() {
+    return {
+        scope: false,
+        restrict: "E",
+        templateUrl: "pie-pagina.html"
+    };
+});

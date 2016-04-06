@@ -10,6 +10,7 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
   $scope.numJugadores = 4;
   $scope.dondeEstamos = "Nueva Partida";
   $scope.score18xxCtrl.mostrarMenu = true;
+  $scope.score18xxCtrl.mostrarFooter = false;
   $scope.score18xxCtrl.bggJuego = undefined;
 
   $scope.ngValidarFecha = function() {

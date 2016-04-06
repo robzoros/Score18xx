@@ -17,7 +17,8 @@ var score18xx = angular.module('score18xx', [
   'AuthServiceModule',
   'constantes',
   'ui.validate',
-  'chart.js'
+  'chart.js',
+  '720kb.socialshare'
 ]);
 
 score18xx.service('APIInterceptor', ['$rootScope', 'API_ENDPOINT', function($rootScope, API_ENDPOINT) {
