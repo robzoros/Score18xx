@@ -29,13 +29,10 @@ score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', 
             controllerAs: 'divCtrl'
         }, 
         function () {
-            console.log('Modal dismissed at: ' + new Date());
         });
         
         modalInstance.result.then(function () {
-            console.log('Modal instance result: ' + new Date());
         }, function () {
-            console.log('Modal dismissed at: ' + new Date());
         });
     };
     
@@ -49,13 +46,10 @@ score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', 
             controllerAs: 'cpassCtrl'
         }, 
         function () {
-            console.log('Modal dismissed at: ' + new Date());
         });
         
         modalInstance.result.then(function () {
-            console.log('Modal instance result: ' + new Date());
         }, function () {
-            console.log('Modal dismissed at: ' + new Date());
         });
     };
     

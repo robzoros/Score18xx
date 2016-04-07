@@ -7,7 +7,6 @@ listaJuegosCtrl.controller('ListaJuegosCtrl', ['$scope', '$http', '$anchorScroll
     this.borrarJuego = function(id){
       $http.delete(API_ENDPOINT.url + 'juego/' + id)
         .then(function(response){
-            console.log(response);
             $scope.juegos.getJuegos();
         },
         function(err){
@@ -21,7 +20,6 @@ listaJuegosCtrl.controller('ListaJuegosCtrl', ['$scope', '$http', '$anchorScroll
       
       $http.get(API_ENDPOINT.url + 'juegos')
         .then(function(response){
-            console.log(response);
             $scope.juegos.juegos = response.data;
         },
         function(err){

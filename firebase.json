@@ -1,0 +1,9 @@
+{
+  "firebase": "score18xx",
+  "public": "app",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

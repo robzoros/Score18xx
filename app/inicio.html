@@ -1,0 +1,123 @@
+<div id="page-wrapper" class='container-fluid scroll-auto'>
+    <div class="row">
+        <div id="logo" class="col-lg-12"><img id="imgLogo" src="img/Score18xxLogo2016.png" alt="Score18XX"/></div>
+    </div>
+    <h1>Bienvenido a Score18xx, {{score18xxCtrl.user.name}}</h1>
+    <div class="container col-lg-9">
+        <!-- /.row -->
+        <div id="contenedor" class="row">
+            <div id="paneles" class="col-lg-4 col-md-6">
+                <div id="panelJuegos" class="panel panel-yellow col-lg-12">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa icon-engineSteam fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{iniCtrl.totalJuegos}}</div>
+                                <div>Juegos</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/juegos">
+                        <div class="panel-footer">
+                            <span class="pull-left">Detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div id="panelPartidas"  class="panel panel-red col-lg-12">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa icon-hex18xx fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{iniCtrl.totalPartidas}}</div>
+                                <div>Partidas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/lista">
+                        <div class="panel-footer">
+                            <span class="pull-left">Detalles</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div  id="panelUsuarios" class="panel panel-primary col-lg-12" >
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-users fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <span class="huge">{{iniCtrl.totalUsuarios}}</span>
+                                <div>Usuarios</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href ng-click="menu.logout()">
+                        <div class="panel-footer">
+                            <span class="pull-left">Salir</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-8" ng-show="data.length">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-pie-chart fa-fw"></i> Partidas por juego
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-custom btn-xs" style="width:110px" ng-click="legendLeftRight()">
+                                Leyenda {{iniCtrl.chartBottomRight}}
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="divPJ" class="panel-body">
+                        <canvas id="partidasJugador" class="chart chart-polar-area" chart-data="data" chart-labels="labels" chart-legend="true" >
+                        </canvas> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="col-lg-12" ng-show="data.length">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Media de jugadores por juego
+                </div>
+
+                <div id="divJJ" class="panel-body">
+                    <canvas id="jugadoresJuego" class="chart chart-bar" chart-data="media" chart-series="series" chart-labels="labels">
+                    </canvas> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    
+    <!-- Panel derecha -->
+    <div id="panelDerecha" class="col-lg-3 text-center">
+        <div>
+            <h3 class="margen-top-20">Crea una partida</h3>
+            <p>Pulsa en la imagen para comenzar con <b>Score18xx</b></p>
+            <a href="#nueva"><img class="img-responsive img-thumbnail" src="img/Nuevapartida.PNG" alt="Crea tu partida" /></a>
+        </div>
+        <div id="dividendos">
+            <h3 class="margen-top-20">Calcula dividendos</h3>
+            <p>Usa la herramienta de <b>Cálculo de dividendos</b></p>
+            <a href><img class="img-responsive img-thumbnail" src="img/CalcularDividendos.PNG" alt="Calcular Dividendos" ng-click="score18xxCtrl.open()"/></a>
+        </div>
+
+    </div>        
+
+</div>

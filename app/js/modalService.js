@@ -29,7 +29,6 @@ servicioModal.service('modalService', ['$uibModal', '$sce', function ($uibModal,
         var tempModalOptions = {};
 
         customModalOptions.bodyText = $sce.trustAsHtml(customModalOptions.bodyText);
-        console.log(customModalOptions.bodyText);
 
         //Map angular-ui modal custom defaults to modal defaults defined in service
         angular.extend(tempModalDefaults, modalDefaults, customModalDefaults);

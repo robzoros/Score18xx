@@ -6,6 +6,7 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
     $scope.score18xxCtrl.tabActiva = 1;
     $scope.score18xxCtrl.mostrarMenu = true;
     $scope.score18xxCtrl.mostrarFooter = false;
+    $scope.score18xxCtrl.url = $location.absUrl();
     
     // Rellenamos datos para mostrar resultado
     $scope.dibujaPieChart = function() {
@@ -155,7 +156,6 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
         },
         function(err){
             $scope.score18xxCtrl.error = err;
-            console.log("Se ha producido un error al actualizar");
             console.log(err);
         });
    };

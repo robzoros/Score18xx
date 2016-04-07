@@ -29,7 +29,6 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
 
         return $http.post(API_ENDPOINT.url + 'juego', params).
             then(function(response){
-                console.log(response);
                 $scope.nuevo.juegosalvado = true;
                 $scope.nuevo.editarNuevo = 'editar';
             },
@@ -44,13 +43,10 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
     
     this.actualizaJuego = function() {
         var params = this.juego;
-        console.log('ACTUALIZAJUEGO: ' + JSON.stringify(this.juego));
-        console.log('ACTUALIZAJUEGO: ' + JSON.stringify(params));
         $scope.nuevo.juegosalvado = false;
 
         return $http.put(API_ENDPOINT.url + 'juego/' + params._id, params).
             then(function(response){
-                console.log(response);
                 $scope.nuevo.editarNuevo = 'editar';
                 $scope.nuevo.juegosalvado = true;
             },
@@ -86,7 +82,6 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
       $http.get(API_ENDPOINT.url + 'juego/' + this.juego._id)
         .then(function(response){
             $scope.nuevo.juego = response.data;
-            console.log($scope.nuevo.juego);
     },
         function(err){
             this.error = err;
@@ -99,7 +94,6 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
     };
     
     this.saveJuego = function() {
-        console.log('SAVEJUEGO: ' + this.editarNuevo);
         if (this.editarNuevo === 'editar') 
             this.actualizaJuego();
         else
@@ -117,14 +111,12 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
     $scope.score18xxCtrl.bggJuego = null;
     if ($routeParams.idJuego) {
         this.editarNuevo = 'editar';
-        console.log($routeParams.idJuego);
         this.juego._id = $routeParams.idJuego;
         this.titulo = 'Datos del juego';
         this.getJuego();
         this.callbggJuego();
     }
     else {
-        console.log('Juego Nuevo');
         this.editarNuevo = 'nuevo';
         this.juego.companies = [];
         this.titulo = 'Añade un nuevo juego';

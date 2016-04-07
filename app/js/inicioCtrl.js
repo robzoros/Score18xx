@@ -1,8 +1,9 @@
 var inicioCtrl = angular.module('InicioController', []);
 
-inicioCtrl.controller('InicioCtrl', ['$scope', '$http', 'API_ENDPOINT', function($scope, $http, API_ENDPOINT) {
+inicioCtrl.controller('InicioCtrl', ['$scope', '$http', '$location', 'API_ENDPOINT', function($scope, $http, $location, API_ENDPOINT) {
     $scope.score18xxCtrl.mostrarMenu = false;
     $scope.score18xxCtrl.mostrarFooter = true;
+    $scope.score18xxCtrl.url = $location.absUrl();
     this.chartBottomRight = 'Derecha';
     this.funcionLlamada = false;
     
@@ -10,7 +11,12 @@ inicioCtrl.controller('InicioCtrl', ['$scope', '$http', 'API_ENDPOINT', function
     this.getTotalPartidas = function() {
         $http.get(API_ENDPOINT.url +'pcount')
         .then(function(response){
-            $scope.iniCtrl.totalPartidas = response.data[0].cuenta;
+            if (response.data[0]) 
+                $scope.iniCtrl.totalPartidas = response.data[0].cuenta;
+            else {
+                $scope.iniCtrl.totalPartidas = 0;
+                $scope.iniCtrl.reordenarPagina();
+            }
         },
         function(err){
             console.log(err);
@@ -56,7 +62,6 @@ inicioCtrl.controller('InicioCtrl', ['$scope', '$http', 'API_ENDPOINT', function
     this.getUsuarios = function() {
         $http.get(API_ENDPOINT.url +'ucount')
         .then(function(response){
-            console.log(response.data);
             $scope.iniCtrl.totalUsuarios = response.data[0].cuenta;
         },
         function(err){
@@ -108,6 +113,27 @@ inicioCtrl.controller('InicioCtrl', ['$scope', '$http', 'API_ENDPOINT', function
             $scope.iniCtrl.chartBottomRight = 'Derecha';
             $scope.legendBottom();
         }
+    };
+
+    this.reordenarPagina = function() {
+        var pd = document.getElementById('panelDerecha'),
+            div = document.getElementById('dividendos'),
+            cont = document.getElementById('contenedor').parentNode,
+            paneles = document.getElementById('paneles'),
+            panJ = document.getElementById('panelJuegos'),
+            panP = document.getElementById('panelPartidas'),
+            panU = document.getElementById('panelUsuarios');
+    
+        paneles.className = "col-lg-12 row";
+        panJ.className = "panel panel-yellow col-lg-3 col-lg-offset-1";
+        panP.className = "panel panel-red col-lg-3 col-lg-offset-1";
+        panU.className = "panel panel-primary col-lg-3 col-lg-offset-1";
+        
+        pd.className = "col-lg-4 col-lg-offset-2 text-center margen-top-20";
+        div.className = "col-lg-4 col-lg-offset-1 text-center margen-top-20";
+        cont.className="container col-lg-12";
+        cont.appendChild(pd);
+        cont.appendChild(div);
     };
 
     //Cargar datos

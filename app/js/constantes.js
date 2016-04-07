@@ -5,9 +5,9 @@ constantes.constant('AUTH_EVENTS', {
 });
  
 constantes.constant('API_ENDPOINT', {
-  url: 'https://score18xxapirest-zoroastro.rhcloud.com/api/',
-  proxy: 'https://score18xxapirest-zoroastro.rhcloud.com/proxy/'
-  //url: 'https://127.0.0.1:3000/api/',
+  //url: 'https://score18xxapirest-zoroastro.rhcloud.com/api/',
+  proxy: 'https://score18xxapirest-zoroastro.rhcloud.com/proxy/',
+  url: 'https://127.0.0.1:3000/api/',
   //proxy: 'https://127.0.0.1:3000/proxy/'
 });
 

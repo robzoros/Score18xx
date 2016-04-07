@@ -175,7 +175,6 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
     var id = $scope.juego._id;
     bggJuegoFactory.callbggJuegos(id)
     .then(function(response){
-        console.log(response.data.items.item);
         $scope.score18xxCtrl.bggJuego = bggJuegoFactory.getbggDatos(response.data.items.item);
     },
     function(err){
