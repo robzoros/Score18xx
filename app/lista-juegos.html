@@ -21,7 +21,7 @@
                             <a href="{{score18xxCtrl.linkbgg(juego._id)}}" class="btn btn-default" >
                                 <i class="glyphicon glyphicon-globe" title="Link a bgg"></i>
                             </a>
-                            <button type="button" class="btn btn-default" ng-click="juegos.borrarJuego(juego._id)" ng-hide="score18xxCtrl.user.rol==='Consulta'">
+                            <button type="button" class="btn btn-default" ng-click="juegos.borrarJuego(juego._id)" ng-show="(score18xxCtrl.user.rol === 'Administrador') || (score18xxCtrl.user.name === juego.usuario)">
                                 <i class="glyphicon glyphicon-trash" title="Borrar juego"></i>
                             </button>
                         </span>

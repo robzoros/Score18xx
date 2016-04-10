@@ -185,7 +185,7 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
   
   $scope.validarFormulario = function() {
     $scope.validado = true;
-    return $scope.juego._id && $scope.nombrePartida && !$scope.ngValidarFecha();
+    return $scope.juego && $scope.nombrePartida && !$scope.ngValidarFecha();
   };
 
   $scope.getJuegos();

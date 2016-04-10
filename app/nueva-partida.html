@@ -15,7 +15,7 @@
                            name="nombredePartida"
                            ng-model="nombrePartida"
                            placeholder="Nombre de la partida" >
-                    <span class="text-danger" ng-show="validado && !nombredePartida">El nombre de la partida es un campo obligatorio.</span>                    
+                    <span class="text-danger" ng-show="validado && (nombrePartida === '')">El nombre de la partida es un campo obligatorio.</span>                    
                 </div>        
             </div>
 

@@ -28,7 +28,10 @@ inicioCtrl.controller('InicioCtrl', ['$scope', '$http', '$location', 'API_ENDPOI
     this.getTotalJuegos = function() {
         $http.get(API_ENDPOINT.url +'jcount')
         .then(function(response){
-            $scope.iniCtrl.totalJuegos = response.data[0].cuenta;
+            if(response.data.length) 
+                $scope.iniCtrl.totalJuegos = response.data[0].cuenta;
+            else
+                $scope.iniCtrl.totalJuegos = 0;
         },
         function(err){
             console.log(err);

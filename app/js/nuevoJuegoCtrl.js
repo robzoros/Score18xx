@@ -23,6 +23,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
     };
     
     this.addJuego = function() {
+        this.juego.usuario = $scope.score18xxCtrl.user.name;
         var params = this.juego;
         $scope.nuevo.juegosalvado = false;
         $scope.nuevo.error = '';
@@ -82,6 +83,8 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
       $http.get(API_ENDPOINT.url + 'juego/' + this.juego._id)
         .then(function(response){
             $scope.nuevo.juego = response.data;
+            $scope.nuevo.modJuego = ( $scope.nuevo.juego.usuario === $scope.score18xxCtrl.user.name) || ($scope.score18xxCtrl.user.rol === 'Administrador');
+
     },
         function(err){
             this.error = err;
@@ -120,6 +123,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
         this.editarNuevo = 'nuevo';
         this.juego.companies = [];
         this.titulo = 'Añade un nuevo juego';
+        this.modJuego = true;
     }
     $anchorScroll();
 
