@@ -195,8 +195,9 @@ directivas.directive("tabResultado", function() {
         scope: false,
         restrict: "E",
         templateUrl: "tab-resultado.html",
-        controller: function($scope) {
+        controller: function($scope, gettextCatalog) {
             this.tabla = 'tabla';
+            this.textoShare =  gettextCatalog.getString('Partida jugada a') + ' ';
             this.total = function(j){
                 var valoracion = j.efectivo + j.dividendos;
                 

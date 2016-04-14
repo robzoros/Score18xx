@@ -76,6 +76,10 @@ score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', 
         var clase = 'flag-icon ' +  this.listaClasesIdiomas[this.listaIdiomas.indexOf(idioma)];
         document.getElementById('currentFlag').className = clase;
     };
+
+    this.textoJuego = function() {
+        return gettextCatalog.getString('Juego elegido');
+    };
     
     this.linkbgg = bggJuegoFactory.linkbgg;
     this.paginaInicio = GENERAL.entrada;

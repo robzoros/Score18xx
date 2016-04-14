@@ -1,0 +1,11 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: app/tab-resultado.html:76
+#: app/tab-resultado.html:85
+#: app/tab-resultado.html:104
+msgid "Partida jugada a "
+msgstr ""

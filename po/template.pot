@@ -88,6 +88,10 @@ msgstr ""
 msgid "Calcula Dividendos"
 msgstr ""
 
+#: app/calcular-dividendos.html:24
+msgid "Calcular"
+msgstr ""
+
 #: app/inicio.html:118
 msgid "Calcular Dividendos"
 msgstr ""
@@ -319,6 +323,10 @@ msgstr ""
 msgid "Juego de la serie"
 msgstr ""
 
+#: app/js/score18xxController.js:81
+msgid "Juego elegido"
+msgstr ""
+
 #: app/inicio.html:18
 msgid "Juegos"
 msgstr ""
@@ -488,6 +496,10 @@ msgstr ""
 msgid "Para su funcionamiento utiliza cookies para la conexión segura con el servidor."
 msgstr ""
 
+#: app/js/directivas.js:200
+msgid "Partida jugada a"
+msgstr ""
+
 #: app/juego-bgg.html:9
 msgid "Partida jugada entre {{score18xxCtrl.partida.jugadores.numero}} jugadores a <a href=\"{{score18xxCtrl.linkbgg(score18xxCtrl.bggJuego._id)}}\">{{score18xxCtrl.partida.juego.description}}</a> el día  <b>{{score18xxCtrl.partida.fecha | date: 'dd-MMM-yyyy'}}</b> en <b>{{score18xxCtrl.partida.loc}}</b>"
 msgstr ""
@@ -568,7 +580,7 @@ msgstr ""
 msgid "Se enviará un mensaje con la contraseña a tu correo electrónico"
 msgstr ""
 
-#: app/js/score18xxController.js:152
+#: app/js/score18xxController.js:157
 msgid "Se ha cambiado la contraseña correctamente."
 msgstr ""
 

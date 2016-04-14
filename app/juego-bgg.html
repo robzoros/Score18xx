@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-group">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <i class="fa icon-engineSteam fa-fw"></i> {{(score18xxCtrl.partida) ? score18xxCtrl.partida.nombre : ('Juego elegido' | translate)}}
+            <i class="fa icon-engineSteam fa-fw"></i> {{(score18xxCtrl.partida) ? score18xxCtrl.partida.nombre : score18xxCtrl.textoJuego()}}
             <a class="accordion-toggle" data-toggle="collapse" data-target="#collapseOne" href> </a>
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">

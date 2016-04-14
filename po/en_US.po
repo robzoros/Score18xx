@@ -96,6 +96,10 @@ msgstr "Get Dividends"
 msgid "Calcula Dividendos"
 msgstr "Get Dividends"
 
+#: app/calcular-dividendos.html:24
+msgid "Calcular"
+msgstr "Proceed"
+
 #: app/inicio.html:118
 msgid "Calcular Dividendos"
 msgstr "Get Dividends"
@@ -314,6 +318,10 @@ msgstr "Game"
 msgid "Juego de la serie"
 msgstr "18XX Game"
 
+#: app/js/score18xxController.js:81
+msgid "Juego elegido"
+msgstr "Game chosen"
+
 #: app/inicio.html:18
 msgid "Juegos"
 msgstr "Games"
@@ -487,6 +495,10 @@ msgid ""
 "servidor."
 msgstr "This site use cookies to a secure conexion with the server."
 
+#: app/js/directivas.js:200
+msgid "Partida jugada a"
+msgstr "Game played to"
+
 #: app/juego-bgg.html:9
 msgid ""
 "Partida jugada entre {{score18xxCtrl.partida.jugadores.numero}} jugadores a "
@@ -572,7 +584,7 @@ msgstr "Score18xx the web aplication to score your 18XX games played"
 msgid "Se enviará un mensaje con la contraseña a tu correo electrónico"
 msgstr "A message with you password has been sent you"
 
-#: app/js/score18xxController.js:152
+#: app/js/score18xxController.js:157
 msgid "Se ha cambiado la contraseña correctamente."
 msgstr "Pasword changed succesfully"
 
@@ -678,9 +690,6 @@ msgstr "Duplicated game identifier"
 
 #~ msgid " va a salir de la aplicación, ¿desea continuar?"
 #~ msgstr " is exitting the aplication. Are you sure?"
-
-#~ msgid "Juego elegido"
-#~ msgstr "Game chosen"
 
 #~ msgid "Partida jugada a "
 #~ msgstr "Game played: "
