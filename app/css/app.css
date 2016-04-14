@@ -12,6 +12,11 @@ h3{
     margin-top: 0;
 }
 
+.datosDivider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 thead{
     background-color: #ffebc8;
     border-top: solid #faa305 1px;
@@ -200,6 +205,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 .menuUsuario{
     width: auto;
+}
+
+.menuFlag{
+    width: 50px;
+    min-width: 50px;
 }
 
 .navbar-default {

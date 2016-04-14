@@ -4,19 +4,19 @@
         <!-- Alertas -->
         <div class="alert alert-info fade in col-xs-12 col-lg-12" ng-hide="nuevo.juego._id && nuevo.juego._name && nuevo.juego.description">
             <a class="close" data-dismiss="alert">&times;</a>
-            Recuerda que todos los campos son obligatorios
+            <span translate>Recuerda que todos los campos son obligatorios</span>
         </div> 
         <div class="alert alert-warning fade in col-xs-12 col-lg-12" ng-show="nuevo.noencontrado">
             <a class="close" ng-click="nuevo.noencontrado=false">&times;</a>
-            <strong>¡Atención!</strong> El juego introducido no está dado de alta en BGG.
+            <strong translate>¡Atención!</strong> <span translate>El juego introducido no está dado de alta en BGG.</span>
         </div>
         <div class="alert alert-danger fade in col-xs-12 col-lg-12" ng-show="nuevo.error">
             <a class="close" ng-click="nuevo.error=''">&times;</a>
-            <strong>¡Error!</strong> {{nuevo.error}}
+            <strong translate>¡Error!</strong> {{nuevo.error}}
         </div> 
         <div class="alert alert-success fade in col-xs-12 col-lg-12" ng-show="nuevo.juegosalvado">
             <a class="close" ng-click="nuevo.juegosalvado=false">&times;</a>
-            Se han salvado los datos del juego
+            <span translate>Se han salvado los datos del juego.</span>
         </div> 
         
         <!-- Formulario -->
@@ -25,7 +25,7 @@
             <!-- Identificador Bgg  -->
             <div class="row-fluid form-group" ng-show="(nuevo.editarNuevo === 'nuevo')">
                 <div class="col-xs-4 col-lg-4 text-right">
-                    <label for="idBgg" class="control-label">Identificador</label>
+                    <label for="idBgg" class="control-label" translate>Identificador</label>
                 </div>
                 <div class="col-xs-8 col-lg-8">
                     <input id="idBgg"
@@ -34,7 +34,7 @@
                         name="idBgg"
                         ng-blur="nuevo.callbggJuego()"
                         ng-model="nuevo.juego._id"
-                        placeholder="Identificador Bgg" 
+                        placeholder="{{'Identificador Bgg' |  translate}}" 
                         required >
                 </div>
             </div>
@@ -43,7 +43,7 @@
             <!-- Nombre corto -->
             <div class="row-fluid form-group">
                 <div class="col-xs-4 col-lg-4 text-right">
-                    <label for="shortname" class="control-label">Nombre Abreviado</label>
+                    <label for="shortname" class="control-label" translate>Nombre Abreviado</label>
                 </div>
                 <div class="col-xs-8 col-lg-8">
                     <input id="shortname"
@@ -51,7 +51,7 @@
                         type="text"
                         name="shortname"
                         ng-model="nuevo.juego._name"
-                        placeholder="Nombre corto" 
+                        placeholder="{{'Nombre corto' | translate }}" 
                         required >
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <!-- Nombre corto -->
             <div class="row-fluid form-group">
                 <div class="col-xs-4 col-lg-4 text-right">
-                    <label for="longname" class="control-label">Nombre largo</label>
+                    <label for="longname" class="control-label" translate>Nombre largo</label>
                 </div>
                 <div class="col-xs-8 col-lg-8">
                     <input id="longname"
@@ -67,7 +67,7 @@
                         type="text"
                         name="longname"
                         ng-model="nuevo.juego.description"
-                        placeholder="Nombre largo" 
+                        placeholder="{{'Nombre largo' |  translate}}" 
                         required >
                 </div>
             </div>    
@@ -75,17 +75,17 @@
             <!-- Añadir empresas -->
             <div class="row-fluid form-group"  ng-show="nuevo.modJuego" >
                 <div class="col-xs-4 col-lg-4 text-right">
-                    <label for="empresa" class="control-label">Añadir Empresa</label>
+                    <label for="empresa" class="control-label" translate>Añadir Empresa</label>
                 </div>
                 <div class="col-xs-8 col-lg-8">
                     <p class="input-group">
                         <input id="empresa" 
                                class="form-control" 
                                ng-model="nuevo.empresa" 
-                               placeholder="Empresa" >
+                               placeholder="{{'Empresa' | translate}}" >
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="nuevo.addEmpresa(nuevo.empresa)">
-                                <i class="glyphicon glyphicon-plus-sign" title="Añadir empresa"></i>
+                                <i class="glyphicon glyphicon-plus-sign" title="{{ 'Añadir empresa' | translate }}"></i>
                             </button>
                         </span>
                     </p>
@@ -96,12 +96,12 @@
                 <div class="col-xs-8 col-lg-8">
                     <div class="alert alert-danger fade in" ng-show="nuevo.alerta">
                         <a class="close" ng-click="nuevo.alerta=''">&times;</a>
-                        <strong>¡Cuidado!</strong> {{nuevo.alerta}}
+                        <strong translate>¡Cuidado!</strong> {{nuevo.alerta}}
                     </div>
                     <ul class="list-group" >
-                        <li class="list-group-item list-group-item-warning" ng-show="nuevo.juego.companies.length">Empresas</li>
+                        <li class="list-group-item list-group-item-warning" ng-show="nuevo.juego.companies.length" translate>Empresas</li>
                         <li class="list-group-item input-group" ng-repeat="emp in nuevo.juego.companies track by $index">{{emp}}
-                            <span ng-show="nuevo.modJuego" class="close" ng-click="nuevo.quitarEmpresa($index)" title="Quitar empresa">&times;</span>
+                            <span ng-show="nuevo.modJuego" class="close" ng-click="nuevo.quitarEmpresa($index)" title="{{'Quitar empresa' | translate}}">&times;</span>
                         </li>
                     </ul>
                 </div>
@@ -109,7 +109,7 @@
             <div class="row-fluid form-group">
                 <div class="col-xs-4 col-lg-4"></div>
                 <div class="col-xs-2 col-lg-1">
-                    <button ng-show="nuevo.modJuego" type="submit" class="btn btn-custom">Salvar</button>
+                    <button ng-show="nuevo.modJuego" type="submit" class="btn btn-custom" translate>Salvar</button>
                 </div>
             </div>
 

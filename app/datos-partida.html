@@ -1,16 +1,16 @@
 <div class='container-fluid col-xs-12 col-lg-10'>
-    <h1>Datos de la partida <i>{{score18xxCtrl.partida.nombre}}</i></h1>
+    <h1><span translate>Datos de la partida</span> <i>{{score18xxCtrl.partida.nombre}}</i></h1>
     <juego-bgg></juego-bgg>
 </div>
 
 <div class='container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12'>
     
     <ul class="nav nav-tabs" ng-hide="tabs.soloResultado">
-        <li ng-click="tabs.elegirTab(1)" role="presentation" class="active"><a id="tab1" href data-toggle="tab">Jugadores</a></li>
-        <li ng-click="tabs.elegirTab(2)" role="presentation"><a id="tab2" href data-toggle="tab">Valor de acciones</a></li>
-        <li ng-click="tabs.elegirTab(3)" role="presentation"><a id="tab3" href data-toggle="tab">Acciones por jugador</a></li>
-        <li ng-click="tabs.elegirTab(4)" role="presentation"><a id="tab4" href data-toggle="tab">Dividendos</a></li>
-        <li ng-click="tabs.elegirTab(5)" role="presentation"><a id="tab5" href data-toggle="tab">Resultado</a></li>
+        <li ng-click="tabs.elegirTab(1)" role="presentation" class="active"><a id="tab1" href data-toggle="tab" translate>Jugadores</a></li>
+        <li ng-click="tabs.elegirTab(2)" role="presentation"><a id="tab2" href data-toggle="tab" translate>Valor de acciones</a></li>
+        <li ng-click="tabs.elegirTab(3)" role="presentation"><a id="tab3" href data-toggle="tab" translate>Acciones por jugador</a></li>
+        <li ng-click="tabs.elegirTab(4)" role="presentation"><a id="tab4" href data-toggle="tab" translate>Dividendos</a></li>
+        <li ng-click="tabs.elegirTab(5)" role="presentation"><a id="tab5" href data-toggle="tab" translate>Resultado</a></li>
     </ul>
 
     <div class="form-horizontal" >
@@ -38,7 +38,7 @@
                 <button type="button" 
                         ng-show="tabs.mostrarBoton()"
                         class="btn btn-custom" 
-                        ng-click="tabs.siguiente()">Continuar ></button>
+                        ng-click="tabs.siguiente()"><span translate>Continuar</span> &gt;</button>
             </div>
         </div>  
     </div>

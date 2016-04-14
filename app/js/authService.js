@@ -109,6 +109,23 @@ authService.service('AuthService', ['$q', '$http', 'API_ENDPOINT', '$rootScope',
       });
     });
   };
+  
+var idioma = function(user) {
+    return $q(function(resolve, reject) {
+      $http.post(API_ENDPOINT.url + 'idioma', user).then(function(result) {
+        if (result.data.success) {
+            storeUserCredentials(result.data.token);
+            resolve(result.data);
+        } else {
+            reject(result.data.msg);
+        }
+      },
+      function(err){
+          console.log(err);
+          reject(err.data);
+      });
+    });
+  };
  
   loadUserCredentials();
  
@@ -119,6 +136,7 @@ authService.service('AuthService', ['$q', '$http', 'API_ENDPOINT', '$rootScope',
     userInfo: userInfo,
     reset: reset,
     cambiar: cambiar,
+    idioma: idioma,
     isAuthenticated: function() {return isAuthenticated;}
   };
 }]);

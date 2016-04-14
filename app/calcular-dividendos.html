@@ -1,22 +1,22 @@
 <div class="modal-content">
     <div class="modal-header">
-        <h1 class="modal-title">Calcula Dividendos</h1>
+        <h1 class="modal-title" translate>Calcula Dividendos</h1>
     </div>
     <div class="modal-body">
         <div class="form-horizontal" ng-cloak>
             <div class="alert alert-warning fade in col-xs-12 col-lg-10" ng-hide="divCtrl.mul10" ng-cloak>
                 <a class="close" ng-click="divCtrl.mul10=true">&times;</a>
-                <strong>¡Atención!</strong> El dividendo repartido no es múltiplo de 10.
+                <strong translate>¡Atención!</strong>  <span translate>El dividendo repartido no es múltiplo de 10.</span>
             </div>                
             <div class="row form-group">
                 <div class="col-xs-4 col-lg-3 text-right">
-                    <label class="control-label">Dividendos a repartir</label>
+                    <label class="control-label" translate>Dividendos a repartir</label>
                 </div>
                 <div class="col-xs-3 col-lg-6" >
                     <input class="form-control" 
                            type="number"
                            ng-model="divCtrl.dividendos"
-                           placeholder="Dividendos" 
+                           placeholder="{{ 'Dividendos' | translate }}" 
                            required >
 
                 </div>
@@ -31,8 +31,8 @@
             <table class="table table-striped ">
                 <thead>
                     <tr>
-                        <th class="text-center">Número de Acciones</th>
-                        <th class="text-center">Dividendos</th>
+                        <th class="text-center" translate>Número de Acciones</th>
+                        <th class="text-center" translate>Dividendos</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +45,6 @@
         </div>         
     </div>
     <div class="modal-footer">
-        <button class="btn btn-info" ng-click="ok()">Close</button>
+        <button class="btn btn-info" ng-click="ok()" translate>Cerrar</button>
     </div>
 </div>

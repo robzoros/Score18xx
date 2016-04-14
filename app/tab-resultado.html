@@ -1,12 +1,12 @@
 <script src="js/d3.min.js" type="text/javascript"></script>
 <script src="js/d3piechart.js" type="text/javascript"></script>
 <div  class='container-fluid'>
-    <h2>Resultado Final</h2>
+    <h2 translate>Resultado Final</h2>
     <div class="btn-group">
         <h4>Elige vista de resultados</h4>
-        <label class="btn btn-primary" ng-model="tabR.tabla" uib-btn-radio="'tabla'" >Tabla</label>
-        <label class="btn btn-primary" ng-model="tabR.tabla" uib-btn-radio="'paneles'" >Paneles</label>
-        <label class="btn btn-primary" ng-model="tabR.tabla" uib-btn-radio="'pie'" >Gráfico</label>
+        <label class="btn btn-primary" ng-model="tabR.tabla" uib-btn-radio="'tabla'" translate>Tabla</label>
+        <label class="btn btn-primary" ng-model="tabR.tabla" uib-btn-radio="'paneles'" translate>Paneles</label>
+        <label class="btn btn-primary" ng-model="tabR.tabla" uib-btn-radio="'pie'" translate>Gráfico</label>
     </div>
 </div>
 <div  class='container-fluid' ng-show="tabR.tabla === 'pie'">
@@ -18,7 +18,7 @@
         <!-- Títulos -->
         <thead>
             <tr>
-                <th>Empresa</th>
+                <th translate>Empresa</th>
                 <th ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{jug.nombre}}</th>
             </tr>
         </thead>
@@ -26,19 +26,19 @@
         <tbody>
             <!-- Resultado total-->
             <tr>
-                <th class="total">Total</th>
+                <th class="total" translate>Total</th>
                 <td class="total" ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{tabR.total(jug)|currency : '$' : 0}}</td>
             </tr>
 
             <!-- Efectivo -->
             <tr>
-                <th>Efectivo</th>
+                <th translate>Efectivo</th>
                 <td ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{jug.efectivo|currency : '$' : 0}}</td>
             </tr>
 
             <!-- Dividendos -->
             <tr>
-                <th>Dividendos</th>
+                <th translate>Dividendos</th>
                 <td ng-repeat="jug in score18xxCtrl.partida.jugadores.datos">{{jug.dividendos|currency : '$' : 0}}</td>
             </tr>
     
@@ -68,12 +68,12 @@
     </div>
 </div>
 <ul class="list-inline">
-    <li><h4>Comparte tu partida:</h4></li>
+    <li><h4 translate>Comparte tu partida:</h4></li>
     <li>
         <a href
            socialshare
            socialshare-provider="facebook"
-           socialshare-text="{{'Partida jugada a ' + score18xxCtrl.partida.juego._name }}"
+           socialshare-text="{{ ('Partida jugada a ' | translate) + score18xxCtrl.partida.juego._name }}"
            socialshare-url="{{score18xxCtrl.url}}">
             <i class="fa fa-fw fa-facebook-square fa-2x"></i>
         </a>
@@ -82,7 +82,7 @@
         <a href
            socialshare
            socialshare-provider="twitter"
-           socialshare-text="{{'Partida jugada a ' + score18xxCtrl.partida.juego._name }}"
+           socialshare-text="{{ ('Partida jugada a ' | translate) + score18xxCtrl.partida.juego._name }}"
            socialshare-hashtags="Score18xx"
            socialshare-url="{{score18xxCtrl.url}}">
             <i class="fa fa-fw fa-twitter-square fa-2x"></i>
@@ -101,7 +101,7 @@
         <a href
            socialshare
            socialshare-provider="linkedin"
-           socialshare-text="Partida jugada a {{score18xxCtrl.partida.juego._name}}"
+           socialshare-text="{{ ('Partida jugada a ' | translate) + score18xxCtrl.partida.juego._name }}"
            socialshare-url="{{score18xxCtrl.url}}">
             <i class="fa fa-fw fa-linkedin-square fa-2x"></i>
         </a>

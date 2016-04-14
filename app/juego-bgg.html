@@ -1,17 +1,17 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panel panel-group">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <i class="fa icon-engineSteam fa-fw"></i> {{(score18xxCtrl.partida) ? score18xxCtrl.partida.nombre : 'Juego elegido'}}
+            <i class="fa icon-engineSteam fa-fw"></i> {{(score18xxCtrl.partida) ? score18xxCtrl.partida.nombre : ('Juego elegido' | translate)}}
             <a class="accordion-toggle" data-toggle="collapse" data-target="#collapseOne" href> </a>
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
             <div class="panel-body">
-                <p ng-show="score18xxCtrl.partida">Partida jugada entre {{score18xxCtrl.partida.jugadores.numero}} jugadores a <a href="{{score18xxCtrl.linkbgg(score18xxCtrl.bggJuego._id)}}">{{score18xxCtrl.partida.juego.description}}</a> el día  <b>{{score18xxCtrl.partida.fecha | date: 'dd-MMM-yyyy'}}</b> en <b>{{score18xxCtrl.partida.loc}}</b></p>
+                <p ng-show="score18xxCtrl.partida" translate>Partida jugada entre {{score18xxCtrl.partida.jugadores.numero}} jugadores a <a href="{{score18xxCtrl.linkbgg(score18xxCtrl.bggJuego._id)}}">{{score18xxCtrl.partida.juego.description}}</a> el día  <b>{{score18xxCtrl.partida.fecha | date: 'dd-MMM-yyyy'}}</b> en <b>{{score18xxCtrl.partida.loc}}</b></p>
             </div>
             <div class="container-fluid">
                 <div class="alert alert-warning fade in" ng-hide="score18xxCtrl.bggJuego.family.length">
                     <a class="close" data-dismiss="alert">&times;</a>
-                    <strong>¡Atención! </strong>El juego elegido no parece pertenecer a la familia de juegos 18xx.
+                    <strong><span translate>¡Atención!</span> </strong><span translate>El juego elegido no parece pertenecer a la familia de juegos 18xx.</span>
                 </div> 
                 <a href="{{score18xxCtrl.linkbgg(score18xxCtrl.bggJuego._id)}}">
                     <img ng-src="{{score18xxCtrl.bggJuego.thumbnail}}" class="thumbnail bgg-img">
@@ -20,16 +20,16 @@
                 <div ng-bind-html="score18xxCtrl.bggJuego.description"></div>
                 <div class="outer-p">
                     <div class="inner-p" ng-show="score18xxCtrl.bggJuego.designer">
-                        <span class="label label-primary">Autor :</span> {{score18xxCtrl.bggJuego.designer}}
+                        <span class="label label-primary" translate>Autor :</span> {{score18xxCtrl.bggJuego.designer}}
                     </div>
                     <div class="inner-p" ng-show="score18xxCtrl.bggJuego.artist">
-                        <span class="label label-primary">Artista :</span> {{score18xxCtrl.bggJuego.artist}}
+                        <span class="label label-primary" translate>Artista :</span> {{score18xxCtrl.bggJuego.artist}}
                     </div>
                     <div class="inner-p" ng-show="score18xxCtrl.bggJuego.minplayers && score18xxCtrl.bggJuego.maxplayers">
-                        <span class="label label-primary">Jugadores :</span> De {{score18xxCtrl.bggJuego.minplayers}} a {{score18xxCtrl.bggJuego.maxplayers}}
+                        <span class="label label-primary" translate>Jugadores :</span> De {{score18xxCtrl.bggJuego.minplayers}} a {{score18xxCtrl.bggJuego.maxplayers}}
                     </div>
                     <div class="inner-p" ng-show="score18xxCtrl.bggJuego.playingtime">
-                        <span class="label label-primary">Tiempo de juego :</span> {{score18xxCtrl.bggJuego.playingtime}} minutos
+                        <span class="label label-primary" translate>Tiempo de juego :</span> {{score18xxCtrl.bggJuego.playingtime}} minutos
                     </div>
                 </div>
             </div>

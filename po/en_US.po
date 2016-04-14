@@ -1,0 +1,686 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/calcular-dividendos.html:9 app/juego-bgg.html:14 app/nuevo-juego.html:11
+#: app/usuario.html:36
+msgid "¡Atención!"
+msgstr "Note!"
+
+#: app/nuevo-juego.html:99
+msgid "¡Cuidado!"
+msgstr "Warning!"
+
+#: app/nuevo-juego.html:15
+msgid "¡Error!"
+msgstr "Error"
+
+#: app/404.html:8
+msgid "¡Ha ocurrido un error!"
+msgstr "Something went wrong!"
+
+#: app/cambiar-password.html:39
+msgid "¡Las contraseñas no coinciden!"
+msgstr "Passwords do not match!"
+
+#: app/login.html:46
+msgid ""
+"¿Has olvidado tu contraseña? pulsa <a href=\"#/login/r\" translate="
+"\"\">aquí</a>"
+msgstr ""
+"Forgot your password? click <a href=\"#/login/r\" translate=\"\">here</a>"
+
+#: app/datos-partida.html:11
+msgid "Acciones por jugador"
+msgstr "Shares by player"
+
+#: app/js/nuevoJuegoCtrl.js:125
+msgid "Añade un nuevo juego"
+msgstr "Add new game"
+
+#: app/tab-dividendos.html:54
+msgid "Añadir"
+msgstr "Add"
+
+#: app/nuevo-juego.html:88 app/tab-acciones-valor.html:18
+msgid "Añadir empresa"
+msgstr "Add Company"
+
+#: app/nuevo-juego.html:78
+msgid "Añadir Empresa"
+msgstr "Add Company"
+
+#: app/tab-acciones-valor.html:21
+msgid "Añadir todas las empresas"
+msgstr "Add all companies"
+
+#: app/login.html:46
+msgid "aquí"
+msgstr "here"
+
+#: app/juego-bgg.html:26
+msgid "Artista :"
+msgstr "Artist :"
+
+#: app/juego-bgg.html:23
+msgid "Autor :"
+msgstr "Author :"
+
+#: app/inicio.html:5
+msgid "Bienvenido a Score18xx, {{score18xxCtrl.user.name}}"
+msgstr "Welcome to Score18xx, {{score18xxCtrl.user.name}}"
+
+#: app/lista-juegos.html:25
+msgid "Borrar juego"
+msgstr "Remove game"
+
+#: app/lista-partidas.html:21
+msgid "Borrar partida"
+msgstr "Remove game played"
+
+#: app/inicio.html:116
+msgid "Calcula dividendos"
+msgstr "Get Dividends"
+
+#: app/calcular-dividendos.html:3
+msgid "Calcula Dividendos"
+msgstr "Get Dividends"
+
+#: app/inicio.html:118
+msgid "Calcular Dividendos"
+msgstr "Get Dividends"
+
+#: app/cambiar-password.html:47 app/menu-score18xx.html:71
+msgid "Cambiar contraseña"
+msgstr "Change password"
+
+#: app/cambiar-password.html:3
+msgid "Cambiar Contraseña"
+msgstr "Change Password"
+
+#: app/cambiar-password.html:41 app/cambiar-password.html:46
+#: app/js/directivas.js:113
+msgid "Cancelar"
+msgstr "Cancel"
+
+#: app/calcular-dividendos.html:48
+msgid "Cerrar"
+msgstr "Close"
+
+#: app/pie-pagina.html:11
+msgid "Comparte"
+msgstr "Share"
+
+#: app/tab-resultado.html:71
+msgid "Comparte tu partida:"
+msgstr "Share you play"
+
+#: app/login.html:22
+msgid "Confirma Contraseña"
+msgstr "Confirm Password"
+
+#: app/cambiar-password.html:35
+msgid "Confirmar nueva contraseña"
+msgstr "Confirm new password"
+
+#: app/pie-pagina.html:7
+msgid "Contacta"
+msgstr "Contact"
+
+#: app/datos-partida.html:41 app/js/directivas.js:114
+msgid "Continuar"
+msgstr "Next"
+
+#: app/login.html:18
+msgid "Contraseña"
+msgstr "Password"
+
+#: app/cambiar-password.html:19
+msgid "Contraseña actual"
+msgstr "Current password"
+
+#: app/js/loginCtrl.js:73
+msgid "Contraseña creada"
+msgstr "Password created"
+
+#: app/inicio.html:113
+msgid "Crea tu partida"
+msgstr "New Game Play"
+
+#: app/inicio.html:111
+msgid "Crea una partida"
+msgstr "New game play"
+
+#: app/nueva-partida.html:114
+msgid "Crear Partida"
+msgstr "Save"
+
+#: app/menu-score18xx.html:70
+msgid "Cuenta"
+msgstr "Profile"
+
+#: app/datos-partida.html:2
+msgid "Datos de la partida"
+msgstr "Game play data"
+
+#: app/js/nuevoJuegoCtrl.js:118
+msgid "Datos del juego"
+msgstr "Game data"
+
+#: app/inicio.html:24 app/inicio.html:45 app/inicio.html:66
+msgid "Detalles"
+msgstr "Details"
+
+#: app/calcular-dividendos.html:19 app/calcular-dividendos.html:35
+#: app/datos-partida.html:12 app/js/partidaController.js:40
+#: app/tab-resultado.html:41
+msgid "Dividendos"
+msgstr "Dividends"
+
+#: app/calcular-dividendos.html:13
+msgid "Dividendos a repartir"
+msgstr "Dividends to pay"
+
+#: app/menu-score18xx.html:41
+msgid "Dividendos por Acción"
+msgstr "Dividends per share"
+
+#: app/tab-dividendos.html:63
+msgid "Dividendos repartidos"
+msgstr "Dividends paid"
+
+#: app/lista-juegos.html:19
+msgid "Editar juego"
+msgstr "Edit Game"
+
+#: app/js/partidaController.js:29 app/tab-jugadores.html:12
+#: app/tab-jugadores.html:32 app/tab-resultado.html:35
+msgid "Efectivo"
+msgstr "Cash"
+
+#: app/usuario.html:19
+msgid "Eige Nuevo idioma:"
+msgstr "New language"
+
+#: app/calcular-dividendos.html:9
+msgid "El dividendo repartido no es múltiplo de 10."
+msgstr "Revenue is not multiple of 10"
+
+#: app/usuario.html:40
+msgid "El idioma se ha cambiado correctamente"
+msgstr "The language has been changed correctly"
+
+#: app/juego-bgg.html:14
+msgid "El juego elegido no parece pertenecer a la familia de juegos 18xx."
+msgstr "The game doesn't belong to 18xx family"
+
+#: app/nuevo-juego.html:11
+msgid "El juego introducido no está dado de alta en BGG."
+msgstr "The game doesn't exist in BGG"
+
+#: app/nueva-partida.html:18
+msgid "El nombre de la partida es un campo obligatorio."
+msgstr "The name of the game play is mandatory"
+
+#: app/nueva-partida.html:55
+msgid "El nombre del juego es un campo obligatorio."
+msgstr "The name of the game is mandatory"
+
+#: app/js/directivas.js:24
+msgid "El usuario"
+msgstr "The user"
+
+#: app/tab-acciones-valor.html:2
+msgid "Elegir empresas con valor"
+msgstr "Choose companies"
+
+#: app/js/directivas.js:116
+msgid "Eliminar"
+msgstr "Remove"
+
+#: app/nuevo-juego.html:85 app/tab-acciones-valor.html:14
+#: app/tab-acciones-valor.html:6 app/tab-dividendos.html:68
+#: app/tab-dividendos.html:8 app/tab-resultado.html:21
+msgid "Empresa"
+msgstr "Company"
+
+#: app/nuevo-juego.html:102
+msgid "Empresas"
+msgstr "Companies"
+
+#: app/js/loginCtrl.js:28
+msgid "Error de conexión"
+msgstr "Conexion error"
+
+#: app/js/loginCtrl.js:87
+msgid "Error en cambio de contraseña"
+msgstr "Password change failed"
+
+#: app/js/loginCtrl.js:58
+msgid "Error en registro de usuario"
+msgstr "User registry failed"
+
+#: app/lista-partidas.html:9
+msgid "Fecha"
+msgstr "Date"
+
+#: app/nueva-partida.html:83
+msgid "Fecha de Partida"
+msgstr "Date of Game Play"
+
+#: app/nueva-partida.html:86
+msgid "Formato de Fecha:"
+msgstr "Date Format"
+
+#: app/tab-resultado.html:9
+msgid "Gráfico"
+msgstr "Graphic"
+
+#: app/menu-score18xx.html:32
+msgid "Herramientas <span class=\"caret\"></span>"
+msgstr "Tools <span class=\"caret\"></span>"
+
+#: app/nuevo-juego.html:28
+msgid "Identificador"
+msgstr "Identifier"
+
+#: app/nuevo-juego.html:37
+msgid "Identificador Bgg"
+msgstr "Bgg Id"
+
+#: app/usuario.html:13
+msgid "Idioma:"
+msgstr "Language:"
+
+#: app/tab-dividendos.html:22 app/tab-dividendos.html:29
+msgid "Ingresos"
+msgstr "Revenues"
+
+#: app/lista-partidas.html:7
+msgid "Juego"
+msgstr "Game"
+
+#: app/nueva-partida.html:49
+msgid "Juego de la serie"
+msgstr "18XX Game"
+
+#: app/inicio.html:18
+msgid "Juegos"
+msgstr "Games"
+
+#: app/js/partidaController.js:100
+msgid "Jugador"
+msgstr "Player"
+
+#: app/tab-jugadores.html:17
+msgid "Jugador {{$index+1}}"
+msgstr "Player {{$index+1}}"
+
+#: app/datos-partida.html:9 app/tab-jugadores.html:2
+msgid "Jugadores"
+msgstr "Players"
+
+#: app/juego-bgg.html:29
+msgid "Jugadores :"
+msgstr "Players :"
+
+#: app/terminos-uso.html:8
+msgid ""
+"La aplicación sólo guarda como datos personales el nombre del usuario, la "
+"password que se almacena perfectamente encriptada y el correo eléctrónico\n"
+"            que sólo se utilizará en caso de olvido de contraseña. Si un "
+"usuario ha olvidado la contraseá podrá solicitar que se cree una nueva "
+"contraseña que \n"
+"            se recibirá por el correo electrónico previamnete informado."
+msgstr ""
+"User name, password - that is stored ecncrypted- and email -that only will "
+"be used in case of password reseted- are the only personal data stored by "
+"the aplication.\n"
+"If an user forgets his password, he could ask for a new password that will "
+"be sent by email."
+
+#: app/js/nuevoJuegoCtrl.js:13
+msgid "La empresa no puede ser un texto vacío"
+msgstr "Company can be an empty field"
+
+#: app/js/nuevoJuegoCtrl.js:21
+msgid "La empresa ya existe"
+msgstr "Duplicated Company"
+
+#: app/nueva-partida.html:104
+msgid "La fecha es errónea."
+msgstr "Wrong date"
+
+#: app/login.html:24
+msgid "Las contraseñas no son iguales"
+msgstr "Password are not equal"
+
+#: app/inicio.html:79
+msgid "Leyenda {{iniCtrl.chartBottomRight}}"
+msgstr "Legend {{iniCtrl.chartBottomRight}}"
+
+#: app/lista-juegos.html:22
+msgid "Link a bgg"
+msgstr "Bgg link"
+
+#: app/menu-score18xx.html:24
+msgid "Lista de partidas"
+msgstr "Game played list"
+
+#: app/lista-juegos.html:3 app/menu-score18xx.html:39
+msgid "Listado de juegos"
+msgstr "Game list"
+
+#: app/nueva-partida.html:62
+msgid "Localización"
+msgstr "Location"
+
+#: app/login.html:27
+msgid "Login"
+msgstr "Login"
+
+#: app/lista-partidas.html:10
+msgid "Lugar"
+msgstr "Place"
+
+#: app/nueva-partida.html:69
+msgid "Lugar de la partida"
+msgstr "Game Play Place"
+
+#: app/menu-score18xx.html:17
+msgid "Mantenimiento <span class=\"caret\"></span>"
+msgstr "Maintenance <span class=\"caret\"></span>"
+
+#: app/inicio.html:96
+msgid "Media de jugadores por juego"
+msgstr "Players by game avg."
+
+#: app/js/inicioCtrl.js:48
+msgid "Media Jugadores"
+msgstr "Number Player Avg"
+
+#: app/lista-partidas.html:8
+msgid "Nº de Jugadores"
+msgstr "Number of players"
+
+#: app/lista-juegos.html:8 app/lista-partidas.html:6
+msgid "Nombre"
+msgstr "Name"
+
+#: app/nuevo-juego.html:46
+msgid "Nombre Abreviado"
+msgstr "Short Name"
+
+#: app/lista-juegos.html:7 app/nuevo-juego.html:54
+msgid "Nombre corto"
+msgstr "Short name"
+
+#: app/nueva-partida.html:17
+msgid "Nombre de la partida"
+msgstr "Game play name"
+
+#: app/nueva-partida.html:9
+msgid "Nombre de la partida *"
+msgstr "Game play name *"
+
+#: app/nueva-partida.html:41
+msgid "Nombre del juego *"
+msgstr "Game name *"
+
+#: app/tab-jugadores.html:9
+msgid "Nombre del jugador"
+msgstr "Player Name"
+
+#: app/tab-acciones-valor.html:41
+msgid "Nombre empresa"
+msgstr "Company Name"
+
+#: app/tab-jugadores.html:23
+msgid "Nombre jugador"
+msgstr "Player Name"
+
+#: app/nuevo-juego.html:62 app/nuevo-juego.html:70
+msgid "Nombre largo"
+msgstr "Long Name"
+
+#: app/cambiar-password.html:27
+msgid "Nueva Contraseña"
+msgstr "New Password"
+
+#: app/menu-score18xx.html:23
+msgid "Nueva Partida"
+msgstr "New Game Play"
+
+#: app/menu-score18xx.html:38
+msgid "Nuevo juego"
+msgstr "New Game"
+
+#: app/calcular-dividendos.html:34
+msgid "Número de Acciones"
+msgstr "Number od Shares"
+
+#: app/tab-acciones-jugadores.html:2
+msgid "Número de acciones por jugador"
+msgstr "Shares per player"
+
+#: app/nueva-partida.html:25 app/nueva-partida.html:32
+msgid "Número de jugadores"
+msgstr "Number of players"
+
+#: app/tab-resultado.html:8
+msgid "Paneles"
+msgstr "Panels"
+
+#: app/terminos-uso.html:7
+msgid ""
+"Para su funcionamiento utiliza cookies para la conexión segura con el "
+"servidor."
+msgstr "This site use cookies to a secure conexion with the server."
+
+#: app/juego-bgg.html:9
+msgid ""
+"Partida jugada entre {{score18xxCtrl.partida.jugadores.numero}} jugadores a "
+"<a href=\"{{score18xxCtrl.linkbgg(score18xxCtrl.bggJuego."
+"_id)}}\">{{score18xxCtrl.partida.juego.description}}</a> el día  "
+"<b>{{score18xxCtrl.partida.fecha | date: 'dd-MMM-yyyy'}}</b> en "
+"<b>{{score18xxCtrl.partida.loc}}</b>"
+msgstr ""
+"Game played by {{score18xxCtrl.partida.jugadores.numero}} players to <a href="
+"\"{{score18xxCtrl.linkbgg(score18xxCtrl.bggJuego._id)}}\">{{score18xxCtrl."
+"partida.juego.description}}</a> on  <b>{{score18xxCtrl.partida.fecha | date: "
+"'dd-MMM-yyyy'}}</b> at <b>{{score18xxCtrl.partida.loc}}</b>"
+
+#: app/inicio.html:39
+msgid "Partidas"
+msgstr "Games played"
+
+#: app/inicio.html:77
+msgid "Partidas por juego"
+msgstr "Played games"
+
+#: app/login.html:38
+msgid "Pedir contraseña"
+msgstr "Ask password"
+
+#: app/login.html:44
+msgid "Puedes registrarte gratis <a href=\"#/login/s\">aquí</a>"
+msgstr "You can signup for free <a href=\"#/login/s\">here</a>"
+
+#: app/inicio.html:112
+msgid "Pulsa en la imagen para comenzar con <b>Score18xx</b>"
+msgstr "Click the image to start with <b>Score18xx</b>"
+
+#: app/tab-dividendos.html:77
+msgid "Quitar dividendo"
+msgstr "Remove Dividend"
+
+#: app/nuevo-juego.html:104 app/tab-acciones-valor.html:43
+msgid "Quitar empresa"
+msgstr "Remove Company"
+
+#: app/nuevo-juego.html:7
+msgid "Recuerda que todos los campos son obligatorios"
+msgstr "Remember that all fields are mandatory"
+
+#: app/login.html:28
+msgid "Regístrate"
+msgstr "Signup"
+
+#: app/tab-dividendos.html:36
+msgid "Repetir"
+msgstr "Repeat"
+
+#: app/datos-partida.html:13
+msgid "Resultado"
+msgstr "Result"
+
+#: app/tab-resultado.html:4
+msgid "Resultado Final"
+msgstr "Final Result"
+
+#: app/menu-score18xx.html:73
+msgid "Salir"
+msgstr "Exit"
+
+#: app/js/directivas.js:23
+msgid "Salir de la aplicación"
+msgstr "Exit of application"
+
+#: app/nuevo-juego.html:112 app/usuario.html:30
+msgid "Salvar"
+msgstr "Save"
+
+#: app/terminos-uso.html:6
+msgid "Score18xx es una aplicación web gratuita y de código abierto."
+msgstr "Score188xx is an open source and free web application"
+
+#: app/pie-pagina.html:17 app/pie-pagina.html:26 app/pie-pagina.html:45
+msgid "Score18xx la aplicación web para puntuar tus juegos de la serie 18XX"
+msgstr "Score18xx the web aplication to score your 18XX games played"
+
+#: app/login.html:43
+msgid "Se enviará un mensaje con la contraseña a tu correo electrónico"
+msgstr "A message with you password has been sent you"
+
+#: app/js/score18xxController.js:152
+msgid "Se ha cambiado la contraseña correctamente."
+msgstr "Pasword changed succesfully"
+
+#: app/js/loginCtrl.js:74
+msgid ""
+"Se ha creado una nueva contraseña.<br>Recibirá un correo electrónico con "
+"dicha clave."
+msgstr ""
+"A new password has been created.<br>You will receive an email with your "
+"password."
+
+#: app/js/loginCtrl.js:45
+msgid "Se ha registrado su usuario correctamente."
+msgstr "User registered succesfully"
+
+#: app/nuevo-juego.html:19
+msgid "Se han salvado los datos del juego."
+msgstr "Data game saved"
+
+#: app/terminos-uso.html:11
+msgid "Si decides utilizar Score18xx estás aceptando estos términos de uso."
+msgstr "If you use Score18XX you are accepting this terms of use."
+
+#: app/login.html:45
+msgid "Si ya eres usuario entra <a href=\"#/login\">aquí</a>"
+msgstr "Click <a href=\"#/login\">here</a> if you are an user"
+
+#: app/nueva-partida.html:75
+msgid "Sitio no encontrado"
+msgstr "Page not found"
+
+#: app/tab-resultado.html:7
+msgid "Tabla"
+msgstr "Table"
+
+#: app/terminos-uso.html:3
+msgid "Téminos de Uso"
+msgstr "Terms of Use"
+
+#: app/pie-pagina.html:54
+msgid "Términos de uso"
+msgstr "Terms of Use"
+
+#: app/login.html:42
+msgid "Términos de Uso"
+msgstr "Terms of Use"
+
+#: app/juego-bgg.html:32
+msgid "Tiempo de juego :"
+msgstr "Playing time :"
+
+#: app/tab-resultado.html:29
+msgid "Total"
+msgstr "Total"
+
+#: app/inicio.html:117
+msgid "Usa la herramienta de <b>Cálculo de dividendos</b>"
+msgstr "Use <b>Get Dividends</b> tool"
+
+#: app/login.html:14
+msgid "Usuario"
+msgstr "User"
+
+#: app/js/loginCtrl.js:44
+msgid "Usuario registrado"
+msgstr "User registered"
+
+#: app/inicio.html:60
+msgid "Usuarios"
+msgstr "Users"
+
+#: app/js/directivas.js:117
+msgid "Va a eliminar una empresa que tiene información, ¿desea continuar?"
+msgstr "You are going to remove a company with data. Are you sure?"
+
+#: app/js/directivas.js:24
+msgid "va a salir de la aplicación, ¿desea continuar?"
+msgstr "you will exit the application, do you want to continue?"
+
+#: app/datos-partida.html:10
+msgid "Valor de acciones"
+msgstr "Share value"
+
+#: app/404.html:11
+msgid "Volver a inicio"
+msgstr "Go Home"
+
+#: app/js/nuevoJuegoCtrl.js:39
+msgid "Ya existe un juego con ese identificador"
+msgstr "Duplicated game identifier"
+
+#~ msgid "Inicio"
+#~ msgstr "Home"
+
+#~ msgid "El usuario "
+#~ msgstr "The user "
+
+#~ msgid "Eliminar "
+#~ msgstr "Remove "
+
+#~ msgid "Jugador "
+#~ msgstr "Player "
+
+#~ msgid " va a salir de la aplicación, ¿desea continuar?"
+#~ msgstr " is exitting the aplication. Are you sure?"
+
+#~ msgid "Juego elegido"
+#~ msgstr "Game chosen"
+
+#~ msgid "Partida jugada a "
+#~ msgstr "Game played: "

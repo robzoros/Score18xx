@@ -18,10 +18,10 @@
                        data-toggle="dropdown" 
                        role="button" 
                        aria-haspopup="true" 
-                       aria-expanded="false">Mantenimiento <span class="caret"></span></a>
+                       aria-expanded="false" translate>Mantenimiento <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#/nueva">Nueva Partida</a></li>
-                        <li><a href="#/lista">Lista de partidas</a></li>
+                        <li><a href="#/nueva" translate>Nueva Partida</a></li>
+                        <li><a href="#/lista" translate>Lista de partidas</a></li>
                     </ul>
                 </li>
             </ul>
@@ -33,12 +33,12 @@
                        data-toggle="dropdown" 
                        role="button" 
                        aria-haspopup="true" 
-                       aria-expanded="false">Herramientas <span class="caret"></span></a>
+                       aria-expanded="false" translate>Herramientas <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#/juego">Nuevo juego</a></li>
-                        <li><a href="#/juegos">Listado de juegos</a></li>
+                        <li><a href="#/juego" translate>Nuevo juego</a></li>
+                        <li><a href="#/juegos" translate>Listado de juegos</a></li>
                         <li class="divider"></li>
-                        <li ng-click="score18xxCtrl.open()"><a href>Dividendos por Acción</a></li>
+                        <li ng-click="score18xxCtrl.open()"><a href translate>Dividendos por Acción</a></li>
                     </ul>
                 </li>
             </ul>
@@ -48,15 +48,31 @@
                        data-toggle="dropdown" 
                        role="button" 
                        aria-haspopup="true" 
-                       aria-expanded="false">{{score18xxCtrl.user.name}} <span class="caret"></span></a>
-                    <ul class="dropdown-menu menuUsuario">
-                        <li><a href="{{'#' + score18xxCtrl.paginaInicio}}">Inicio</a></li>
-                        <li ng-click="score18xxCtrl.openCC()"><a href>Cambiar contraseña</a></li>
-                        <li class="divider"></li>
-                        <li ng-click="menu.logout()"><a href>Salir</a></li>
+                       aria-expanded="false">
+                        <span id="currentFlag" class="flag-icon flag-icon-es"></span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu menuFlag">
+                        <li ng-repeat="lang in score18xxCtrl.listaIdiomas track by $index" class="menuFlag" ng-click="score18xxCtrl.cambiarIdioma(lang)" ng-hide="score18xxCtrl.idioma === lang">
+                            <a href><span class="flag-icon {{score18xxCtrl.listaClasesIdiomas[$index]}}"></span></a>
+                        </li>
                     </ul>
                 </li>
-                
+            </ul>            
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" 
+                       data-toggle="dropdown" 
+                       role="button" 
+                       aria-haspopup="true" 
+                       aria-expanded="false">{{score18xxCtrl.user.name}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu menuUsuario">
+                        <li><a href="#/usuario" translate>Cuenta</a></li>
+                        <li ng-click="score18xxCtrl.openCC()"><a href translate>Cambiar contraseña</a></li>
+                        <li class="divider"></li>
+                        <li ng-click="menu.logout()"><a href translate>Salir</a></li>
+                    </ul>
+                </li>
             </ul>            
         </div> <!-- collapse navbar-collapse- -->
     </div><!-- .container-fluid -->

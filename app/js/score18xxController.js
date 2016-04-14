@@ -2,8 +2,8 @@
 
 var score18xxControllers = angular.module('score18xxControllers', ['ui.bootstrap']);
 
-score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', '$location', '$uibModal', 'AuthService', 'bggJuegoFactory', 'GENERAL'
-, function($scope, $rootScope, $location, $uibModal, AuthService, bggJuegoFactory, GENERAL) {
+score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', '$location', '$uibModal', 'AuthService', 'bggJuegoFactory', 'GENERAL', 'gettextCatalog'
+, function($scope, $rootScope, $location, $uibModal, AuthService, bggJuegoFactory, GENERAL, gettextCatalog) {
 
     // recuperamos token e información de usuario si existe token
     this.iniciarUsuario = function() {
@@ -70,10 +70,20 @@ score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', 
         });
     };
     
+    this.cambiarIdioma = function(idioma){
+        gettextCatalog.setCurrentLanguage(idioma);
+        this.idioma = idioma;
+        var clase = 'flag-icon ' +  this.listaClasesIdiomas[this.listaIdiomas.indexOf(idioma)];
+        document.getElementById('currentFlag').className = clase;
+    };
+    
     this.linkbgg = bggJuegoFactory.linkbgg;
     this.paginaInicio = GENERAL.entrada;
     this.user = {};
     this.iniciarUsuario();
+    this.idioma = 'es_ES';
+    this.listaIdiomas = ['es_ES', 'en_US'];
+    this.listaClasesIdiomas = ['flag-icon-es', 'flag-icon-us'];
     
 }]);
 
@@ -113,8 +123,8 @@ score18xxControllers.controller ('termsOfUseController', [ '$scope', '$uibModalI
 }]);
 
 // Modal para cambiar password
-score18xxControllers.controller ('cambiarPassController', [ '$scope', '$uibModalInstance', 'AuthService'
- , function ($scope, $uibModalInstance, AuthService) {
+score18xxControllers.controller ('cambiarPassController', [ '$scope', '$uibModalInstance', 'AuthService', 'gettextCatalog'
+ , function ($scope, $uibModalInstance, AuthService, gettextCatalog) {
     $scope.passChanged = false;
     $scope.passError = false;
     this.password = "";
@@ -139,7 +149,7 @@ score18xxControllers.controller ('cambiarPassController', [ '$scope', '$uibModal
         AuthService.cambiar(user).then(function(msg) {
             $scope.passChanged = true;
             $scope.passError = false;
-            $scope.passMsg  = "Se ha cambiado la contraseña correctamente.";
+            $scope.passMsg  = gettextCatalog.getString("Se ha cambiado la contraseña correctamente.");
         }, function(errMsg) {
             $scope.passChanged = false;
             $scope.passError = true;

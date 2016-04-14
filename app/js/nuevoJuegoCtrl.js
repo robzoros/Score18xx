@@ -1,7 +1,7 @@
 var nuevoJuegoCtrl = angular.module('NuevoJuegoController', ['score18xxFactory', 'constantes']);
 
-nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bggJuegoFactory', '$routeParams', '$anchorScroll', 'API_ENDPOINT', 
-    function($scope, $http, $location, bggJuegoFactory, $routeParams, $anchorScroll, API_ENDPOINT) {
+nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bggJuegoFactory', '$routeParams', '$anchorScroll', 'API_ENDPOINT', 'gettextCatalog',
+    function($scope, $http, $location, bggJuegoFactory, $routeParams, $anchorScroll, API_ENDPOINT, gettextCatalog) {
 
     $scope.score18xxCtrl.mostrarMenu = true;
     $scope.score18xxCtrl.mostrarFooter = false;
@@ -10,7 +10,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
         var indice = this.juego.companies.indexOf(empresa);
         this.alerta = "";
         if ($.trim(empresa) === "") { 
-            this.alerta = "La empresa no puede ser un texto vacío";
+            this.alerta = gettextCatalog.getString("La empresa no puede ser un texto vacío");
             return;
         }
         if (indice === -1) {
@@ -18,7 +18,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
             this.empresa="";
         }
         else
-            this.alerta = "La empresa ya existe";
+            this.alerta = gettextCatalog.getString("La empresa ya existe");
         
     };
     
@@ -36,7 +36,7 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
             function(err){
                 $scope.nuevo.juegosalvado = false;
                 if (err.data.indexOf('E11000') > -1)
-                    $scope.nuevo.error = 'Ya existe un juego con ese identificador';
+                    $scope.nuevo.error = gettextCatalog.getString('Ya existe un juego con ese identificador');
                 else
                     $scope.nuevo.error = err.data;
         });        
@@ -115,14 +115,14 @@ nuevoJuegoCtrl.controller('NuevoJuegoCtrl', ['$scope','$http', '$location', 'bgg
     if ($routeParams.idJuego) {
         this.editarNuevo = 'editar';
         this.juego._id = $routeParams.idJuego;
-        this.titulo = 'Datos del juego';
+        this.titulo = gettextCatalog.getString('Datos del juego');
         this.getJuego();
         this.callbggJuego();
     }
     else {
         this.editarNuevo = 'nuevo';
         this.juego.companies = [];
-        this.titulo = 'Añade un nuevo juego';
+        this.titulo = gettextCatalog.getString('Añade un nuevo juego');
         this.modJuego = true;
     }
     $anchorScroll();

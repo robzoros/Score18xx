@@ -1,12 +1,16 @@
 var loginCtrl = angular.module('LoginController', ['ui.bootstrap', 'ServicioModal']);
 
-loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$rootScope', 'AuthService', 'modalService', 'GENERAL'
-, function($scope, $location, $routeParams, $rootScope,  AuthService, modalService, GENERAL ) {
+loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$rootScope', 'AuthService', 'modalService', 'GENERAL', 'gettextCatalog'
+, function($scope, $location, $routeParams, $rootScope,  AuthService, modalService, GENERAL, gettextCatalog ) {
 
     this.cargarUsuario = function() {
         AuthService.userInfo().then(function(data) {
             $scope.score18xxCtrl.user.name = data.name;
-            $scope.score18xxCtrl.user.rol = data.rol;   
+            $scope.score18xxCtrl.user.rol = data.rol;
+            if (data.idioma) {
+                $scope.score18xxCtrl.idioma = data.idioma;
+                $scope.score18xxCtrl.cambiarIdioma(data.idioma);
+            };
             $location.path(GENERAL.entrada).replace();
         }), function(errMsg) {
             console.log(errMsg);
@@ -21,7 +25,7 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
             var modalOptions = {
                 showCloseButton: false,
                 actionButtonText: 'Ok',
-                headerText: 'Error de conexión',
+                headerText: gettextCatalog.getString('Error de conexión'),
                 bodyText: errMsg
             };
 
@@ -37,8 +41,8 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
             var modalOptions = {
                 showCloseButton: false,
                 actionButtonText: 'Ok',
-                headerText: 'Usuario registrado',
-                bodyText: 'Se ha registrado su usuario correctamente.'
+                headerText: gettextCatalog.getString('Usuario registrado'),
+                bodyText: gettextCatalog.getString('Se ha registrado su usuario correctamente.')
             };
 
             modalService.showModal({}, modalOptions)
@@ -51,7 +55,7 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
             var modalOptions = {
                 showCloseButton: false,
                 actionButtonText: 'Ok',
-                headerText: 'Error en registro de usuario',
+                headerText: gettextCatalog.getString('Error en registro de usuario'),
                 bodyText: errMsg
             };
 
@@ -66,8 +70,8 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
             var modalOptions = {
                 showCloseButton: false,
                 actionButtonText: 'Ok',
-                headerText: 'Contraseña creada',
-                bodyText: 'Se ha creado una nueva contraseña.<br\>Recibirá un correo electrónico con dicha clave.'
+                headerText: gettextCatalog.getString('Contraseña creada'),
+                bodyText: gettextCatalog.getString('Se ha creado una nueva contraseña.<br\>Recibirá un correo electrónico con dicha clave.')
             };
 
             modalService.showModal({}, modalOptions)
@@ -80,7 +84,7 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
             var modalOptions = {
                 showCloseButton: false,
                 actionButtonText: 'Ok',
-                headerText: 'Error en cambio de contraseña',
+                headerText: gettextCatalog.getString('Error en cambio de contraseña'),
                 bodyText: errMsg
             };
 

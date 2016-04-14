@@ -1,7 +1,7 @@
 var partidaController = angular.module('partidaController', ['directivas' , 'score18xxFactory', 'constantes']);
 
-partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams', '$location', 'bggJuegoFactory', '$anchorScroll', 'API_ENDPOINT'
-, function($scope, $http, $routeParams, $location, bggJuegoFactory, $anchorScroll, API_ENDPOINT) {
+partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams', '$location', 'bggJuegoFactory', '$anchorScroll', 'API_ENDPOINT', 'gettextCatalog'
+, function($scope, $http, $routeParams, $location, bggJuegoFactory, $anchorScroll, API_ENDPOINT, gettextCatalog) {
     $scope.score18xxCtrl.dondeEstamos = "Partida";
     $scope.score18xxCtrl.tabActiva = 1;
     $scope.score18xxCtrl.mostrarMenu = true;
@@ -26,7 +26,7 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
         //Añadimos efectivo
         {
             var elemento = {};
-            elemento.Empresa = 'Efectivo';
+            elemento.Empresa = gettextCatalog.getString('Efectivo');
             elemento.valor = {};
             for (var i=0; i <part.jugadores.datos.length; i++) {
                 elemento.valor[part.jugadores.datos[i].nombre] = part.jugadores.datos[i].efectivo;
@@ -37,7 +37,7 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
         //Añadimos dividendos
         {
             var elemento = {};
-            elemento.Empresa = 'Dividendos';
+            elemento.Empresa = gettextCatalog.getString('Dividendos');
             elemento.valor = {};
             for (var i=0; i <part.jugadores.datos.length; i++) {
                 elemento.valor[part.jugadores.datos[i].nombre] = part.jugadores.datos[i].dividendos;
@@ -97,7 +97,7 @@ partidaController.controller('partidaCtrl',  ['$scope', '$http', '$routeParams',
                 var jugadores = new Array();
                 for (var i = 0; i < $scope.score18xxCtrl.partida.jugadores.numero; i++) {
                     var jug={};
-                    jug.nombre = "Jugador " + (i+1);
+                    jug.nombre = gettextCatalog.getString("Jugador") + ' ' + (i+1);
                     jug.indice = (i+1);
                     jug.efectivo = 0;
                     jug.dividendos = 0;

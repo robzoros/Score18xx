@@ -14,14 +14,14 @@ directivas.directive("menuNav", function() {
         scope: false,
         restrict: "E",
         templateUrl: "menu-score18xx.html",
-        controller: function($scope, $location, AuthService, modalService) {
+        controller: function($scope, $location, AuthService, modalService, gettextCatalog) {
             this.logout = function() {
                 var modalOptions = {
                     closeButtonText: 'Cancelar',
                     actionButtonText: 'Continuar',
                     showCloseButton: true,
-                    headerText: 'Salir de la aplicación',
-                    bodyText: 'El usuario ' + $scope.score18xxCtrl.user.name + ' va a salir de la aplicación, ¿desea continuar?'
+                    headerText: gettextCatalog.getString('Salir de la aplicación'),
+                    bodyText: gettextCatalog.getString('El usuario') + ' ' + $scope.score18xxCtrl.user.name + ' ' + gettextCatalog.getString('va a salir de la aplicación, ¿desea continuar?')
                 };
 
                 modalService.showModal({}, modalOptions)
@@ -53,7 +53,7 @@ directivas.directive("tabAccionesValor",  function() {
         scope: false,
         restrict: "E",
         templateUrl: "tab-acciones-valor.html",
-        controller: ['$scope', 'modalService', function($scope, modalService) {
+        controller: ['$scope', 'modalService', 'gettextCatalog', function($scope, modalService, gettextCatalog) {
             
             // Añade a la partida todas las empresas del juego de golpe
             this.addTodasEmpresas = function() {
@@ -110,11 +110,11 @@ directivas.directive("tabAccionesValor",  function() {
                 };
                 if (dividendos || ($scope.score18xxCtrl.partida.empresas[indice].valor !== 0)) {
                     var modalOptions = {
-                        closeButtonText: 'Cancelar',
-                        actionButtonText: 'Continuar',
+                        closeButtonText: gettextCatalog.getString('Cancelar'),
+                        actionButtonText: gettextCatalog.getString('Continuar'),
                         showCloseButton: true,
-                        headerText: 'Eliminar ' + $scope.score18xxCtrl.partida.empresas[indice].nombre,
-                        bodyText: 'Va a eliminar una empresa que tiene información, ¿desea continuar?'
+                        headerText: gettextCatalog.getString('Eliminar') + ' ' + $scope.score18xxCtrl.partida.empresas[indice].nombre,
+                        bodyText: gettextCatalog.getString('Va a eliminar una empresa que tiene información, ¿desea continuar?')
                     };
 
                     modalService.showModal({}, modalOptions)

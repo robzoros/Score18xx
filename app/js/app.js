@@ -12,13 +12,15 @@ var score18xx = angular.module('score18xx', [
   'NuevoJuegoController',
   'LoginController',
   'InicioController',
+  'UsuarioController',
   'score18xxFactory',
   'ServicioModal',
   'AuthServiceModule',
   'constantes',
   'ui.validate',
   'chart.js',
-  '720kb.socialshare'
+  '720kb.socialshare',
+  'gettext'
 ]);
 
 score18xx.service('APIInterceptor', ['$rootScope', 'API_ENDPOINT', function($rootScope, API_ENDPOINT) {
@@ -40,48 +42,57 @@ score18xx.service('APIInterceptor', ['$rootScope', 'API_ENDPOINT', function($roo
 
 score18xx.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider.
-      when('/nueva', {
-        templateUrl: 'nueva-partida.html',
-        controller: 'NuevaPartidaCtrl'
-      }).
-      when('/partida/:idPartida', {
-        templateUrl: 'datos-partida.html',
-        controller: 'partidaCtrl',
-        controllerAs: 'tabs'
-      }).
-      when('/lista', {
-        templateUrl: 'lista-partidas.html',
-        controller: 'ListaPartidasCtrl',
-        controllerAs: 'lista'
-      }).
-      when('/juego/:idJuego?', {
-        templateUrl: 'nuevo-juego.html',
-        controller: 'NuevoJuegoCtrl',
-        controllerAs: 'nuevo'
-      }).
-      when('/juegos', {
-        templateUrl: 'lista-juegos.html',
-        controller: 'ListaJuegosCtrl',
-        controllerAs: 'juegos'
-      }).
-      when('/404', {
-        templateUrl: '404.html',
-        controller: 'ErrorCtrl',
-        controllerAs: 'errCtrl'
-      }).
-      when('/login/:reg?', {
-        templateUrl: 'login.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'logCtrl'
-      }).
-      when('/inicio', {
-        templateUrl: 'inicio.html',
-        controller: 'InicioCtrl',
-        controllerAs: 'iniCtrl'
-      }).
-      otherwise({
-        redirectTo: '/login'
-      });
-    
+        when('/nueva', {
+          templateUrl: 'nueva-partida.html',
+          controller: 'NuevaPartidaCtrl'
+        }).
+        when('/partida/:idPartida', {
+          templateUrl: 'datos-partida.html',
+          controller: 'partidaCtrl',
+          controllerAs: 'tabs'
+        }).
+        when('/lista', {
+          templateUrl: 'lista-partidas.html',
+          controller: 'ListaPartidasCtrl',
+          controllerAs: 'lista'
+        }).
+        when('/juego/:idJuego?', {
+          templateUrl: 'nuevo-juego.html',
+          controller: 'NuevoJuegoCtrl',
+          controllerAs: 'nuevo'
+        }).
+        when('/juegos', {
+          templateUrl: 'lista-juegos.html',
+          controller: 'ListaJuegosCtrl',
+          controllerAs: 'juegos'
+        }).
+        when('/404', {
+          templateUrl: '404.html',
+          controller: 'ErrorCtrl',
+          controllerAs: 'errCtrl'
+        }).
+        when('/login/:reg?', {
+          templateUrl: 'login.html',
+          controller: 'LoginCtrl',
+          controllerAs: 'logCtrl'
+        }).
+        when('/inicio', {
+          templateUrl: 'inicio.html',
+          controller: 'InicioCtrl',
+          controllerAs: 'iniCtrl'
+        }).
+        when('/usuario', {
+          templateUrl: 'usuario.html',
+          controller: 'UsuarioCtrl',
+          controllerAs: 'usuCtrl'
+        }).
+        otherwise({
+          redirectTo: '/login'
+        });
+
     $httpProvider.interceptors.push('APIInterceptor');
-  }]);
+  }])
+.run(function (gettextCatalog) {
+    gettextCatalog.setCurrentLanguage('es_ES');
+    gettextCatalog.debug = true;
+});

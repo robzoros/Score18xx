@@ -6,7 +6,7 @@
             <!-- Nombre de la partida -->
             <div class="row form-group has-feedback" ng-class="{'has-error': validado && !nombrePartida}">
                 <div class="col-xs-4 col-lg-4 text-right">
-                    <label for="nombredePartida" class="control-label">Nombre de la partida *</label>
+                    <label for="nombredePartida" class="control-label" translate>Nombre de la partida *</label>
                 </div>
                 <div class="col-xs-8 col-lg-6" >
                     <input class="form-control" 
@@ -14,22 +14,22 @@
                            id="nombredePartida"
                            name="nombredePartida"
                            ng-model="nombrePartida"
-                           placeholder="Nombre de la partida" >
-                    <span class="text-danger" ng-show="validado && (nombrePartida === '')">El nombre de la partida es un campo obligatorio.</span>                    
+                           placeholder="{{ 'Nombre de la partida' |  translate}}" >
+                    <span class="text-danger" ng-show="validado && (nombrePartida === '')" translate>El nombre de la partida es un campo obligatorio.</span>                    
                 </div>        
             </div>
 
             <!-- Número de jugadores -->
             <div class="row form-group">
                 <div class="col-xs-4 col-lg-4 text-right">
-                    <label for="selectJugadores" class="control-label">Número de jugadores</label>
+                    <label for="selectJugadores" class="control-label" translate>Número de jugadores</label>
                 </div>
                 <div class="col-xs-4 col-lg-4">
                     <select id="selectJugadores" 
                             class="form-control" 
                             ng-model="numJugadores" 
                             ng-options="o for o in opcionDiez" 
-                            placeholder="Número de jugadores" >
+                            placeholder="{{'Número de jugadores' | translate}}" >
                     </select>
 
                 </div>        
@@ -38,7 +38,7 @@
             <!-- Nombre del juego -->
             <div class="row form-group" ng-class="{'has-error': validado && !juego._id}">
                 <div class="col-xs-4 col-lg-4 text-right">
-                    <label for="nombreJuego" class="control-label">Nombre del juego *</label>
+                    <label for="nombreJuego" class="control-label" translate>Nombre del juego *</label>
                 </div>
                 <div class="col-xs-8 col-lg-6">
                     <input class="form-control" 
@@ -46,33 +46,33 @@
                            id="nombreJuego"
                            name="nombreJuego"
                            ng-model="juego"
-                           placeholder="Juego de la serie" 
+                           placeholder="{{'Juego de la serie' |  translate}}" 
                            uib-typeahead="j as j._name for j in juegos | filter:{_name:$viewValue}" 
                            typeahead-show-hint="true" 
                            typeahead-min-length="0"
                            typeahead-on-select="callbggJuego()"
                            typeahead-no-results="noResults" >
-                    <span class="text-danger" ng-show="validado && !juego._id">El nombre del juego es un campo obligatorio.</span>
+                    <span class="text-danger" ng-show="validado && !juego._id" translate>El nombre del juego es un campo obligatorio.</span>
                 </div>        
             </div>
 
             <!-- Lugar de la partida -->
             <div class="row form-group">
                 <div class="col-xs-4 col-lg-4 text-right">
-                    <label for="lugarPartida" class="control-label">Localización</label>
+                    <label for="lugarPartida" class="control-label" translate>Localización</label>
                 </div>
                 <div class="col-xs-8 col-lg-6">
                     <input class="form-control" 
                            type="text" 
                            id="lugarPartida" 
                            ng-model="lugarPartida" 
-                           placeholder="Lugar de la partida" 
+                           placeholder="{{ 'Lugar de la partida' | translate }}" 
                            uib-typeahead="address for address in getLocation($viewValue)" 
                            typeahead-loading="cargandoJuegos" 
                            typeahead-no-results="noLocResults" >
                     <i ng-show="cargandoJuegos" class="glyphicon glyphicon-refresh"></i>
                     <div ng-show="noLocResults">
-                        <i class="glyphicon glyphicon-remove"></i> Sitio no encontrado
+                        <i class="glyphicon glyphicon-remove"></i> <span translate>Sitio no encontrado</span>
                     </div>
                 </div>        
             </div>
@@ -80,10 +80,10 @@
             <!-- Fecha de la partida -->
             <div class="row form-group">
                 <div class="col-xs-4 col-lg-4 text-right">
-                    <label for="selectorFecha" class="control-label"><span class="comentario"><br/></span>Fecha de Partida</label>
+                    <label for="selectorFecha" class="control-label"><span class="comentario"><br/></span><span translate>Fecha de Partida</span></label>
                 </div>
                 <div class="col-xs-8 col-lg-6" ng-class="{ 'has-error': validado && ngValidarFecha()}">
-                    <div class="comentario">Formato de Fecha: {{formatoFecha}} o {{altInputFormats[0]}}</div>                
+                    <div class="comentario"><span translate>Formato de Fecha:</span> {{formatoFecha}} o {{altInputFormats[0]}}</div>                
                     <p class="input-group">
                         <input id="selectorFecha" 
                                name="selectorFecha"
@@ -101,7 +101,7 @@
                             <button type="button" class="btn btn-default" ng-click="abreCalendario()"><i class="glyphicon glyphicon-calendar"></i></button>
                         </span>
                     </p>
-                    <span class="text-danger" ng-show="validado && ngValidarFecha()">La fecha es errónea.</span>                        
+                    <span class="text-danger" ng-show="validado && ngValidarFecha()" translate>La fecha es errónea.</span>                        
                     
                 </div>
 
@@ -111,7 +111,7 @@
             <div class="row">
                 <div class="col-xs-4 col-lg-4"></div>
                 <div class="col-xs-4 col-lg-1">
-                    <button type="submit" class="btn btn-custom">Crear Partida</button>
+                    <button type="submit" class="btn btn-custom"translate>Crear Partida</button>
                 </div>
             </div>
         </form>

@@ -1,6 +1,6 @@
 var inicioCtrl = angular.module('InicioController', []);
 
-inicioCtrl.controller('InicioCtrl', ['$scope', '$http', '$location', 'API_ENDPOINT', function($scope, $http, $location, API_ENDPOINT) {
+inicioCtrl.controller('InicioCtrl', ['$scope', '$http', '$location', 'API_ENDPOINT', 'gettextCatalog', function($scope, $http, $location, API_ENDPOINT, gettextCatalog) {
     $scope.score18xxCtrl.mostrarMenu = false;
     $scope.score18xxCtrl.mostrarFooter = true;
     $scope.score18xxCtrl.url = $location.absUrl();
@@ -45,7 +45,7 @@ inicioCtrl.controller('InicioCtrl', ['$scope', '$http', '$location', 'API_ENDPOI
             $scope.labels = [];
             $scope.data = [];
             $scope.media = [];
-            $scope.series = ["Media Jugadores"];
+            $scope.series = [gettextCatalog.getString("Media Jugadores")];
             var med = [];
             for(var i=0; i < response.data.length; i++) {
                 $scope.labels.push(response.data[i]._id);

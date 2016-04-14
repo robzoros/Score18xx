@@ -4,17 +4,17 @@
         <div class="container">
             <div class="row">
                 <div class="footer-col col-md-4">
-                    <h3>Contacta</h3>
+                    <h3 translate>Contacta</h3>
                     <a class="footer-text" href="mailto:score18xx@gmail.com?subject=Contacto">score18xx@gmail.com</a>
                 </div>
                 <div class="footer-col col-md-4">
-                    <h3>Comparte</h3>
+                    <h3 translate>Comparte</h3>
                     <ul class="list-inline">
                         <li>
                             <a href class="footer-text"
                                socialshare
                                socialshare-provider="facebook"
-                               socialshare-text="Score18xx la aplicación web para puntuar tus juegos de la serie 18XX"
+                               socialshare-text="{{ 'Score18xx la aplicación web para puntuar tus juegos de la serie 18XX' | translate }}"
                                socialshare-url="{{score18xxCtrl.url}}">
                                 <i class="fa fa-fw fa-facebook-square fa-2x"></i>
                             </a>
@@ -23,7 +23,7 @@
                             <a href class="footer-text"
                                socialshare
                                socialshare-provider="twitter"
-                               socialshare-text="Score18xx la aplicación web para puntuar tus juegos de la serie 18XX"
+                               socialshare-text="{{ 'Score18xx la aplicación web para puntuar tus juegos de la serie 18XX' | translate }}"
                                socialshare-hashtags="Score18xx"
                                socialshare-url="{{score18xxCtrl.url}}">
                                 <i class="fa fa-fw fa-twitter-square fa-2x"></i>
@@ -42,7 +42,7 @@
                             <a href class="footer-text"
                                socialshare
                                socialshare-provider="linkedin"
-                               socialshare-text="Score18xx la aplicación web para puntuar tus juegos de la serie 18XX"
+                               socialshare-text="{{ 'Score18xx la aplicación web para puntuar tus juegos de la serie 18XX' | translate }}"
                                socialshare-url="{{score18xxCtrl.url}}">
                                 <i class="fa fa-fw fa-linkedin-square fa-2x"></i>
                             </a>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="footer-col col-md-4">
                     <h3>About Score18xx</h3>
-                    <a href class="footer-text" ng-click="score18xxCtrl.terminosDeUso()">Términos de uso</a>
+                    <a href class="footer-text" ng-click="score18xxCtrl.terminosDeUso()" translate>Términos de uso</a>
                 </div>
             </div>
         </div>
