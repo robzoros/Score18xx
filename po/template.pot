@@ -28,7 +28,7 @@ msgid "¡Las contraseñas no coinciden!"
 msgstr ""
 
 #: app/login.html:46
-msgid "¿Has olvidado tu contraseña? pulsa <a href=\"#/login/r\" translate=\"\">aquí</a>"
+msgid "¿Has olvidado tu contraseña? pulsa"
 msgstr ""
 
 #: app/datos-partida.html:11
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Contraseña actual"
 msgstr ""
 
-#: app/js/loginCtrl.js:73
+#: app/js/loginCtrl.js:75
 msgid "Contraseña creada"
 msgstr ""
 
@@ -270,11 +270,11 @@ msgstr ""
 msgid "Error de conexión"
 msgstr ""
 
-#: app/js/loginCtrl.js:87
+#: app/js/loginCtrl.js:89
 msgid "Error en cambio de contraseña"
 msgstr ""
 
-#: app/js/loginCtrl.js:58
+#: app/js/loginCtrl.js:60
 msgid "Error en registro de usuario"
 msgstr ""
 
@@ -580,15 +580,15 @@ msgstr ""
 msgid "Se enviará un mensaje con la contraseña a tu correo electrónico"
 msgstr ""
 
-#: app/js/score18xxController.js:157
+#: app/js/score18xxController.js:156
 msgid "Se ha cambiado la contraseña correctamente."
 msgstr ""
 
-#: app/js/loginCtrl.js:74
+#: app/js/loginCtrl.js:76
 msgid "Se ha creado una nueva contraseña.<br>Recibirá un correo electrónico con dicha clave."
 msgstr ""
 
-#: app/js/loginCtrl.js:45
+#: app/js/loginCtrl.js:47
 msgid "Se ha registrado su usuario correctamente."
 msgstr ""
 
@@ -640,7 +640,7 @@ msgstr ""
 msgid "Usuario"
 msgstr ""
 
-#: app/js/loginCtrl.js:44
+#: app/js/loginCtrl.js:46
 msgid "Usuario registrado"
 msgstr ""
 

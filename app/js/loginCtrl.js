@@ -37,7 +37,9 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
 
     this.registrar = function() {
         if ($scope.loginform.confirmPassword.$error.validator) return;
-        AuthService.register(this.user).then(function(msg) {
+        var usuario = this.user;
+        usuario.idioma = 'es_ES';
+        AuthService.register(usuario).then(function(msg) {
             var modalOptions = {
                 showCloseButton: false,
                 actionButtonText: 'Ok',

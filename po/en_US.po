@@ -34,11 +34,8 @@ msgid "¡Las contraseñas no coinciden!"
 msgstr "Passwords do not match!"
 
 #: app/login.html:46
-msgid ""
-"¿Has olvidado tu contraseña? pulsa <a href=\"#/login/r\" translate="
-"\"\">aquí</a>"
-msgstr ""
-"Forgot your password? click <a href=\"#/login/r\" translate=\"\">here</a>"
+msgid "¿Has olvidado tu contraseña? pulsa"
+msgstr "Forgot your password? click"
 
 #: app/datos-partida.html:11
 msgid "Acciones por jugador"
@@ -153,7 +150,7 @@ msgstr "Password"
 msgid "Contraseña actual"
 msgstr "Current password"
 
-#: app/js/loginCtrl.js:73
+#: app/js/loginCtrl.js:75
 msgid "Contraseña creada"
 msgstr "Password created"
 
@@ -266,11 +263,11 @@ msgstr "Companies"
 msgid "Error de conexión"
 msgstr "Conexion error"
 
-#: app/js/loginCtrl.js:87
+#: app/js/loginCtrl.js:89
 msgid "Error en cambio de contraseña"
 msgstr "Password change failed"
 
-#: app/js/loginCtrl.js:58
+#: app/js/loginCtrl.js:60
 msgid "Error en registro de usuario"
 msgstr "User registry failed"
 
@@ -584,11 +581,11 @@ msgstr "Score18xx the web aplication to score your 18XX games played"
 msgid "Se enviará un mensaje con la contraseña a tu correo electrónico"
 msgstr "A message with you password has been sent you"
 
-#: app/js/score18xxController.js:157
+#: app/js/score18xxController.js:156
 msgid "Se ha cambiado la contraseña correctamente."
 msgstr "Pasword changed succesfully"
 
-#: app/js/loginCtrl.js:74
+#: app/js/loginCtrl.js:76
 msgid ""
 "Se ha creado una nueva contraseña.<br>Recibirá un correo electrónico con "
 "dicha clave."
@@ -596,7 +593,7 @@ msgstr ""
 "A new password has been created.<br>You will receive an email with your "
 "password."
 
-#: app/js/loginCtrl.js:45
+#: app/js/loginCtrl.js:47
 msgid "Se ha registrado su usuario correctamente."
 msgstr "User registered succesfully"
 
@@ -648,7 +645,7 @@ msgstr "Use <b>Get Dividends</b> tool"
 msgid "Usuario"
 msgstr "User"
 
-#: app/js/loginCtrl.js:44
+#: app/js/loginCtrl.js:46
 msgid "Usuario registrado"
 msgstr "User registered"
 
@@ -675,6 +672,12 @@ msgstr "Go Home"
 #: app/js/nuevoJuegoCtrl.js:39
 msgid "Ya existe un juego con ese identificador"
 msgstr "Duplicated game identifier"
+
+#~ msgid ""
+#~ "¿Has olvidado tu contraseña? pulsa <a href=\"#/login/r\" translate="
+#~ "\"\">aquí</a>"
+#~ msgstr ""
+#~ "Forgot your password? click <a href=\"#/login/r\" translate=\"\">here</a>"
 
 #~ msgid "Inicio"
 #~ msgstr "Home"
