@@ -2,8 +2,8 @@
 
 var score18xxControllers = angular.module('score18xxControllers', ['ui.bootstrap']);
 
-score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', '$location', '$uibModal', 'AuthService', 'bggJuegoFactory', 'GENERAL', 'gettextCatalog'
-, function($scope, $rootScope, $location, $uibModal, AuthService, bggJuegoFactory, GENERAL, gettextCatalog) {
+score18xxControllers.controller('score18xxController', ['$scope', '$window', '$rootScope', '$location', '$uibModal', 'AuthService', 'bggJuegoFactory', 'GENERAL', 'gettextCatalog'
+, function($scope, $window, $rootScope, $location, $uibModal, AuthService, bggJuegoFactory, GENERAL, gettextCatalog) {
 
     // recuperamos token e información de usuario si existe token
     this.iniciarUsuario = function() {
@@ -74,7 +74,8 @@ score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', 
         gettextCatalog.setCurrentLanguage(idioma);
         this.idioma = idioma;
         var clase = 'flag-icon ' +  this.listaClasesIdiomas[this.listaIdiomas.indexOf(idioma)];
-        document.getElementById('currentFlag').className = clase;
+        var flag = document.getElementById('currentFlag');
+        if (flag) flag.className = clase;
     };
 
     this.textoJuego = function() {
@@ -83,11 +84,17 @@ score18xxControllers.controller('score18xxController', ['$scope', '$rootScope', 
     
     this.linkbgg = bggJuegoFactory.linkbgg;
     this.paginaInicio = GENERAL.entrada;
-    this.user = {};
-    this.iniciarUsuario();
-    this.idioma = 'es_ES';
     this.listaIdiomas = ['es_ES', 'en_US'];
     this.listaClasesIdiomas = ['flag-icon-es', 'flag-icon-us'];
+    this.user = {};
+    this.iniciarUsuario();
+    var lang = $window.navigator.language || $window.navigator.userLanguage;
+    if (lang.substring(0, 2) === 'es')
+        lang = 'es_ES';
+    else
+        lang = 'en_US';
+    this.cambiarIdioma(lang);
+    gettextCatalog.debug = true;
     
 }]);
 

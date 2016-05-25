@@ -16,7 +16,7 @@
         <div class="col-xs-{{tabAJ.tamColumna()}} col-lg-{{tabAJ.tamColumna()}}" ng-repeat="accion in emp.acciones">
             <select class="form-control" 
                 ng-model="accion.numero" 
-                ng-options="o for o in tabAJ.opcionDiez" >
+                ng-options="o for o in tabAJ.elegirOpcion(emp.nombre)" >
             </select>
         </div>
     </div>

@@ -91,8 +91,4 @@ score18xx.config(['$routeProvider', '$httpProvider', function($routeProvider, $h
         });
 
     $httpProvider.interceptors.push('APIInterceptor');
-  }])
-.run(function (gettextCatalog) {
-    gettextCatalog.setCurrentLanguage('es_ES');
-    gettextCatalog.debug = true;
-});
+  }]);

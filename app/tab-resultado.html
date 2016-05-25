@@ -3,7 +3,7 @@
 <div  class='container-fluid'>
     <h2 translate>Resultado Final</h2>
     <div class="btn-group">
-        <h4>Elige vista de resultados</h4>
+        <h4 translate>Elige vista de resultados</h4>
         <label class="btn btn-primary" ng-model="tabR.tabla" uib-btn-radio="'tabla'" translate>Tabla</label>
         <label class="btn btn-primary" ng-model="tabR.tabla" uib-btn-radio="'paneles'" translate>Paneles</label>
         <label class="btn btn-primary" ng-model="tabR.tabla" uib-btn-radio="'pie'" translate>Gráfico</label>
@@ -67,43 +67,45 @@
         </ul>
     </div>
 </div>
-<ul class="list-inline">
-    <li><h4 translate>Comparte tu partida:</h4></li>
-    <li>
-        <a href
-           socialshare
-           socialshare-provider="facebook"
-           socialshare-text="{{ tabR.textoShare + score18xxCtrl.partida.juego._name }}"
-           socialshare-url="{{score18xxCtrl.url}}">
-            <i class="fa fa-fw fa-facebook-square fa-2x"></i>
-        </a>
-    </li>                        
-    <li>
-        <a href
-           socialshare
-           socialshare-provider="twitter"
-           socialshare-text="{{ tabR.textoShare + score18xxCtrl.partida.juego._name }}"
-           socialshare-hashtags="Score18xx"
-           socialshare-url="{{score18xxCtrl.url}}">
-            <i class="fa fa-fw fa-twitter-square fa-2x"></i>
-        </a>
-    </li>
-    <li>
-        <a href
-           socialshare
-           socialshare-provider="google+"
-           socialshare-url="{{score18xxCtrl.url}}">
-            <i class="fa fa-fw fa-google-plus-square fa-2x"></i>
-        </a>
-    </li>
+<div  class='container-fluid'>
+    <ul class="list-inline">
+        <li><h4 translate>Comparte tu partida:</h4></li>
+        <li>
+            <a href
+               socialshare
+               socialshare-provider="facebook"
+               socialshare-text="{{ tabR.textoShare + score18xxCtrl.partida.juego._name }}"
+               socialshare-url="{{score18xxCtrl.url}}">
+                <i class="fa fa-fw fa-facebook-square fa-2x"></i>
+            </a>
+        </li>                        
+        <li>
+            <a href
+               socialshare
+               socialshare-provider="twitter"
+               socialshare-text="{{ tabR.textoShare + score18xxCtrl.partida.juego._name }}"
+               socialshare-hashtags="Score18xx"
+               socialshare-url="{{score18xxCtrl.url}}">
+                <i class="fa fa-fw fa-twitter-square fa-2x"></i>
+            </a>
+        </li>
+        <li>
+            <a href
+               socialshare
+               socialshare-provider="google+"
+               socialshare-url="{{score18xxCtrl.url}}">
+                <i class="fa fa-fw fa-google-plus-square fa-2x"></i>
+            </a>
+        </li>
 
-    <li>
-        <a href
-           socialshare
-           socialshare-provider="linkedin"
-           socialshare-text="{{ tabR.textoShare + score18xxCtrl.partida.juego._name }}"
-           socialshare-url="{{score18xxCtrl.url}}">
-            <i class="fa fa-fw fa-linkedin-square fa-2x"></i>
-        </a>
-    </li>
-</ul>
+        <li>
+            <a href
+               socialshare
+               socialshare-provider="linkedin"
+               socialshare-text="{{ tabR.textoShare + score18xxCtrl.partida.juego._name }}"
+               socialshare-url="{{score18xxCtrl.url}}">
+                <i class="fa fa-fw fa-linkedin-square fa-2x"></i>
+            </a>
+        </li>
+    </ul>
+</div>

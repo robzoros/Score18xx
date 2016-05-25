@@ -130,6 +130,9 @@ directivas.directive("tabAccionesValor",  function() {
                     });
                     
                 }
+                else {
+                    $scope.score18xxCtrl.partida.empresas.splice(indice,1);
+                }
             };
         }],
         controllerAs: "tabAV"
@@ -142,11 +145,20 @@ directivas.directive("tabAccionesJugadores", function() {
         restrict: "E",
         templateUrl: "tab-acciones-jugadores.html",
         controller: function($scope) {
+            this.opcionVeinte = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+            this.opcionDiez = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
             this.tamColumna = function(){
                 var j = $scope.score18xxCtrl.partida.jugadores.datos.length+1;
                 return Math.floor(12/j);
             };
-            this.opcionDiez = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            this.elegirOpcion = function(nombre){
+                if ($scope.score18xxCtrl.partida.juego._id === '183308-1844') {
+                    if (nombre === 'SBB' || (nombre.indexOf('V') === 0))
+                        return $scope.tabAJ.opcionVeinte;
+                }
+                return $scope.tabAJ.opcionDiez;
+            };
         },
         controllerAs: "tabAJ"
     };

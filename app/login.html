@@ -1,4 +1,12 @@
 <div class="login-background" ng-show="logCtrl.inicio">
+            <div class="text-right">
+            <form>
+                <div class="radio-inline" ng-repeat="lang in score18xxCtrl.listaIdiomas track by $index">
+                    <input class="radio" type="radio" ng-model="score18xxCtrl.idioma" value="{{lang}}" ng-change="score18xxCtrl.cambiarIdioma(score18xxCtrl.idioma)" ng-checked="lang === score18xxCtrl.idioma">
+                    <span class="flag-icon {{score18xxCtrl.listaClasesIdiomas[$index]}}"></span>
+                </div>
+            </form>
+        </div>   
     <div class="login-page">
         <div class="row outer-p">
             <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 margen-bottom-20">
