@@ -101,6 +101,7 @@ score18xxControllers.controller('score18xxController', ['$scope', '$window', '$r
 // Modal para calcular dividendos
 score18xxControllers.controller ('dividendosController', [ '$scope', '$uibModalInstance', function ($scope, $uibModalInstance) {
     this.mul10 = true;
+    this.acciones = 10;
     
     $scope.ok = function () {
         $uibModalInstance.close();
@@ -111,7 +112,6 @@ score18xxControllers.controller ('dividendosController', [ '$scope', '$uibModalI
     };
     
     $scope.getDividendos = function(div, acciones) {
-
         $scope.divCtrl.listaDividendos = [];
         
         $scope.divCtrl.mul10 = !((div % 10) > 0);
