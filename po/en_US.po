@@ -122,7 +122,7 @@ msgstr "Close"
 msgid "Comparte"
 msgstr "Share"
 
-#: app/tab-resultado.html:71
+#: app/tab-resultado.html:72
 msgid "Comparte tu partida:"
 msgstr "Share you play"
 
@@ -244,6 +244,10 @@ msgstr "The user"
 #: app/tab-acciones-valor.html:2
 msgid "Elegir empresas con valor"
 msgstr "Choose companies"
+
+#: app/tab-resultado.html:6
+msgid "Elige vista de resultados"
+msgstr "Choose view results"
 
 #: app/js/directivas.js:116
 msgid "Eliminar"

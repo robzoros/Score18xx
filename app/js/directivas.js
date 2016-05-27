@@ -8,6 +8,40 @@ var directivas = angular.module('directivas', [
     'ServicioModal',
     'AuthServiceModule'
 ]);
+
+var accionesEmpJuego = function(idJuego, empresa) {
+    if (idJuego === '183308-1844') {
+        switch (empresa) {
+            case "R1-JN":
+            case "R2-ChA":
+            case "R3-VZ":
+                return 5;
+                break;
+            case "H1-FNM": 
+            case "H2-RhB": 
+            case "H3-BLS": 
+            case "H4-STB": 
+            case "H5-AB": 
+            case "H6-MOB": 
+                return 10;
+                break;
+            case "V1-NOB": 
+            case "V2-SCB": 
+            case "V3-VSB": 
+            case "V4-JS": 
+            case "V5-GB": 
+                return 4;
+                break;
+            case "SBB": 
+                return 20;
+                break;
+            default:
+                return 10;
+                break;
+        }
+    }
+    return 10;    
+};
     
 directivas.directive("menuNav", function() {
     return {
@@ -147,6 +181,8 @@ directivas.directive("tabAccionesJugadores", function() {
         controller: function($scope) {
             this.opcionVeinte = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
             this.opcionDiez = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            this.opcionCinco = [0, 1, 2, 3, 4, 5];
+            this.opcionCuatro = [0, 1, 2, 3, 4];
 
             this.tamColumna = function(){
                 var j = $scope.score18xxCtrl.partida.jugadores.datos.length+1;
@@ -154,8 +190,34 @@ directivas.directive("tabAccionesJugadores", function() {
             };
             this.elegirOpcion = function(nombre){
                 if ($scope.score18xxCtrl.partida.juego._id === '183308-1844') {
-                    if (nombre === 'SBB' || (nombre.indexOf('V') === 0))
-                        return $scope.tabAJ.opcionVeinte;
+                    switch (nombre) {
+                        case "R1-JN":
+                        case "R2-ChA":
+                        case "R3-VZ":
+                            return $scope.tabAJ.opcionCinco;
+                            break;
+                        case "H1-FNM": 
+                        case "H2-RhB": 
+                        case "H3-BLS": 
+                        case "H4-STB": 
+                        case "H5-AB": 
+                        case "H6-MOB": 
+                            return $scope.tabAJ.opcionDiez;
+                            break;
+                        case "V1-NOB": 
+                        case "V2-SCB": 
+                        case "V3-VSB": 
+                        case "V4-JS": 
+                        case "V5-GB": 
+                            return $scope.tabAJ.opcionCuatro;
+                            break;
+                        case "SBB": 
+                            return $scope.tabAJ.opcionVeinte;
+                            break;
+                        default:
+                            return $scope.tabAJ.opcionDiez;
+                            break;
+                    }
                 }
                 return $scope.tabAJ.opcionDiez;
             };
@@ -173,20 +235,21 @@ directivas.directive("tabDividendos", function() {
             $scope.tabD.numRepeticiones = 1;
 
             this.addDividendo = function(emp, div, rep) {
-                    for(var j=0;j<rep;j++) {
-                        var divFila={};
-                        divFila.nombreEmpresa = emp.nombre;
-                        divFila.dividendos=[];
-                        for(var i=0;i<emp.acciones.length;i++){
-                            var dividendo={};
-                            dividendo.indice = emp.acciones[i].indice;
-                            dividendo.valor = (emp.acciones[i].numero/10) * div;
-                    
-                            divFila.dividendos.push(dividendo);
-                            $scope.score18xxCtrl.partida.jugadores.datos[i].dividendos += dividendo.valor;
-                        };
-                        $scope.score18xxCtrl.partida.dividendos.push(divFila);
+                var numAccionesEmpresa = accionesEmpJuego($scope.score18xxCtrl.partida.juego._id, emp.nombre);
+                for(var j=0;j<rep;j++) {
+                    var divFila={};
+                    divFila.nombreEmpresa = emp.nombre;
+                    divFila.dividendos=[];
+                    for(var i=0;i<emp.acciones.length;i++){
+                        var dividendo={};
+                        dividendo.indice = emp.acciones[i].indice;
+                        dividendo.valor = (emp.acciones[i].numero) * div / numAccionesEmpresa;
+
+                        divFila.dividendos.push(dividendo);
+                        $scope.score18xxCtrl.partida.jugadores.datos[i].dividendos += dividendo.valor;
                     };
+                    $scope.score18xxCtrl.partida.dividendos.push(divFila);
+                };
             };
             
             this.quitarDividendo = function (divFila, indice){

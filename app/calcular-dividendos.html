@@ -12,7 +12,7 @@
                 <div class="col-xs-4 col-lg-3 text-right">
                     <label class="control-label" translate>Dividendos a repartir</label>
                 </div>
-                <div class="col-xs-3 col-lg-6" >
+                <div class="col-xs-3 col-lg-3" >
                     <input class="form-control" 
                            type="number"
                            ng-model="divCtrl.dividendos"
@@ -20,10 +20,18 @@
                            required >
 
                 </div>
+                <div class="col-xs-3 col-lg-3" >
+                    <input class="form-control" 
+                           type="number"
+                           ng-model="divCtrl.acciones"
+                           value=10 
+                           required >
+
+                </div>
                 <div class="col-xs-2 col-lg-2" >
                     <button type="button"
                             class="btn btn-custom" 
-                            ng-click="getDividendos(divCtrl.dividendos)" translate>Calcular</button>            
+                            ng-click="getDividendos(divCtrl.dividendos, divCtrl.acciones )" translate>Calcular</button>            
                 </div>           
             </div>
         </div>

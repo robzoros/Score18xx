@@ -110,15 +110,15 @@ score18xxControllers.controller ('dividendosController', [ '$scope', '$uibModalI
         $uibModalInstance.dismiss('cancel');
     };
     
-    $scope.getDividendos = function(div) {
+    $scope.getDividendos = function(div, acciones) {
 
         $scope.divCtrl.listaDividendos = [];
         
         $scope.divCtrl.mul10 = !((div % 10) > 0);
 
         if ($scope.divCtrl.mul10) {
-            for (var i=1; i<= 10; i++ ) {
-                $scope.divCtrl.listaDividendos.push(i*(div / 10));
+            for (var i=1; i<= acciones; i++ ) {
+                $scope.divCtrl.listaDividendos.push(i*(div / acciones));
             };
         }
         

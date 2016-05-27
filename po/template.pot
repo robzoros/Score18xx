@@ -119,7 +119,7 @@ msgstr ""
 msgid "Comparte"
 msgstr ""
 
-#: app/tab-resultado.html:71
+#: app/tab-resultado.html:72
 msgid "Comparte tu partida:"
 msgstr ""
 
@@ -247,6 +247,10 @@ msgstr ""
 
 #: app/tab-acciones-valor.html:2
 msgid "Elegir empresas con valor"
+msgstr ""
+
+#: app/tab-resultado.html:6
+msgid "Elige vista de resultados"
 msgstr ""
 
 #: app/js/directivas.js:116
