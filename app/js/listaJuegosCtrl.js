@@ -20,7 +20,7 @@ listaJuegosCtrl.controller('ListaJuegosCtrl', ['$scope', '$http', '$anchorScroll
       
       $http.get(API_ENDPOINT.url + 'juegos')
         .then(function(response){
-            $scope.juegos.juegos = response.data;
+            $scope.juegos.juegos = response.data.sort(function(a, b){return b._name < a._name;});
         },
         function(err){
             console.log(err);

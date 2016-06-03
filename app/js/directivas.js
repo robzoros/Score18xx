@@ -100,7 +100,7 @@ directivas.directive("tabAccionesValor",  function() {
                     for( var j=0;j<$scope.score18xxCtrl.partida.jugadores.datos.length;j++) {
                         var accion = {};
 
-                        accion.nombre = $scope.score18xxCtrl.partida.jugadores.datos[j].indice;
+                        accion.indice = $scope.score18xxCtrl.partida.jugadores.datos[j].indice;
                         accion.numero = 0;
 
                         emp.acciones.push(accion);
@@ -165,7 +165,9 @@ directivas.directive("tabAccionesValor",  function() {
                     
                 }
                 else {
+                    $scope.tabs.companies.push($scope.score18xxCtrl.partida.empresas[indice].nombre);
                     $scope.score18xxCtrl.partida.empresas.splice(indice,1);
+                    $scope.tabs.empresa.nombre =  $scope.tabs.companies[0];
                 }
             };
         }],

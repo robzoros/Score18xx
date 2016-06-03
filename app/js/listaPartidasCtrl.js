@@ -20,7 +20,7 @@ listaPartidasCtrl.controller('ListaPartidasCtrl', ['$scope', '$http', '$anchorSc
       
       $http.get(API_ENDPOINT.url +'lista')
         .then(function(response){
-            $scope.lista.partidas = response.data;
+            $scope.lista.partidas = response.data.sort(function(a, b){return b.fecha < a.fecha;});
         },
         function(err){
             $scope.lista.error = err;
