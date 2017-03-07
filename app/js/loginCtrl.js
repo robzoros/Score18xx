@@ -5,6 +5,7 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
 
     this.cargarUsuario = function() {
         AuthService.userInfo().then(function(data) {
+            $scope.loading = false;
             $scope.score18xxCtrl.user.name = data.name;
             $scope.score18xxCtrl.user.rol = data.rol;
             if (data.idioma) {
@@ -19,19 +20,26 @@ loginCtrl.controller('LoginCtrl', ['$scope', '$location', '$routeParams', '$root
     };
     
     this.login = function() {
+        $scope.loading = true;
         AuthService.login(this.user).then(function(msg) {
             $scope.logCtrl.cargarUsuario();
         }, function(errMsg) {
-            var modalOptions = {
-                showCloseButton: false,
-                actionButtonText: 'Ok',
-                headerText: gettextCatalog.getString('Error de conexión'),
-                bodyText: errMsg
-            };
+            AuthService.login(this.user).then(function(msg) {
+                $scope.logCtrl.cargarUsuario();
+            }, 
+            function(errMsg) {
+                $scope.loading = false;
+                var modalOptions = {
+                    showCloseButton: false,
+                    actionButtonText: 'Ok',
+                    headerText: gettextCatalog.getString('Error de conexión'),
+                    bodyText: errMsg
+                };
 
-            modalService.showModal({}, modalOptions)
-                .then(function () {
-            });            
+                modalService.showModal({}, modalOptions)
+                    .then(function () {
+                });
+            });
         });
     };
 

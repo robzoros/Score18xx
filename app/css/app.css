@@ -531,3 +531,55 @@ footer .footer-below {
 .footer-col>.list-inline>li{
     padding: 0px;
 }
+
+@keyframes spin {
+	to { transform: rotate(1turn); }
+}
+
+.logging {
+	position: relative;
+	display: inline-block;
+	width: 5em;
+	height: 5em;
+	margin: 0 .5em;
+	font-size: 12px;
+	text-indent: 999em;
+	overflow: hidden;
+	animation: spin 1s infinite steps(8);
+	background-color: #e7973c;
+}
+
+.logging:before,
+.logging:after,
+.logging > div:before,
+.logging > div:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 2.25em; /* (container width - part width)/2  */
+	width: .5em;
+	height: 1.5em;
+	border-radius: .2em;
+	background: #eee;
+	box-shadow: 0 3.5em #eee; /* container height - part height */
+	transform-origin: 50% 2.5em; /* container height / 2 */
+}
+
+.logging:before {
+	background: #555;
+}
+
+.logging:after {
+	transform: rotate(-45deg);
+	background: #777;
+}
+
+.logging > div:before {
+	transform: rotate(-90deg);
+	background: #999;
+}
+
+.logging > div:after {
+	transform: rotate(-135deg);
+	background: #bbb;
+}
