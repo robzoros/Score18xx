@@ -4,6 +4,9 @@ node_modules/
 tmp
 .idea
 .DS_Store
+.c9
 test/
 bower_components/
-/nbproject/private/
+nbproject/
+npm-debug.log
+firebase.json
