@@ -160,10 +160,11 @@ moduloPartida.controller('NuevaPartidaCtrl', [ '$scope', '$http', '$location', '
   $scope.getJuegos = function() {
       $http.get( API_ENDPOINT.url + 'juegos')
         .then(function(response){
-            $scope.juegos = response.data;
-            $scope.juegosNombre = response.data.map(function(item){
-                    return item._name;
-            });
+          console.log(response.data.sort(function(a, b){return (b._name < a._name) ? 1 : (b._name > a._name) ? -1 : 0}))
+          $scope.juegos = response.data.sort(function(a, b){return (b._name < a._name) ? 1 : (b._name > a._name) ? -1 : 0});
+          $scope.juegosNombre = $scope.juegos.map(function(item){
+            return item._name;
+          });
         },
         function(err){
             $scope.juego= "error";
