@@ -5,8 +5,12 @@ constantes.constant('AUTH_EVENTS', {
 });
  
 constantes.constant('API_ENDPOINT', {
-  url: 'https://score18xxapirest-zoroastro.rhcloud.com/api/',
-  proxy: 'https://score18xxapirest-zoroastro.rhcloud.com/proxy/'
+  url: 'https://score18xxapirest-score18xx.a3c1.starter-us-west-1.openshiftapps.com/api/',
+  proxy: 'https://score18xxapirest-score18xx.a3c1.starter-us-west-1.openshiftapps.com/proxy/'
+  //url: 'https://score18xxapirest-zoroastro.rhcloud.com/api/',
+  //proxy: 'https://score18xxapirest-zoroastro.rhcloud.com/proxy/'
+  //url: 'https://score18xxapi-zoroastro.c9users.io/api/',
+  //proxy: 'https://score18xxapi-zoroastro.c9users.io/proxy/'
   //url: 'https://127.0.0.1:3000/api/',
   //proxy: 'https://127.0.0.1:3000/proxy/'
 });
