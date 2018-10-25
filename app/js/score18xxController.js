@@ -15,8 +15,9 @@ score18xxControllers.controller('score18xxController', ['$scope', '$window', '$r
                 console.log(errMsg);
             };
         }
-        else
-            $location.path('/login').replace();
+        else {
+            if(! document.URL.search("partida") ) $location.path('/login').replace();
+        }
     };
     
     // Modal calculo dividendos
