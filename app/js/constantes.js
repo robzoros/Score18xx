@@ -5,8 +5,9 @@ constantes.constant('AUTH_EVENTS', {
 });
  
 constantes.constant('API_ENDPOINT', {
-  url: 'https://score18xxapirest-score18xx.a3c1.starter-us-west-1.openshiftapps.com/api/',
-  proxy: 'https://score18xxapirest-score18xx.a3c1.starter-us-west-1.openshiftapps.com/proxy/'
+  //url: 'https://score18xxapirest-score18xx.a3c1.starter-us-west-1.openshiftapps.com/api/',
+  url: 'http://34.73.133.37/api/',
+  proxy: 'http://34.73.133.37/proxy/'
   //url: 'https://score18xxapirest-zoroastro.rhcloud.com/api/',
   //proxy: 'https://score18xxapirest-zoroastro.rhcloud.com/proxy/'
   //url: 'https://score18xxapi-zoroastro.c9users.io/api/',
